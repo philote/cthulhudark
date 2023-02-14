@@ -11,8 +11,8 @@ export class CthulhuDarkActorSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["cthulhudark", "sheet", "actor"],
       template: "systems/cthulhudark/templates/actor/actor-sheet.html",
-      width: 600,
-      height: 600,
+      width: 300,
+      height: 800,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }]
     });
   }
