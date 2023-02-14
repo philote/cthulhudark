@@ -1,0 +1,32 @@
+# IDE
+.idea/
+.vs/
+
+# Node Modules
+node_modules/
+npm-debug.log
+
+# Foundry
+*.lock
+jsconfig.json
+foundry
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+#scss
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map

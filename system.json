@@ -1,0 +1,34 @@
+{
+  "id": "cthulhudark",
+  "title": "Cthulhu Dark",
+  "description": "The Cthulhu Dark system for FoundryVTT!",
+  "version": "0.0.1",
+  "compatibility": {
+    "minimum": 10,
+    "verified": "10.287",
+    "maximum": 10
+  },
+  "authors": [{
+    "name": "Joseph Hopson"
+  }],
+  "esmodules": ["module/cthulhudark.mjs"],
+  "styles": ["css/cthulhudark.css"],
+  "scripts": [],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "power",
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "license": "LICENSE.txt",
+  "changelog": "CHANGELOG.md"
+}

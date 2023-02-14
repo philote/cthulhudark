@@ -1,0 +1,22 @@
+{
+  "CTHULHUDARK.AbilityStr": "Strength",
+  "CTHULHUDARK.AbilityCon": "Constitution",
+  "CTHULHUDARK.AbilityDex": "Dexterity",
+  "CTHULHUDARK.AbilityInt": "Intelligence",
+  "CTHULHUDARK.AbilityWis": "Wisdom",
+  "CTHULHUDARK.AbilityCha": "Charisma",
+
+  "CTHULHUDARK.AbilityStrAbbr": "str",
+  "CTHULHUDARK.AbilityConAbbr": "con",
+  "CTHULHUDARK.AbilityDexAbbr": "dex",
+  "CTHULHUDARK.AbilityIntAbbr": "int",
+  "CTHULHUDARK.AbilityWisAbbr": "wis",
+  "CTHULHUDARK.AbilityChaAbbr": "cha",
+
+  "CTHULHUDARK.EffectCreate": "Create Effect",
+  "CTHULHUDARK.EffectToggle": "Toggle Effect",
+  "CTHULHUDARK.EffectEdit": "Edit Effect",
+  "CTHULHUDARK.EffectDelete": "Delete Effect",
+
+  "CTHULHUDARK.Add": "Add"
+}
