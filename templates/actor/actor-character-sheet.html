@@ -5,8 +5,8 @@
     <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
     <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
     <input name="occupation" type="text" value="" placeholder="Occupation"/>
-    <p>Insight</p>
     <div class="flexrow flex-between">
+      <p>Insight</p>
       <input type="checkbox">
       <input type="checkbox">
       <input type="checkbox">
@@ -20,17 +20,34 @@
       <button>Insight Roll</button>
       <button>Failure</button>
     </div>
-    <p>NOTES</p>
-    <div>
-      {{editor system.biography target="system.biography" button=true engine="prosemirror" collaborate=false}}
-    </div>
-    <p>TRY AGAIN</p>
-    <p>You can reroll all the dice, if you include or included your Insight Die. For every reroll, check if you have to do an Insight roll. Reroll as any times as you want.</p>
-    <p>COOPERATE</p>
-    <p>Everyone rolls. Keep the highest die rolled by anyone.</p>
-    <p>COMPETE</p>
-    <p>Everyone rolls for themselves. Highest die wins.</p>
   </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    {{!-- Default tab is specified in actor-sheet.mjs --}}
+    <a class="item" data-tab="rules">Rules</a>
+    <a class="item" data-tab="notes">Notes</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Rules Tab --}}
+    <div class="tab rules" data-group="primary" data-tab="rules">
+      <p><b>TRY AGAIN: </b>You can reroll all the dice, if you include or included your Insight Die. For every reroll, check if you have to do an Insight roll. Reroll as any times as you want.</p>
+      <p><b>COOPERATE: </b>Everyone rolls. Keep the highest die rolled by anyone.</p>
+      <p><b>COMPETE: </b>Everyone rolls for themselves. Highest die wins.</p>
+    </div>
+
+    {{!-- Notes Tab --}}
+    <div class="tab notes" data-group="primary" data-tab="notes">
+      <p>NOTES</p>
+      <div>
+        {{editor system.biography target="system.biography" button=true engine="prosemirror" collaborate=false}}
+      </div>
+    </div>
+
+  </section>
 
 </form>
 
