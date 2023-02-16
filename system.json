@@ -13,8 +13,6 @@
   }],
   "esmodules": ["module/cthulhudark.mjs"],
   "styles": ["css/cthulhudark.css"],
-  "scripts": [],
-  "packs": [],
   "languages": [
     {
       "lang": "en",
@@ -22,11 +20,8 @@
       "path": "lang/en.json"
     }
   ],
-  "gridDistance": 5,
-  "gridUnits": "ft",
-  "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": "power",
-  "url": "",
+  "primaryTokenAttribute": "insight",
+  "url": "https://github.com/philote/FoundryVTT-CthulhuDark",
   "manifest": "",
   "download": "",
   "license": "LICENSE.txt",

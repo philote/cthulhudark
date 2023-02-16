@@ -4,7 +4,7 @@
   <header class="flexcol">
     <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
     <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
-    <input name="occupation" type="text" value="" placeholder="Occupation"/>
+    <input name="system.occupation" type="text" value="{{system.occupation}}" placeholder="Occupation"/>
     <div class="flexrow flex-between">
       <p>Insight</p>
       <input type="checkbox">
@@ -13,6 +13,7 @@
       <input type="checkbox">
       <input type="checkbox">
       <input type="checkbox">
+      {{!-- <input type=“checkbox” name=“data.whatevs” {{checked data.whatevs}} /> --}}
     </div>
     <div class="grid grid-2col">
       <button>Investigate</button>
