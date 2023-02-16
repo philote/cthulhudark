@@ -34,20 +34,17 @@
 
     {{!-- Rules Tab --}}
     <div class="tab rules" data-group="primary" data-tab="rules">
-      <p><b>TRY AGAIN: </b>You can reroll all the dice, if you include or included your Insight Die. For every reroll, check if you have to do an Insight roll. Reroll as any times as you want.</p>
+      <p><b>TRYING AGAIN: </b>You can reroll all the dice, if you include or included your Insight Die. For every reroll, check if you have to do an Insight roll. Reroll as many times as you want.</p>
       <p><b>COOPERATE: </b>Everyone rolls. Keep the highest die rolled by anyone.</p>
-      <p><b>COMPETE: </b>Everyone rolls for themselves. Highest die wins.</p>
+      <p><b>COMPETE: </b>Everyone who is competing rolls their dice. The highest die wins.</p>
     </div>
 
     {{!-- Notes Tab --}}
     <div class="tab notes" data-group="primary" data-tab="notes">
       <p>NOTES</p>
-      <div>
-        {{editor system.biography target="system.biography" button=true engine="prosemirror" collaborate=false}}
-      </div>
+      {{editor system.notes target="system.notes" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
   </section>
 
 </form>
-
