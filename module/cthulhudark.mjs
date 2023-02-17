@@ -32,23 +32,85 @@ Hooks.once('init', async function() {
   Actors.registerSheet("cthulhudark", CthulhuDarkActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("cthulhudark", CthulhuDarkItemSheet, { makeDefault: true });
-});
 
-/* -------------------------------------------- */
-/*  Handlebars Helpers                          */
-/* -------------------------------------------- */
+  /* -------------------------------------------- */
+  /*  Handlebars Helpers                          */
+  /* -------------------------------------------- */
 
-// If you need to add Handlebars helpers, here are a few useful examples:
-Handlebars.registerHelper('concat', function() {
-  var outStr = '';
-  for (var arg in arguments) {
-    if (typeof arguments[arg] != 'object') {
-      outStr += arguments[arg];
+  // Multiboxes from Blades in the Dark system module. 
+  // https://github.com/megastruktur/foundryvtt-blades-in-the-dark
+  Handlebars.registerHelper('multiboxes', function(selected, options) {
+
+    let html = options.fn(this);
+
+    // Fix for single non-array values.
+    if ( !Array.isArray(selected) ) {
+      selected = [selected];
     }
-  }
-  return outStr;
+
+    if (typeof selected !== 'undefined') {
+      selected.forEach(selected_value => {
+        if (selected_value !== false) {
+          let escapedValue = RegExp.escape(Handlebars.escapeExpression(selected_value));
+          let rgx = new RegExp(' value=\"' + escapedValue + '\"');
+          let oldHtml = html;
+          html = html.replace(rgx, "$& checked");
+          while( ( oldHtml === html ) && ( escapedValue >= 0 ) ){
+            escapedValue--;
+            rgx = new RegExp(' value=\"' + escapedValue + '\"');
+            html = html.replace(rgx, "$& checked");
+          }
+        }
+      });
+    }
+    return html;
+  });
+
+  // "N Times" loop for handlebars.
+  //  Block is executed N times starting from n=1.
+  //
+  // Usage:
+  // {{#times_from_1 10}}
+  //   <span>{{this}}</span>
+  // {{/times_from_1}}
+  Handlebars.registerHelper('times_from_1', function(n, block) {
+
+    var accum = '';
+    for (var i = 1; i <= n; ++i) {
+      accum += block.fn(i);
+    }
+    return accum;
+  });
+
+  // "N Times" loop for handlebars.
+  //  Block is executed N times starting from n=0.
+  //
+  // Usage:
+  // {{#times_from_0 10}}
+  //   <span>{{this}}</span>
+  // {{/times_from_0}}
+  Handlebars.registerHelper('times_from_0', function(n, block) {
+
+    var accum = '';
+    for (var i = 0; i <= n; ++i) {
+      accum += block.fn(i);
+    }
+    return accum;
+  });
 });
 
-Handlebars.registerHelper('toLowerCase', function(str) {
-  return str.toLowerCase();
-});
+
+// // If you need to add Handlebars helpers, here are a few useful examples:
+// Handlebars.registerHelper('concat', function() {
+//   var outStr = '';
+//   for (var arg in arguments) {
+//     if (typeof arguments[arg] != 'object') {
+//       outStr += arguments[arg];
+//     }
+//   }
+//   return outStr;
+// });
+
+// Handlebars.registerHelper('toLowerCase', function(str) {
+//   return str.toLowerCase();
+// });

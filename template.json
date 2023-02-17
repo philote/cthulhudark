@@ -8,7 +8,7 @@
       "templates": ["base"],
       "insight": {
         "min": 0,
-        "value": 0,
+        "value": [0],
         "max": 6
       },
       "occupation": ""
