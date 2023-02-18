@@ -7,12 +7,14 @@
     <input name="system.occupation" type="text" value="{{system.occupation}}" placeholder="Occupation"/>
     
     <div class="">
-      <b class="rollable">{{localize "CTHULHUDARK.Insight"}}</b>
+      <b style="color: #2ba624">{{localize "CTHULHUDARK.Insight"}}</b>
       {{#multiboxes system.insight.value}}
-        {{#times_from_0 system.insight.max}}
+        <input type="radio" id="character-{{../_id}}-insight-0" name="system.insight.value" value="0">
+        <label for="character-{{../_id}}-insight-0">|</label>
+        {{#times_from_1 system.insight.max}}
           <input type="radio" id="character-{{../_id}}-insight-{{this}}" name="system.insight.value" value="{{this}}">
           <label for="character-{{../_id}}-insight-{{this}}"></label>
-        {{/times_from_0}}
+        {{/times_from_1}}
       {{/multiboxes}}
     </div>
 
@@ -31,7 +33,7 @@
         <i class="fa-solid fa-dice"></i> Cooperate Roll
       </button>
       <button class="rollable" data-roll-type="insight">
-        <i class="fa-solid fa-dice"></i> Insight Roll
+        <i class="fa-solid fa-dice"></i> <b style="color: #2ba624">Insight</b> Roll
       </button>
       <button class="rollable" data-roll-type="failure">
         <i class="fa-solid fa-dice"></i> Failure Roll

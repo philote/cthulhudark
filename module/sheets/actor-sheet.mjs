@@ -181,15 +181,15 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                 <form class="flexcol">
                     <div class="form-group">
                         <input type="checkbox" id="humanDie" name="humanDie">
-                        <label for="humanDie">One die if what you’re doing is within human capabilities.</label>
+                        <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;If what you’re doing is within human capabilities.</label>
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="occupationalDie" name="occupationalDie">
-                        <label for="occupationalDie">One die if it’s within your occupational expertise.</label>
+                        <label for="occupationalDie"><i class="fa-solid fa-dice-five"></i>&#8194;If it’s within your occupational expertise.</label>
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="insightDie" name="insightDie">
-                        <label for="insightDie" style="color: ${insightDieColor}">If you will risk your mind to succeed.</label>
+                        <label for="insightDie" style="color: ${insightDieColor}"><i class="fa-solid fa-dice-five"></i>&#8194;<b>If you will risk your mind to succeed.</b></label>
                     </div>
                 </form>
                 </br>
@@ -202,15 +202,15 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                 <form class="flexcol">
                     <div class="form-group">
                         <input type="checkbox" id="humanDie" name="humanDie">
-                        <label for="humanDie">One die if what you’re doing is within human capabilities.</label>
+                        <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;If what you’re doing is within human capabilities.</label>
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="occupationalDie" name="occupationalDie">
-                        <label for="occupationalDie">One die if it’s within your occupational expertise.</label>
+                        <label for="occupationalDie"><i class="fa-solid fa-dice-five"></i>&#8194;If it’s within your occupational expertise.</label>
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="insightDie" name="insightDie">
-                        <label for="insightDie" style="color: ${insightDieColor}">If you will risk your mind to succeed.</label>
+                        <label for="insightDie" style="color: ${insightDieColor}"><i class="fa-solid fa-dice-five"></i>&#8194;<b>If you will risk your mind to succeed.</b></label>
                     </div>
                 </form>
                 </br>
@@ -223,15 +223,15 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                 <form class="flexcol">
                     <div class="form-group">
                         <input type="checkbox" id="humanDie" name="humanDie">
-                        <label for="humanDie">One die if what you’re doing is within human capabilities.</label>
+                        <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;If what you’re doing is within human capabilities.</label>
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="occupationalDie" name="occupationalDie">
-                        <label for="occupationalDie">One die if it’s within your occupational expertise.</label>
+                        <label for="occupationalDie"><i class="fa-solid fa-dice-five"></i>&#8194;If it’s within your occupational expertise.</label>
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="insightDie" name="insightDie">
-                        <label for="insightDie" style="color: ${insightDieColor}">If you will risk your mind to succeed.</label>
+                        <label for="insightDie" style="color: ${insightDieColor}"><i class="fa-solid fa-dice-five"></i>&#8194;<b>If you will risk your mind to succeed.</b></label>
                     </div>
                 </form>
                 </br>
@@ -245,15 +245,15 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                 <form class="flexcol">
                     <div class="form-group">
                         <input type="checkbox" id="humanDie" name="humanDie">
-                        <label for="humanDie">One die if what you’re doing is within human capabilities.</label>
+                        <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;If what you’re doing is within human capabilities.</label>
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="occupationalDie" name="occupationalDie">
-                        <label for="occupationalDie">One die if it’s within your occupational expertise.</label>
+                        <label for="occupationalDie"><i class="fa-solid fa-dice-five"></i>&#8194;If it’s within your occupational expertise.</label>
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="insightDie" name="insightDie">
-                        <label for="insightDie" style="color: ${insightDieColor}">If you will risk your mind to succeed.</label>
+                        <label for="insightDie" style="color: ${insightDieColor}"><i class="fa-solid fa-dice-five"></i>&#8194;<b>If you will risk your mind to succeed.</b></label>
                     </div>
                 </form>
                 </br>
@@ -311,8 +311,8 @@ export class CthulhuDarkActorSheet extends ActorSheet {
   chatContent(moveNumber, diceOutput, maxDieNumber, riskMessage) {
     const moveName = this.dialogTitle(moveNumber);
     return `
-        <p style="font-size: 1.5em;"><b>${moveName}</b> Result:</p>
-        <p>${diceOutput}</p>
+        <p><span style="font-size: 1.5em;"><b>${moveName}</b>: </span>${diceOutput}</p>
+        <hr>
         <p>${this.getMaxDieMessage(moveNumber, maxDieNumber)}</p>
         ${riskMessage}
     `;
@@ -426,7 +426,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
   // -------
 
   insightChatContent(diceOutput, previousInsight, newInsight) {
-    let insightMessage = `<p><span style="font-size: 1.5em;"><b><i>${wordInsight}</i> Roll</b> Result: </span> ${diceOutput}</p>
+    let insightMessage = `<p><span style="font-size: 1.5em;"><b><i>${wordInsight}</i> Roll</b>: </span>${diceOutput}</p>
     <hr>
     `;
 
@@ -488,16 +488,16 @@ export class CthulhuDarkActorSheet extends ActorSheet {
 
   failureChatContent(diceOutput) {
     return `
-        <p><span style="font-size: 1.5em;"><b>Failure Roll</b> Result: </span> ${diceOutput}</p>
+        <p><span style="font-size: 1.5em;"><b>Failure Roll</b>: </span> ${diceOutput}</p>
         <hr>
-        <span style="font-size: 1.2em;">If your roll is higher than the other <b><i>Investigator's</i></b> highest die, they fail, just as you described. If not, they succeed as before.</span>
+        <span>If your roll is higher than the other <b><i>Investigator's</i></b> highest die, they fail, just as you described. If not, they succeed as before.</span>
     `;
   }
 
   async failureRoll() {
     let failureRoll = await new Roll('1d6').evaluate({ async: true });
 
-    const chatContentMessage = this.failureChatContent(this.getDiceForOutput(failureRoll.result, insightDieColor));
+    const chatContentMessage = this.failureChatContent(this.getDiceForOutput(failureRoll.result, humanDieColor));
     const user = game.user.id;
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get('core', 'rollMode');
