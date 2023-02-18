@@ -3,19 +3,15 @@
  * @extends {ActorSheet}
  */
 
-const riskDieColor = "#bf0000";
+const insightDieColor = "#2ba624";
 const humanDieColor = "#000000";
-const wordRisk = `<span style="color: ${riskDieColor}">Insight</span>`;
+const wordInsight = `<span style="color: ${insightDieColor}">Insight</span>`;
 const riskMoveMessage = `
     <hr>
     <div style="font-size: 18px"><b>
-        The situation reveals some horror behind the universe, make an <b><i>${wordRisk}</i></b> roll!
+        The situation reveals some horror behind the universe, make an <b><i>${wordInsight}</i></b> roll!
     <div>
 `;
-const insightDieColor = "#A62424";
-const insightTitle = "Insight Roll";
-const insightMessage = "If you rolled higher than your Insight, add 1 to your Insight and roleplay your fear."
-
 
 export class CthulhuDarkActorSheet extends ActorSheet {
 
@@ -108,25 +104,29 @@ export class CthulhuDarkActorSheet extends ActorSheet {
           const title = this.dialogTitle(1);
           const content = this.dialogContent(1);
           const move = 1;
-          this.asyncDialog({ title, content, move });
+          this.asyncCDMoveDialog({ title, content, move });
           return;
         }
         case 'compete': { // Compete 3
           const title = this.dialogTitle(3);
           const content = this.dialogContent(3);
           const move = 3;
-          this.asyncDialog({ title, content, move });
+          this.asyncCDMoveDialog({ title, content, move });
           return;
         }
         case 'cooperate': { // Cooperate 4
           const title = this.dialogTitle(4);
           const content = this.dialogContent(4);
           const move = 4;
-          this.asyncDialog({ title, content, move });
+          this.asyncCDMoveDialog({ title, content, move });
           return;
         }
         case 'insight': { // Insight
           this.insightRoll();
+          return;
+        }
+        case 'failure': { // Failure
+          this.failureRoll();
           return;
         }
         case 'doSomethingElse':
@@ -134,7 +134,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
           const title = this.dialogTitle(2);
           const content = this.dialogContent(2);
           const move = 2;
-          this.asyncDialog({ title, content, move });
+          this.asyncCDMoveDialog({ title, content, move });
           return;
         }
       }
@@ -189,7 +189,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="insightDie" name="insightDie">
-                        <label for="insightDie" style="color:#bf0000;">If you will risk your mind to succeed.</label>
+                        <label for="insightDie" style="color: ${insightDieColor}">If you will risk your mind to succeed.</label>
                     </div>
                 </form>
                 </br>
@@ -210,7 +210,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="insightDie" name="insightDie">
-                        <label for="insightDie" style="color:#bf0000;">If you will risk your mind to succeed.</label>
+                        <label for="insightDie" style="color: ${insightDieColor}">If you will risk your mind to succeed.</label>
                     </div>
                 </form>
                 </br>
@@ -231,7 +231,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="insightDie" name="insightDie">
-                        <label for="insightDie" style="color:#bf0000;">If you will risk your mind to succeed.</label>
+                        <label for="insightDie" style="color: ${insightDieColor}">If you will risk your mind to succeed.</label>
                     </div>
                 </form>
                 </br>
@@ -253,7 +253,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="insightDie" name="insightDie">
-                        <label for="insightDie" style="color:#bf0000;">If you will risk your mind to succeed.</label>
+                        <label for="insightDie" style="color: ${insightDieColor}">If you will risk your mind to succeed.</label>
                     </div>
                 </form>
                 </br>
@@ -262,7 +262,6 @@ export class CthulhuDarkActorSheet extends ActorSheet {
   }
 
   getMaxDieMessage(moveNumber, maxDieNumber) {
-    // console.log(`moveNumber: ${moveNumber}, maxDieNumber: ${maxDieNumber}`)
     switch (moveNumber) {
         case 1: // Investigate
             {
@@ -276,9 +275,11 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                     case "5":
                         return `You discover everything a competent investigator would discover, plus something more. For example, you might also remember a related folktale, rumour or scientific experiment.`;
                     case "6":
-                        return `You discover all of that, plus, in some way, you glimpse beyond human knowledge. This probably means you see something horrific and make an <b><i>${wordRisk} Roll</i></b>.`;
-                    default:
+                        return `You discover all of that, plus, in some way, you glimpse beyond human knowledge. This probably means you see something horrific and make an <b><i>${wordInsight} Roll</i></b>.`;
+                    default: {
+                        console.error("ERROR(getMaxDieMessage.1)");
                         return `<span style="color:#ff0000">ERROR(getMaxDieMessage.1)</span>`;
+                    }
                 }
             }
         case 3:
@@ -299,8 +300,10 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                     return `You succeed well and may get something extra.`;
                 case "6":
                     return `You succeed brilliantly and get something extra, but maybe more than you wanted.`;
-                default:
+                default:{
+                    console.error("ERROR(getMaxDieMessage.2)");
                     return `<span style="color:#ff0000">ERROR(getMaxDieMessage.2)</span>`;
+                }
             }
     }
   }
@@ -334,7 +337,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
     }
   }
 
-  async asyncDialog({
+  async asyncCDMoveDialog({
     title = "",
     content = "", 
     move = 0
@@ -374,7 +377,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                             let idRoll = await new Roll('1d6').evaluate({ async: true });
                             dice.push({
                                 name: "Insight Die",
-                                dieColor: riskDieColor,
+                                dieColor: insightDieColor,
                                 isRisk: true,
                                 rollVal: idRoll.result
                             });
@@ -382,14 +385,12 @@ export class CthulhuDarkActorSheet extends ActorSheet {
 
                         let diceOutput = ""
 
-                        // TODO add the risk die logic and change it wher risk has to be higher than all other die
+                        // TODO: Fix Risk Die logic Get a set of the highest, check if any are risk
                         const maxDie = dice.reduce((a, b) => (a.rollVal > b.rollVal) ? a : b);
-
                         let riskMessage = "";
                         if (maxDie.isRisk) {
                             riskMessage = riskMoveMessage;
                         }
-
 
                         dice.forEach(die => {
                             diceOutput = diceOutput.concat(this.getDiceForOutput(die.rollVal, die.dieColor), " ");
@@ -424,46 +425,79 @@ export class CthulhuDarkActorSheet extends ActorSheet {
   // Insight
   // -------
 
-  insightChatContent(diceOutput) {
-    return `
-        <p><span style="font-size: 1.5em;"><b>${insightTitle}</b> Result: </span> ${diceOutput}</p>
-        <hr>
-        <span style="font-size: 1.2em;">${insightMessage}</span>
+  insightChatContent(diceOutput, previousInsight, newInsight) {
+    let insightMessage = `<p><span style="font-size: 1.5em;"><b><i>${wordInsight}</i> Roll</b> Result: </span> ${diceOutput}</p>
+    <hr>
     `;
+
+    if (newInsight > previousInsight) {
+        switch (newInsight) {
+            case 1:
+            case 2:
+            case 3:
+            case 4: 
+                return insightMessage.concat(`Your previous <b><i>${wordInsight}</i></b> was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. Roleplay your fear.`);
+            case 5: 
+                return insightMessage.concat(`Your previous <b><i>${wordInsight}</i></b> was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. Roleplay your fear. <hr><b><i>Note:</i></b> You now may decrease it by suppressing knowledge that you have discovered, do so with extreme prejudice.`);
+            case 6: 
+                return insightMessage.concat(`Your previous <b><i>${wordInsight}</i></b> was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. <hr><b style="color:#bf0000;"><i>Your understanding of the horror behind the universe has gone beyond what everyday life can contain.</i></b> Play out your Investigator's last scene, make it a good one. <b>Then create a new Investigator.</b>`);
+            default: {
+                console.error("Error in the insightChatContent, bad dice numbers used.");
+                return insightMessage;
+            }
+        }
+    } else {
+        return insightMessage.concat(`Your current <b><i>${wordInsight}</i></b> is <b>${previousInsight}</b>. You keep it together, just barely...`);
+    }
   }
 
   async insightRoll() {
-    const dice = [];
+    let insightRoll = await new Roll('1d6').evaluate({ async: true });
+    let currentInsightVal = duplicate(this.actor.system.insight.value);
+    let newInsightVal = currentInsightVal;
 
-    let hdRoll = new Roll('1d6').evaluate({ async: true });
-    dice.push({
-        name: "Base Die",
-        dieColor: insightDieColor,
-        isStress: false,
-        rollVal: hdRoll.result
+    // console.log("insightRoll.result "+insightRoll.result);
+    // console.log("currentInsightVal "+currentInsightVal);
+    if (insightRoll.result > currentInsightVal) {
+        ++newInsightVal;
+        // update insight
+        this.actor.system.insight.value = newInsightVal;
+        this.actor.update({"system.insight.value": newInsightVal});
+        
+        console.log("this.actor.system.insight.value "+this.actor.system.insight.value);
+        console.log("currentInsightVal "+currentInsightVal);
+        console.log("newInsightVal "+newInsightVal);
+    }
+
+    const chatContentMessage = this.insightChatContent(this.getDiceForOutput(insightRoll.result, insightDieColor), currentInsightVal, newInsightVal);
+    const user = game.user.id;
+    const speaker = ChatMessage.getSpeaker({ actor: this.actor });
+    const rollMode = game.settings.get('core', 'rollMode');
+
+    ChatMessage.create({
+      user: user,
+      speaker: speaker,
+      rollMode: rollMode,
+      content: chatContentMessage
     });
+  }
 
-    let diceOutput = "";
+  // -------
+  // Failure
+  // -------
 
-    const maxDieValue = dice.reduce((a, b) => (a.rollVal > b.rollVal) ? a : b).rollVal;
-    const setOfMaxDice = dice.filter(obj => {
-        return obj.rollVal === maxDieValue
-    });
+  failureChatContent(diceOutput) {
+    return `
+        <p><span style="font-size: 1.5em;"><b>Failure Roll</b> Result: </span> ${diceOutput}</p>
+        <hr>
+        <span style="font-size: 1.2em;">If your roll is higher than the other <b><i>Investigator's</i></b> highest die, they fail, just as you described. If not, they succeed as before.</span>
+    `;
+  }
 
-    let maxDie = setOfMaxDice[0];
+  async failureRoll() {
+    let failureRoll = await new Roll('1d6').evaluate({ async: true });
 
-    console.log("maxDie.name "+maxDie.name);
-    console.log("maxDie.rollVal "+maxDie.rollVal);
-
-    const maxDieModified = parseInt(maxDie.rollVal);
-    console.log("maxDieModified "+maxDieModified);
-    console.log("maxDieModified "+maxDieModified);
-
-
-    dice.forEach(die => {
-        diceOutput = diceOutput.concat(this.getDiceForOutput(die.rollVal, die.dieColor), " ");
-    });
-    const chatContentMessage = this.insightChatContent(diceOutput);
+    const chatContentMessage = this.failureChatContent(this.getDiceForOutput(failureRoll.result, insightDieColor));
     const user = game.user.id;
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get('core', 'rollMode');

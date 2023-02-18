@@ -25,15 +25,17 @@
         <i class="fa-solid fa-dice"></i> Other Actions
       </button>
       <button class="rollable" data-roll-type="compete">
-        <i class="fa-solid fa-dice"></i> Compete
+        <i class="fa-solid fa-dice"></i> Compete Roll
       </button>
       <button class="rollable" data-roll-type="cooperate">
-        <i class="fa-solid fa-dice"></i> Cooperate
+        <i class="fa-solid fa-dice"></i> Cooperate Roll
       </button>
       <button class="rollable" data-roll-type="insight">
         <i class="fa-solid fa-dice"></i> Insight Roll
       </button>
-      <button>Failure</button>
+      <button class="rollable" data-roll-type="failure">
+        <i class="fa-solid fa-dice"></i> Failure Roll
+      </button>
     </div>
   </header>
 
@@ -49,9 +51,10 @@
 
     {{!-- Rules Tab --}}
     <div class="tab rules" data-group="primary" data-tab="rules">
-      <p><b>TRYING AGAIN: </b>You can reroll all the dice, if you include or included your Insight Die. For every reroll, check if you have to do an Insight roll. Reroll as many times as you want.</p>
-      <p><b>COOPERATE: </b>Everyone rolls. Keep the highest die rolled by anyone.</p>
-      <p><b>COMPETE: </b>Everyone who is competing rolls their dice. The highest die wins.</p>
+      <p><b>Failure Roll: </b>Cannot be used on <i>Investigation Rolls</i> or if success is needed for the scenario.</p>
+      <p><b>Trying Again: </b>If you include or included your Insight Die, You can reroll. Each reroll, may increase <i>Insight</i>. Reroll as much as you want.</p>
+      <p><b>Cooperate: </b>Everyone rolls. Keep the highest die rolled by anyone.</p>
+      <p><b>Compete: </b>Everyone who is competing rolls their dice. The highest die wins.</p>
     </div>
 
     {{!-- Notes Tab --}}
