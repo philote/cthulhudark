@@ -5,33 +5,34 @@
     <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
     <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
     <input name="system.occupation" type="text" value="{{system.occupation}}" placeholder="Occupation"/>
-    <div class="flexrow flex-between">
-      {{!-- <p>Insight</p> --}}
-      
+    
+    <div class="">
+      <b class="rollable">{{localize "CTHULHUDARK.Insight"}}</b>
       {{#multiboxes system.insight.value}}
-
-      <input type="radio" id="character-{{_id}}-insight-0" name="system.insight.value" value="0" dtype="Radio">
-      <label for="character-{{_id}}-insight-0">Insight</label>
-
-      {{#times_from_1 system.insight.max}}
-        <input type="radio" id="character-{{../_id}}-insight-{{this}}" name="system.insight.value" value="{{this}}" dtype="Radio">
-        <label for="character-{{../_id}}-insight-{{this}}"></label>
-      {{/times_from_1}}
-
+        {{#times_from_0 system.insight.max}}
+          <input type="radio" id="character-{{../_id}}-insight-{{this}}" name="system.insight.value" value="{{this}}">
+          <label for="character-{{../_id}}-insight-{{this}}"></label>
+        {{/times_from_0}}
       {{/multiboxes}}
-
-      <!-- <input type="checkbox">
-      <input type="checkbox">
-      <input type="checkbox">
-      <input type="checkbox">
-      <input type="checkbox">
-      <input type="checkbox">
-      {{!-- <input type=“checkbox” name=“data.whatevs” {{checked data.whatevs}} /> --}} -->
     </div>
+
+
     <div class="grid grid-2col">
-      <button>Investigate</button>
-      <button>Other Actions</button>
-      <button>Insight Roll</button>
+      <button class="rollable" data-roll-type="investigate">
+        <i class="fa-solid fa-dice"></i> Investigate
+      </button>
+      <button class="rollable" data-roll-type="doSomethingElse">
+        <i class="fa-solid fa-dice"></i> Other Actions
+      </button>
+      <button class="rollable" data-roll-type="compete">
+        <i class="fa-solid fa-dice"></i> Compete
+      </button>
+      <button class="rollable" data-roll-type="cooperate">
+        <i class="fa-solid fa-dice"></i> Cooperate
+      </button>
+      <button class="rollable" data-roll-type="insight">
+        <i class="fa-solid fa-dice"></i> Insight Roll
+      </button>
       <button>Failure</button>
     </div>
   </header>
@@ -55,7 +56,6 @@
 
     {{!-- Notes Tab --}}
     <div class="tab notes" data-group="primary" data-tab="notes">
-      <p>NOTES</p>
       {{editor system.notes target="system.notes" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
