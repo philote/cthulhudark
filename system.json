@@ -1,8 +1,8 @@
 {
   "id": "cthulhudark",
   "title": "Cthulhu Dark",
-  "description": "The Cthulhu Dark system for FoundryVTT!",
-  "version": "0.0.1",
+  "description": "The Cthulhu Dark system for FoundryVTT.",
+  "version": "0.0.2",
   "compatibility": {
     "minimum": 10,
     "verified": "10.287",
