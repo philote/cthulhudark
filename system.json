@@ -22,7 +22,7 @@
   ],
   "primaryTokenAttribute": "insight",
   "url": "https://github.com/philote/FoundryVTT-CthulhuDark",
-  "manifest": "",
+  "manifest": "https://github.com/philote/FoundryVTT-CthulhuDark/releases/latest/download/system.json",
   "download": "",
   "license": "LICENSE.txt",
   "changelog": "CHANGELOG.md"
