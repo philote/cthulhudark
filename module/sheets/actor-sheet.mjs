@@ -20,8 +20,8 @@ export class CthulhuDarkActorSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["cthulhudark", "sheet", "actor"],
       template: "systems/cthulhudark/templates/actor/actor-sheet.html",
-      width: 300,
-      height: 800,
+      width: 310,
+      height: 820,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "rules" }]
     });
   }
@@ -351,8 +351,9 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                     icon: '<i class="fa-solid fa-dice"></i>',
                     label: "Roll!",
                     callback: async (html) => {
+                        
+                        // get and roll selected dice
                         const dice = [];
-
                         if (document.getElementById("humanDie").checked) {
                             let hdRoll = await new Roll('1d6').evaluate({ async: true });
                             dice.push({
@@ -383,15 +384,25 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                             });
                         };
 
-                        let diceOutput = ""
-
-                        // TODO: Fix Risk Die logic Get a set of the highest, check if any are risk
                         const maxDie = dice.reduce((a, b) => (a.rollVal > b.rollVal) ? a : b);
+                        
+                        // Determine if the risk die won
+                        let isRiskDie = false;
+                        dice.every(die => {
+                          if ((die.rollVal == maxDie.rollVal) && die.isRisk) {
+                            isRiskDie = true;
+                            return false;
+                          }
+                          return true;
+                        });
+
                         let riskMessage = "";
-                        if (maxDie.isRisk) {
+                        if (isRiskDie) {
                             riskMessage = riskMoveMessage;
                         }
 
+                        // Build Dice list
+                        let diceOutput = "";
                         dice.forEach(die => {
                             diceOutput = diceOutput.concat(this.getDiceForOutput(die.rollVal, die.dieColor), " ");
                         });

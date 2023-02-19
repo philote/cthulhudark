@@ -1,23 +1,21 @@
 <form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
 
   {{!-- Sheet Header --}}
-  <header class="flexcol">
-    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
-    <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
-    <input name="system.occupation" type="text" value="{{system.occupation}}" placeholder="Occupation"/>
-    
-    <div class="">
-      <b style="color: #2ba624">{{localize "CTHULHUDARK.Insight"}}</b>
-      {{#multiboxes system.insight.value}}
-        <input type="radio" id="character-{{../_id}}-insight-0" name="system.insight.value" value="0">
-        <label for="character-{{../_id}}-insight-0">|</label>
-        {{#times_from_1 system.insight.max}}
-          <input type="radio" id="character-{{../_id}}-insight-{{this}}" name="system.insight.value" value="{{this}}">
-          <label for="character-{{../_id}}-insight-{{this}}"></label>
-        {{/times_from_1}}
-      {{/multiboxes}}
-    </div>
-
+  <header class="cd-sheet-header">
+    <input class="charname" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    <input class="header-fields" name="system.occupation" type="text" value="{{system.occupation}}" placeholder="Occupation"/>
+    <div class="insight">
+    <b style="color: #2ba624">{{localize "CTHULHUDARK.Insight"}}</b>
+    {{#multiboxes system.insight.value}}
+      <input type="radio" id="character-{{../_id}}-insight-0" name="system.insight.value" value="0">
+      <label for="character-{{../_id}}-insight-0">|</label>
+      {{#times_from_1 system.insight.max}}
+        <input type="radio" id="character-{{../_id}}-insight-{{this}}" name="system.insight.value" value="{{this}}">
+        <label for="character-{{../_id}}-insight-{{this}}"></label>
+      {{/times_from_1}}
+    {{/multiboxes}}
+    </div>  
 
     <div class="grid grid-2col">
       <button class="rollable" data-roll-type="investigate">
@@ -26,12 +24,12 @@
       <button class="rollable" data-roll-type="doSomethingElse">
         <i class="fa-solid fa-dice"></i> Other Actions
       </button>
-      <button class="rollable" data-roll-type="compete">
+      {{!-- <button class="rollable" data-roll-type="compete">
         <i class="fa-solid fa-dice"></i> Compete Roll
       </button>
       <button class="rollable" data-roll-type="cooperate">
         <i class="fa-solid fa-dice"></i> Cooperate Roll
-      </button>
+      </button> --}}
       <button class="rollable" data-roll-type="insight">
         <i class="fa-solid fa-dice"></i> <b style="color: #2ba624">Insight</b> Roll
       </button>
