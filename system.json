@@ -2,7 +2,7 @@
   "id": "cthulhudark",
   "title": "Cthulhu Dark",
   "description": "Unofficial Cthulhu Dark system for Foundry VTT.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "compatibility": {
     "minimum": 10,
     "verified": "10.291",
@@ -25,13 +25,13 @@
   "primaryTokenAttribute": "insight",
   "url": "https://github.com/philote/FoundryVTT-CthulhuDark",
   "manifest": "https://github.com/philote/FoundryVTT-CthulhuDark/releases/latest/download/system.json",
-  "download": "https://github.com/philote/FoundryVTT-CthulhuDark/archive/refs/tags/0.0.2.zip",
+  "download": "https://github.com/philote/FoundryVTT-CthulhuDark/archive/refs/tags/0.0.3.zip",
   "license": "LICENSE.txt",
   "changelog": "CHANGELOG.md",
   "bugs": "https://github.com/philote/FoundryVTT-CthulhuDark/issues",
   "media": [{
       "type": "screenshot",
-      "url": "https://raw.githubusercontent.com/philote/FoundryVTT-CthulhuDark/0.0.2/CD_screenshot.webp",
+      "url": "https://raw.githubusercontent.com/philote/FoundryVTT-CthulhuDark/0.0.3/CD_screenshot.webp",
       "loop": false
     }]
 }
