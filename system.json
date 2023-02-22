@@ -29,9 +29,16 @@
   "license": "LICENSE.txt",
   "changelog": "CHANGELOG.md",
   "bugs": "https://github.com/philote/FoundryVTT-CthulhuDark/issues",
-  "media": [{
+  "media": [
+    {
       "type": "screenshot",
       "url": "https://raw.githubusercontent.com/philote/FoundryVTT-CthulhuDark/main/CD_screenshot.webp",
       "loop": false
-    }]
+    },
+    {
+      "type": "cover",
+      "url": "https://raw.githubusercontent.com/philote/FoundryVTT-CthulhuDark/main/CD_screenshot.webp",
+      "caption": "Unofficial Cthulhu Dark"
+    }
+  ]
 }
