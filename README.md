@@ -23,6 +23,8 @@ Image of the Charater Sheet and roll messages in Foundry's chat:
 
 ## To Be Done
 
+- Fix NPC Actors
+- Fix/Remove Items
 - Designs and CSS improvements
 
 ## How to Install
