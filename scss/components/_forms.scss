@@ -20,14 +20,23 @@
   .profile-img {
     // flex: 0 0 292px;
     height: 292px;
+    margin-bottom: 5px;
   }
 
   .header-fields {
     height: 30px;
     padding: 0px;
-    margin: 10px 0;
+    margin-bottom: 10px;
     font-size: 20px;
     text-align: center;
+    width: 100%;
+  }
+
+  .sub-header-fields {
+    height: 20px;
+    padding: 2px;
+    margin-bottom: 5px;
+    font-size: 14px;
     width: 100%;
   }
 
@@ -38,6 +47,10 @@
     font-size: 30px;
     text-align: center;
     width: 100%;
+  }
+
+  textarea {
+    resize: none;
   }
 }
 
