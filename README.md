@@ -1,5 +1,7 @@
 # Cthulhu Dark (Unofficial) System
 
+![Cover](cover.webp)
+
 An unofficial, community-supported system for playing the Cthulhu Dark TTRPG (Created by Graham Walmsley) on Foundry VTT.
 
 - The original free rules from the author: http://catchyourhare.com/files/Cthulhu%20Dark.pdf
@@ -23,10 +25,10 @@ Image of the Charater Sheet and roll messages in Foundry's chat:
 
 ## To Be Done
 
-- Fix NPC Actors
 - Fix/Remove Items
 - Designs and CSS improvements
+- Add System Settings
 
 ## How to Install
 
-You can install the latest released version of the system by using this manifest link to install the system : https://github.com/philote/FoundryVTT-CthulhuDark/releases/latest/download/system.json
+You can install the latest released version of the system by using this manifest link in Foundry VTT. [Instructions](https://foundryvtt.com/article/tutorial/): https://github.com/philote/FoundryVTT-CthulhuDark/releases/latest/download/system.json
