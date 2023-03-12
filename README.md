@@ -25,9 +25,10 @@ Image of the Charater Sheet and roll messages in Foundry's chat:
 
 ## To Be Done
 
-- Fix/Remove Items
+- Make the system translatable
 - Designs and CSS improvements
 - Add System Settings
+  - Add in rules from CD Variants
 
 ## How to Install
 

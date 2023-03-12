@@ -8,8 +8,6 @@
     <div class="insight">
     <b style="color: #2ba624">{{localize "CTHULHUDARK.Insight"}}</b>
     {{#multiboxes system.insight.value}}
-      <input type="radio" id="character-{{../_id}}-insight-0" name="system.insight.value" value="0">
-      <label for="character-{{../_id}}-insight-0">|</label>
       {{#times_from_1 system.insight.max}}
         <input type="radio" id="character-{{../_id}}-insight-{{this}}" name="system.insight.value" value="{{this}}">
         <label for="character-{{../_id}}-insight-{{this}}"></label>

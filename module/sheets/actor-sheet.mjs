@@ -176,12 +176,12 @@ export class CthulhuDarkActorSheet extends ActorSheet {
         case 1: // Investigate
             return `
                 <p>
-                    <b>When you want to ask a question about someone, something or somewhere, or want Control to reveal something about the situation</b>, roll:
+                    <b>When you investigate</b>, roll:
                 </p>
                 <form class="flexcol">
                     <div class="form-group">
                         <input type="checkbox" id="humanDie" name="humanDie">
-                        <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;If what you’re doing is within human capabilities.</label>
+                        <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;If the task is within human capabilities.</label>
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="occupationalDie" name="occupationalDie">
@@ -197,12 +197,12 @@ export class CthulhuDarkActorSheet extends ActorSheet {
         case 3: // Compete
             return `
                 <p>
-                    <b>When you are competing with another player, everyone who is competing rolls their dice. The highest die wins:
+                    <b>To compete:</b> everyone who is competing rolls their dice. Whoever gets highest wins:
                 </p>
                 <form class="flexcol">
                     <div class="form-group">
                         <input type="checkbox" id="humanDie" name="humanDie">
-                        <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;If what you’re doing is within human capabilities.</label>
+                        <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;If the task is within human capabilities.</label>
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="occupationalDie" name="occupationalDie">
@@ -218,12 +218,12 @@ export class CthulhuDarkActorSheet extends ActorSheet {
         case 4: // Cooperate
             return `
                 <p>
-                    <b>When you are cooperating with another player, everyone who is cooperating rolls their dice. Take the highest die, rolled by anyone, as the result:
+                    <b>To cooperate:</b> everyone who is cooperating rolls their dice. The highest die, rolled by anyone, determines the outcome:
                 </p>
                 <form class="flexcol">
                     <div class="form-group">
                         <input type="checkbox" id="humanDie" name="humanDie">
-                        <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;If what you’re doing is within human capabilities.</label>
+                        <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;If the task is within human capabilities.</label>
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="occupationalDie" name="occupationalDie">
@@ -245,7 +245,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                 <form class="flexcol">
                     <div class="form-group">
                         <input type="checkbox" id="humanDie" name="humanDie">
-                        <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;If what you’re doing is within human capabilities.</label>
+                        <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;If the task is within human capabilities.</label>
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="occupationalDie" name="occupationalDie">
@@ -269,13 +269,13 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                     case "1":
                     case "2":
                     case "3":
-                        return `You get the bare minimum: if you need information to proceed, you get it, but that’s all.`;
+                        return `You get the bare minimum: if you need information to proceed with the scenario, you get it, but that’s all you get`;
                     case "4":
-                        return `You get everything a competent investigator would discover.`;
+                        return `You get whatever a competent investigator would discover.`;
                     case "5":
-                        return `You discover everything a competent investigator would discover, plus something more. For example, you might also remember a related folktale, rumour or scientific experiment.`;
+                        return `You discover everything humanly possible.`;
                     case "6":
-                        return `You discover all of that, plus, in some way, you glimpse beyond human knowledge. This probably means you see something horrific and make an <b><i>${wordInsight} Roll</i></b>.`;
+                        return `You may glimpse beyond human knowledge (and probably make an <b><i>${wordInsight} Roll</i></b>).`;
                     default: {
                         console.error("ERROR(getMaxDieMessage.1)");
                         return `<span style="color:#ff0000">ERROR(getMaxDieMessage.1)</span>`;
@@ -285,7 +285,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
         case 3:
         case 4:
             { // Compete & Cooperate
-                return `your highest roll was ${maxDieNumber}`;
+                return `Your highest roll was ${maxDieNumber}`;
             }
         case 2: // Do Something Else
         default:
@@ -293,13 +293,13 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                 case "1":
                 case "2":
                 case "3":
-                    return `You barely succeed, getting the bare minimum to proceed.`;
+                    return `You get the bare minimum: if you need information to proceed with the scenario, you get it, but that’s all you get`;
                 case "4":
                     return `You succeed competently.`;
                 case "5":
                     return `You succeed well and may get something extra.`;
                 case "6":
-                    return `You succeed brilliantly and get something extra, but maybe more than you wanted.`;
+                    return `You succeed brilliantly and get something extra, but maybe more than you wanted (and probably make an <b><i>${wordInsight} Roll</i></b>).`;
                 default:{
                     console.error("ERROR(getMaxDieMessage.2)");
                     return `<span style="color:#ff0000">ERROR(getMaxDieMessage.2)</span>`;
@@ -449,9 +449,9 @@ export class CthulhuDarkActorSheet extends ActorSheet {
             case 4: 
                 return insightMessage.concat(`Your previous <b><i>${wordInsight}</i></b> was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. Roleplay your fear.`);
             case 5: 
-                return insightMessage.concat(`Your previous <b><i>${wordInsight}</i></b> was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. Roleplay your fear. <hr><b><i>Note:</i></b> You now may decrease it by suppressing knowledge that you have discovered, do so with extreme prejudice.`);
+                return insightMessage.concat(`Your previous <b><i>${wordInsight}</i></b> was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. Roleplay your fear. <hr><b><i>Note:</i></b> You may now reduce your <b><i>${wordInsight}</i></b> by suppressing Mythos knowledge.`);
             case 6: 
-                return insightMessage.concat(`Your previous <b><i>${wordInsight}</i></b> was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. <hr><b style="color:#bf0000;"><i>Your understanding of the horror behind the universe has gone beyond what everyday life can contain.</i></b> Play out your Investigator's last scene, make it a good one. <b>Then create a new Investigator.</b>`);
+                return insightMessage.concat(`Your previous <b><i>${wordInsight}</i></b> was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. <hr><b style="color:#bf0000;"><i>You go incurably insane.</i></b> This is a special moment: everyone focusses on your character’s last moments as their mind breaks. Go out however you want: fight, scream, run or collapse.`);
             default: {
                 console.error("Error in the insightChatContent, bad dice numbers used.");
                 return insightMessage;
