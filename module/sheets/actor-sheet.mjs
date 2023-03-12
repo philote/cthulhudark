@@ -275,7 +275,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                     case "5":
                         return `You discover everything humanly possible.`;
                     case "6":
-                        return `You may glimpse beyond human knowledge (and probably make an <b><i>${wordInsight} Roll</i></b>).`;
+                        return `You succeed brilliantly, get something extra, and may glimpse beyond human knowledge (and probably make an <b><i>${wordInsight} Roll</i></b>).`;
                     default: {
                         console.error("ERROR(getMaxDieMessage.1)");
                         return `<span style="color:#ff0000">ERROR(getMaxDieMessage.1)</span>`;
@@ -293,13 +293,13 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                 case "1":
                 case "2":
                 case "3":
-                    return `You get the bare minimum: if you need information to proceed with the scenario, you get it, but that’s all you get`;
+                    return `You get the bare minimum: if something needs to happen to proceed with the scenario, you get it, but that’s all you get`;
                 case "4":
                     return `You succeed competently.`;
                 case "5":
                     return `You succeed well and may get something extra.`;
                 case "6":
-                    return `You succeed brilliantly and get something extra, but maybe more than you wanted (and probably make an <b><i>${wordInsight} Roll</i></b>).`;
+                    return `You succeed brilliantly, get something extra, but maybe more than you wanted (and probably make an <b><i>${wordInsight} Roll</i></b>).`;
                 default:{
                     console.error("ERROR(getMaxDieMessage.2)");
                     return `<span style="color:#ff0000">ERROR(getMaxDieMessage.2)</span>`;
