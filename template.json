@@ -7,8 +7,8 @@
     "character": {
       "templates": ["base"],
       "insight": {
-        "min": 0,
-        "value": [0],
+        "min": 1,
+        "value": [1],
         "max": 6
       },
       "occupation": ""
@@ -22,15 +22,9 @@
   },
   "Item": {
     "types": ["item"],
-    "templates": {
-      "base": {
-        "description": ""
-      }
-    },
     "item": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0
+      "description": "",
+      "quantity": 1
     }
   }
 }
