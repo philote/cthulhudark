@@ -5,11 +5,11 @@
 
 const insightDieColor = "#2ba624";
 const humanDieColor = "#000000";
-const wordInsight = `<span style="color: ${insightDieColor}">Insight</span>`;
+const wordInsight = `<b style="color: ${insightDieColor}"><i>Insight</i></b>`;
 const riskMoveMessage = `
     <hr>
     <div style="font-size: 18px"><b>
-        The situation reveals some horror behind the universe, make an <b><i>${wordInsight}</i></b> roll!
+        The situation reveals some horror behind the universe, make an ${wordInsight} roll!
     <div>
 `;
 
@@ -275,7 +275,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                     case "5":
                         return `You discover everything humanly possible.`;
                     case "6":
-                        return `You succeed brilliantly, get something extra, and may glimpse beyond human knowledge (and probably make an <b><i>${wordInsight} Roll</i></b>).`;
+                        return `You succeed brilliantly, get something extra, and may glimpse beyond human knowledge (and probably make an ${wordInsight} Roll).`;
                     default: {
                         console.error("ERROR(getMaxDieMessage.1)");
                         return `<span style="color:#ff0000">ERROR(getMaxDieMessage.1)</span>`;
@@ -299,7 +299,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                 case "5":
                     return `You succeed well and may get something extra.`;
                 case "6":
-                    return `You succeed brilliantly, get something extra, but maybe more than you wanted (and probably make an <b><i>${wordInsight} Roll</i></b>).`;
+                    return `You succeed brilliantly, get something extra, but maybe more than you wanted (and probably make an ${wordInsight} Roll).`;
                 default:{
                     console.error("ERROR(getMaxDieMessage.2)");
                     return `<span style="color:#ff0000">ERROR(getMaxDieMessage.2)</span>`;
@@ -437,7 +437,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
   // -------
 
   insightChatContent(diceOutput, previousInsight, newInsight) {
-    let insightMessage = `<p><span style="font-size: 1.5em;"><b><i>${wordInsight}</i> Roll</b>: </span>${diceOutput}</p>
+    let insightMessage = `<p><span style="font-size: 1.5em;">${wordInsight} Roll: </span>${diceOutput}</p>
     <hr>
     `;
 
@@ -447,18 +447,18 @@ export class CthulhuDarkActorSheet extends ActorSheet {
             case 2:
             case 3:
             case 4: 
-                return insightMessage.concat(`Your previous <b><i>${wordInsight}</i></b> was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. Roleplay your fear.`);
+                return insightMessage.concat(`Your previous ${wordInsight} was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. Roleplay your fear.`);
             case 5: 
-                return insightMessage.concat(`Your previous <b><i>${wordInsight}</i></b> was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. Roleplay your fear. <hr><b><i>Note:</i></b> You may now reduce your <b><i>${wordInsight}</i></b> by suppressing Mythos knowledge.`);
+                return insightMessage.concat(`Your previous ${wordInsight} was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. Roleplay your fear. <hr><b><i>Note:</i></b> You may now reduce your ${wordInsight} by suppressing Mythos knowledge.`);
             case 6: 
-                return insightMessage.concat(`Your previous <b><i>${wordInsight}</i></b> was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. <hr><b style="color:#bf0000;"><i>You go incurably insane.</i></b> This is a special moment: everyone focusses on your character’s last moments as their mind breaks. Go out however you want: fight, scream, run or collapse.`);
+                return insightMessage.concat(`Your previous ${wordInsight} was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. <hr><b style="color:#bf0000;"><i>You go incurably insane.</i></b> This is a special moment: everyone focusses on your character’s last moments as their mind breaks. Go out however you want: fight, scream, run or collapse.`);
             default: {
                 console.error("Error in the insightChatContent, bad dice numbers used.");
                 return insightMessage;
             }
         }
     } else {
-        return insightMessage.concat(`Your current <b><i>${wordInsight}</i></b> is <b>${previousInsight}</b>. You keep it together, just barely...`);
+        return insightMessage.concat(`Your current ${wordInsight} is <b>${previousInsight}</b>. You keep it together, just barely...`);
     }
   }
 

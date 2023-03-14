@@ -1,4 +1,28 @@
 {
   "CTHULHUDARK.Add": "Add",
-  "CTHULHUDARK.Insight": "Insight"
+  "CTHULHUDARK.Insight": "Insight",
+  "CTHULHUDARK.ActorName": "Name",
+  "CTHULHUDARK.OccupationName": "Occupation",
+  "CTHULHUDARK.InvestigateBtn": "Investigate",
+  "CTHULHUDARK.OtherActionsBtn": "Other Actions",
+  "CTHULHUDARK.InsightRollBtn": "Insight Roll",
+  "CTHULHUDARK.FailureRollBtn": "Failure Roll",
+  "CTHULHUDARK.LooksNpcInput": "Looks",
+  "CTHULHUDARK.BehaviorsNpcInput": "Behaviors",
+  "CTHULHUDARK.MotivationsNpcInput": "Motivations",
+
+  "CTHULHUDARK.RulesTab": "Rules",
+  "CTHULHUDARK.NotesTab": "Notes",
+
+  "CTHULHUDARK.FailureRuleTitle": "Failure Roll:",
+  "CTHULHUDARK.FailureRuleText": "Cannot be used on Investigation Rolls or if success is needed for the scenario.",
+  "CTHULHUDARK.TryingAgainRuleTitle": "Trying Again:",
+  "CTHULHUDARK.TryingAgainRuleText": "If you include or included your Insight Die, You can reroll. Each reroll, may increase Insight. Reroll as much as you want.",
+  "CTHULHUDARK.CooperateRuleTitle": "Cooperate:",
+  "CTHULHUDARK.CooperateRuleText": "Everyone rolls. Keep the highest die rolled by anyone.",
+  "CTHULHUDARK.CompeteRuleTitle": "Compete:",
+  "CTHULHUDARK.CompeteRuleText": "Everyone who is competing rolls their dice. The highest die wins.",
+
+  "CTHULHUDARK.ItemName": "Name",
+  "CTHULHUDARK.ItemDescription": "Description"
 }

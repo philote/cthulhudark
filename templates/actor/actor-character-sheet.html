@@ -2,9 +2,9 @@
 
   {{!-- Sheet Header --}}
   <header class="cd-sheet-header">
-    <input class="charname" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
+    <input class="charname" name="name" type="text" value="{{actor.name}}" placeholder="{{localize "CTHULHUDARK.ActorName"}}"/>
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
-    <input class="header-fields" name="system.occupation" type="text" value="{{system.occupation}}" placeholder="Occupation"/>
+    <input class="header-fields" name="system.occupation" type="text" value="{{system.occupation}}" placeholder="{{localize "CTHULHUDARK.OccupationName"}}"/>
     <div class="insight">
     <b style="color: #2ba624">{{localize "CTHULHUDARK.Insight"}}</b>
     {{#multiboxes system.insight.value}}
@@ -17,22 +17,16 @@
 
     <div class="grid grid-2col">
       <button class="rollable" data-roll-type="investigate">
-        <i class="fa-solid fa-dice"></i> Investigate
+        <i class="fa-solid fa-dice"></i> {{localize "CTHULHUDARK.InvestigateBtn"}}
       </button>
       <button class="rollable" data-roll-type="doSomethingElse">
-        <i class="fa-solid fa-dice"></i> Other Actions
+        <i class="fa-solid fa-dice"></i> {{localize "CTHULHUDARK.OtherActionsBtn"}}
       </button>
-      {{!-- <button class="rollable" data-roll-type="compete">
-        <i class="fa-solid fa-dice"></i> Compete Roll
-      </button>
-      <button class="rollable" data-roll-type="cooperate">
-        <i class="fa-solid fa-dice"></i> Cooperate Roll
-      </button> --}}
       <button class="rollable" data-roll-type="insight">
-        <i class="fa-solid fa-dice"></i> <b style="color: #2ba624">Insight</b> Roll
+        <i class="fa-solid fa-dice"></i> <b style="color: #2ba624">{{localize "CTHULHUDARK.InsightRollBtn"}}</b>
       </button>
       <button class="rollable" data-roll-type="failure">
-        <i class="fa-solid fa-dice"></i> Failure Roll
+        <i class="fa-solid fa-dice"></i> {{localize "CTHULHUDARK.FailureRollBtn"}}
       </button>
     </div>
   </header>
@@ -40,8 +34,8 @@
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
-    <a class="item" data-tab="rules">Rules</a>
-    <a class="item" data-tab="notes">Notes</a>
+    <a class="item" data-tab="rules">{{localize "CTHULHUDARK.RulesTab"}}</a>
+    <a class="item" data-tab="notes">{{localize "CTHULHUDARK.NotesTab"}}</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -49,10 +43,10 @@
 
     {{!-- Rules Tab --}}
     <div class="tab rules" data-group="primary" data-tab="rules">
-      <p><b>Failure Roll: </b>Cannot be used on <i>Investigation Rolls</i> or if success is needed for the scenario.</p>
-      <p><b>Trying Again: </b>If you include or included your Insight Die, You can reroll. Each reroll, may increase <i>Insight</i>. Reroll as much as you want.</p>
-      <p><b>Cooperate: </b>Everyone rolls. Keep the highest die rolled by anyone.</p>
-      <p><b>Compete: </b>Everyone who is competing rolls their dice. The highest die wins.</p>
+      <p><b>{{localize "CTHULHUDARK.FailureRuleTitle"}} </b>{{localize "CTHULHUDARK.FailureRuleText"}}</p>
+      <p><b>{{localize "CTHULHUDARK.TryingAgainRuleTitle"}} </b>{{localize "CTHULHUDARK.TryingAgainRuleText"}}</p>
+      <p><b>{{localize "CTHULHUDARK.CooperateRuleTitle"}} </b>{{localize "CTHULHUDARK.CooperateRuleText"}}</p>
+      <p><b>{{localize "CTHULHUDARK.CompeteRuleTitle"}} </b>{{localize "CTHULHUDARK.CompeteRuleText"}}</p>
     </div>
 
     {{!-- Notes Tab --}}
