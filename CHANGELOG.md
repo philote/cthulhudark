@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.1.2
+
+- French translation was added
+
+## 0.1.1
+
+- Added all the needed code for localization
+
 ## 0.0.9
 
 - updated some wording to make more sense.
