@@ -24,5 +24,17 @@
   "CTHULHUDARK.CompeteRuleText": "Everyone who is competing rolls their dice. The highest die wins.",
 
   "CTHULHUDARK.ItemName": "Name",
-  "CTHULHUDARK.ItemDescription": "Description"
+  "CTHULHUDARK.ItemDescription": "Description",
+
+  "CTHULHUDARK.InvestigateDialogTitle": "Investigate",
+  "CTHULHUDARK.InvestigateDialogDesc": "When you investigate, roll:",
+  "CTHULHUDARK.DoSomethingElseDialogTitle": "Do Something Else",
+  "CTHULHUDARK.DoSomethingElseDialogDesc": "When you do something other than investigating, roll:",
+
+  "CTHULHUDARK.DialogHumanDie": "If the task is within human capabilities.",
+  "CTHULHUDARK.DialogOccupDie": "If it’s within your occupational expertise.",
+  "CTHULHUDARK.DialogRiskDie": "If you will risk your mind to succeed.",
+  
+  "CTHULHUDARK.RiskColor": "#2ba624",
+  "CTHULHUDARK.BaseColor": "#000000"
 }

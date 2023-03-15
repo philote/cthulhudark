@@ -3,16 +3,6 @@
  * @extends {ActorSheet}
  */
 
-const insightDieColor = "#2ba624";
-const humanDieColor = "#000000";
-const wordInsight = `<b style="color: ${insightDieColor}"><i>Insight</i></b>`;
-const riskMoveMessage = `
-    <hr>
-    <div style="font-size: 18px"><b>
-        The situation reveals some horror behind the universe, make an ${wordInsight} roll!
-    <div>
-`;
-
 export class CthulhuDarkActorSheet extends ActorSheet {
 
   /** @override */
@@ -107,20 +97,6 @@ export class CthulhuDarkActorSheet extends ActorSheet {
           this.asyncCDMoveDialog({ title, content, move });
           return;
         }
-        case 'compete': { // Compete 3
-          const title = this.dialogTitle(3);
-          const content = this.dialogContent(3);
-          const move = 3;
-          this.asyncCDMoveDialog({ title, content, move });
-          return;
-        }
-        case 'cooperate': { // Cooperate 4
-          const title = this.dialogTitle(4);
-          const content = this.dialogContent(4);
-          const move = 4;
-          this.asyncCDMoveDialog({ title, content, move });
-          return;
-        }
         case 'insight': { // Insight
           this.insightRoll();
           return;
@@ -157,108 +133,57 @@ export class CthulhuDarkActorSheet extends ActorSheet {
   // From my macro rolling files
   // ---------------------------
 
+  getWordInsightWithFormatting() {
+    return `<b style="color: ${CTHULHUDARK.RiskColor}"><i>Insight</i></b>`;
+  }
+
+  getRiskMoveMessage() {
+    return `
+        <hr>
+        <div style="font-size: 18px"><b>
+            The situation reveals some horror behind the universe, make an ${this.getWordInsightWithFormatting()} roll!
+        <div>
+    `;
+  }
+
   dialogTitle(moveNumber) {
     switch (moveNumber) {
         case 1:
-            return `Investigate`;
-        case 3:
-            return `Compete`
-        case 4:
-            return `Cooperate`
+            return game.i18n.localize("CTHULHUDARK.InvestigateDialogTitle");
         case 2:
         default:
-            return `Do Something Else`;
+            return game.i18n.localize("CTHULHUDARK.DoSomethingElseDialogTitle");
     }
   }
 
   dialogContent(moveNumber) {
+    let dialogTitle = "";
     switch (moveNumber) {
         case 1: // Investigate
-            return `
-                <p>
-                    <b>When you investigate</b>, roll:
-                </p>
-                <form class="flexcol">
-                    <div class="form-group">
-                        <input type="checkbox" id="humanDie" name="humanDie">
-                        <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;If the task is within human capabilities.</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" id="occupationalDie" name="occupationalDie">
-                        <label for="occupationalDie"><i class="fa-solid fa-dice-five"></i>&#8194;If it’s within your occupational expertise.</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" id="insightDie" name="insightDie">
-                        <label for="insightDie" style="color: ${insightDieColor}"><i class="fa-solid fa-dice-five"></i>&#8194;<b>If you will risk your mind to succeed.</b></label>
-                    </div>
-                </form>
-                </br>
-            `;
-        case 3: // Compete
-            return `
-                <p>
-                    <b>To compete:</b> everyone who is competing rolls their dice. Whoever gets highest wins:
-                </p>
-                <form class="flexcol">
-                    <div class="form-group">
-                        <input type="checkbox" id="humanDie" name="humanDie">
-                        <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;If the task is within human capabilities.</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" id="occupationalDie" name="occupationalDie">
-                        <label for="occupationalDie"><i class="fa-solid fa-dice-five"></i>&#8194;If it’s within your occupational expertise.</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" id="insightDie" name="insightDie">
-                        <label for="insightDie" style="color: ${insightDieColor}"><i class="fa-solid fa-dice-five"></i>&#8194;<b>If you will risk your mind to succeed.</b></label>
-                    </div>
-                </form>
-                </br>
-            `;
-        case 4: // Cooperate
-            return `
-                <p>
-                    <b>To cooperate:</b> everyone who is cooperating rolls their dice. The highest die, rolled by anyone, determines the outcome:
-                </p>
-                <form class="flexcol">
-                    <div class="form-group">
-                        <input type="checkbox" id="humanDie" name="humanDie">
-                        <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;If the task is within human capabilities.</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" id="occupationalDie" name="occupationalDie">
-                        <label for="occupationalDie"><i class="fa-solid fa-dice-five"></i>&#8194;If it’s within your occupational expertise.</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" id="insightDie" name="insightDie">
-                        <label for="insightDie" style="color: ${insightDieColor}"><i class="fa-solid fa-dice-five"></i>&#8194;<b>If you will risk your mind to succeed.</b></label>
-                    </div>
-                </form>
-                </br>
-            `;
+            dialogTitle = game.i18n.localize("CTHULHUDARK.InvestigateDialogDesc");
+            break;
         case 2: // Do Something Else
         default:
-            return `
-                <p>
-                    <b>When you do something other than investigating:
-                </p>
-                <form class="flexcol">
-                    <div class="form-group">
-                        <input type="checkbox" id="humanDie" name="humanDie">
-                        <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;If the task is within human capabilities.</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" id="occupationalDie" name="occupationalDie">
-                        <label for="occupationalDie"><i class="fa-solid fa-dice-five"></i>&#8194;If it’s within your occupational expertise.</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" id="insightDie" name="insightDie">
-                        <label for="insightDie" style="color: ${insightDieColor}"><i class="fa-solid fa-dice-five"></i>&#8194;<b>If you will risk your mind to succeed.</b></label>
-                    </div>
-                </form>
-                </br>
-            `;
+            dialogTitle = game.i18n.localize("CTHULHUDARK.DoSomethingElseDialogDesc");
     }
+    return `
+            <p><b>${dialogTitle}</b></p>
+            <form class="flexcol">
+                <div class="form-group">
+                    <input type="checkbox" id="humanDie" name="humanDie">
+                    <label for="humanDie"><i class="fa-solid fa-dice-five"></i>&#8194;${game.i18n.localize("CTHULHUDARK.DialogHumanDie")}</label>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="occupationalDie" name="occupationalDie">
+                    <label for="occupationalDie"><i class="fa-solid fa-dice-five"></i>&#8194;${game.i18n.localize("CTHULHUDARK.DialogOccupDie")}</label>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="insightDie" name="insightDie">
+                    <label for="insightDie" style="color: ${CTHULHUDARK.RiskColor}"><i class="fa-solid fa-dice-five"></i>&#8194;<b>${game.i18n.localize("CTHULHUDARK.DialogRiskDie")}</b></label>
+                </div>
+            </form>
+            </br>
+        `;
   }
 
   getMaxDieMessage(moveNumber, maxDieNumber) {
@@ -275,7 +200,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                     case "5":
                         return `You discover everything humanly possible.`;
                     case "6":
-                        return `You succeed brilliantly, get something extra, and may glimpse beyond human knowledge (and probably make an ${wordInsight} Roll).`;
+                        return `You succeed brilliantly, get something extra, and may glimpse beyond human knowledge (and probably make an ${this.getWordInsightWithFormatting()} Roll).`;
                     default: {
                         console.error("ERROR(getMaxDieMessage.1)");
                         return `<span style="color:#ff0000">ERROR(getMaxDieMessage.1)</span>`;
@@ -299,7 +224,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                 case "5":
                     return `You succeed well and may get something extra.`;
                 case "6":
-                    return `You succeed brilliantly, get something extra, but maybe more than you wanted (and probably make an ${wordInsight} Roll).`;
+                    return `You succeed brilliantly, get something extra, but maybe more than you wanted (and probably make an ${this.getWordInsightWithFormatting()} Roll).`;
                 default:{
                     console.error("ERROR(getMaxDieMessage.2)");
                     return `<span style="color:#ff0000">ERROR(getMaxDieMessage.2)</span>`;
@@ -358,7 +283,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                             let hdRoll = await new Roll('1d6').evaluate({ async: true });
                             dice.push({
                                 name: "Human Die",
-                                dieColor: humanDieColor,
+                                dieColor: CTHULHUDARK.RiskColor,
                                 isRisk: false,
                                 rollVal: hdRoll.result
                             });
@@ -368,7 +293,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                             let odRoll = await new Roll('1d6').evaluate({ async: true });
                             dice.push({
                                 name: "Occupational Die",
-                                dieColor: humanDieColor,
+                                dieColor: CTHULHUDARK.RiskColor,
                                 isRisk: false,
                                 rollVal: odRoll.result
                             });
@@ -378,7 +303,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                             let idRoll = await new Roll('1d6').evaluate({ async: true });
                             dice.push({
                                 name: "Insight Die",
-                                dieColor: insightDieColor,
+                                dieColor: CTHULHUDARK.RiskColor,
                                 isRisk: true,
                                 rollVal: idRoll.result
                             });
@@ -398,7 +323,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
 
                         let riskMessage = "";
                         if (isRiskDie) {
-                            riskMessage = riskMoveMessage;
+                            riskMessage = this.getRiskMoveMessage();
                         }
 
                         // Build Dice list
@@ -437,7 +362,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
   // -------
 
   insightChatContent(diceOutput, previousInsight, newInsight) {
-    let insightMessage = `<p><span style="font-size: 1.5em;">${wordInsight} Roll: </span>${diceOutput}</p>
+    let insightMessage = `<p><span style="font-size: 1.5em;">${this.getWordInsightWithFormatting()} Roll: </span>${diceOutput}</p>
     <hr>
     `;
 
@@ -447,18 +372,18 @@ export class CthulhuDarkActorSheet extends ActorSheet {
             case 2:
             case 3:
             case 4: 
-                return insightMessage.concat(`Your previous ${wordInsight} was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. Roleplay your fear.`);
+                return insightMessage.concat(`Your previous ${this.getWordInsightWithFormatting()} was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. Roleplay your fear.`);
             case 5: 
-                return insightMessage.concat(`Your previous ${wordInsight} was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. Roleplay your fear. <hr><b><i>Note:</i></b> You may now reduce your ${wordInsight} by suppressing Mythos knowledge.`);
+                return insightMessage.concat(`Your previous ${this.getWordInsightWithFormatting()} was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. Roleplay your fear. <hr><b><i>Note:</i></b> You may now reduce your ${this.getWordInsightWithFormatting()} by suppressing Mythos knowledge.`);
             case 6: 
-                return insightMessage.concat(`Your previous ${wordInsight} was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. <hr><b style="color:#bf0000;"><i>You go incurably insane.</i></b> This is a special moment: everyone focusses on your character’s last moments as their mind breaks. Go out however you want: fight, scream, run or collapse.`);
+                return insightMessage.concat(`Your previous ${this.getWordInsightWithFormatting()} was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. <hr><b style="color:#bf0000;"><i>You go incurably insane.</i></b> This is a special moment: everyone focusses on your character’s last moments as their mind breaks. Go out however you want: fight, scream, run or collapse.`);
             default: {
                 console.error("Error in the insightChatContent, bad dice numbers used.");
                 return insightMessage;
             }
         }
     } else {
-        return insightMessage.concat(`Your current ${wordInsight} is <b>${previousInsight}</b>. You keep it together, just barely...`);
+        return insightMessage.concat(`Your current ${this.getWordInsightWithFormatting()} is <b>${previousInsight}</b>. You keep it together, just barely...`);
     }
   }
 
@@ -480,7 +405,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
         console.log("newInsightVal "+newInsightVal);
     }
 
-    const chatContentMessage = this.insightChatContent(this.getDiceForOutput(insightRoll.result, insightDieColor), currentInsightVal, newInsightVal);
+    const chatContentMessage = this.insightChatContent(this.getDiceForOutput(insightRoll.result, CTHULHUDARK.RiskColor), currentInsightVal, newInsightVal);
     const user = game.user.id;
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get('core', 'rollMode');
@@ -508,7 +433,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
   async failureRoll() {
     let failureRoll = await new Roll('1d6').evaluate({ async: true });
 
-    const chatContentMessage = this.failureChatContent(this.getDiceForOutput(failureRoll.result, humanDieColor));
+    const chatContentMessage = this.failureChatContent(this.getDiceForOutput(failureRoll.result, CTHULHUDARK.RiskColor));
     const user = game.user.id;
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get('core', 'rollMode');
