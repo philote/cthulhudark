@@ -2,7 +2,7 @@
   "id": "cthulhudark",
   "title": "Cthulhu Dark",
   "description": "An Unofficial Cthulhu Dark system for Foundry VTT.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "compatibility": {
     "minimum": 10,
     "verified": "10.291",
@@ -20,6 +20,11 @@
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "French",
+      "path": "lang/fr.json"
     }
   ],
   "primaryTokenAttribute": "insight",
