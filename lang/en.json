@@ -33,5 +33,27 @@
 
   "CTHULHUDARK.DialogHumanDie": "If the task is within human capabilities.",
   "CTHULHUDARK.DialogOccupDie": "If it’s within your occupational expertise.",
-  "CTHULHUDARK.DialogRiskDie": "If you will risk your mind to succeed."
+  "CTHULHUDARK.DialogRiskDie": "If you will risk your mind to succeed.",
+  "CTHULHUDARK.InsightRoll": "Insight Roll!",
+
+  "CTHULHUDARK.FailureRollContent": "If your roll is higher than the other <b><i>Investigator's</i></b> highest die, they fail, just as you described. If not, they succeed as before.",
+  "CTHULHUDARK.FailureRoll": "<b>Failure Roll</b>:",
+
+  "CTHULHUDARK.RiskMoveMessage": "The situation reveals some horror behind the universe, make an {insightroll}",
+
+  "CTHULHUDARK.InvestigateMaxDieMessage123": "You get the bare minimum: if you need information to proceed with the scenario, you get it, but that’s all you get",
+  "CTHULHUDARK.InvestigateMaxDieMessage4": "You get whatever a competent investigator would discover.",
+  "CTHULHUDARK.InvestigateMaxDieMessage5": "You discover everything humanly possible.",
+  "CTHULHUDARK.InvestigateMaxDieMessage6": "You succeed brilliantly, get something extra, and may glimpse beyond human knowledge (and probably make an {insightroll}).",
+
+  "CTHULHUDARK.DoSomethingElseMaxDieMessage123": "You get the bare minimum: if something needs to happen to proceed with the scenario, you get it, but that’s all you get.",
+  "CTHULHUDARK.DoSomethingElseMaxDieMessage4": "You succeed competently.",
+  "CTHULHUDARK.DoSomethingElseMaxDieMessage5": "You succeed well and may get something extra.",
+  "CTHULHUDARK.DoSomethingElseMaxDieMessage6": "You succeed brilliantly, get something extra, but maybe more than you wanted (and probably make an {insightroll}).",
+
+  "CTHULHUDARK.InsightChatContent4": "Your previous {insight} was <b>{previousinsight}</b>. You rolled higher, so your insight is now  <b>{newnsight}</b>. Roleplay your fear.",
+  "CTHULHUDARK.InsightChatContent5": "Your previous {insight} was <b>{previousinsight}</b>. You rolled higher, so your insight is now  <b>{newnsight}</b>. Roleplay your fear. <hr><b><i>Note:</i></b> You may now reduce your {insighttwo} by suppressing Mythos knowledge.",
+  "CTHULHUDARK.InsightChatContent6": "Your previous {insight} was <b>{previousinsight}</b>. You rolled higher, so your insight is now  <b>{newnsight}</b>. <hr><b><i>You go incurably insane.</i></b> This is a special moment: everyone focusses on your character’s last moments as their mind breaks. Go out however you want: fight, scream, run or collapse.",
+
+  "CTHULHUDARK.InsightChatContent": "Your current {insight} is <b>{previousinsight}</b>. You keep it together, just barely..."
 }

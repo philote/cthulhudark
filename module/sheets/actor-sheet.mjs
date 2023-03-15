@@ -133,15 +133,20 @@ export class CthulhuDarkActorSheet extends ActorSheet {
   // From my macro rolling files
   // ---------------------------
 
+  //${game.i18n.localize("CTHULHUDARK.")}
   getWordInsightWithFormatting() {
-    return `<b style="color: ${CONFIG.CTHULHUDARK.RiskColor}"><i>Insight</i></b>`;
+    return `<b style="color: ${CONFIG.CTHULHUDARK.RiskColor}"><i>${game.i18n.localize("CTHULHUDARK.Insight")}</i></b>`;
+  }
+
+  getWordInsightRollWithFormatting() {
+    return `<b style="color: ${CONFIG.CTHULHUDARK.RiskColor}"><i>${game.i18n.localize("CTHULHUDARK.InsightRoll")}</i></b>`;
   }
 
   getRiskMoveMessage() {
     return `
         <hr>
-        <div style="font-size: 18px"><b>
-            The situation reveals some horror behind the universe, make an ${this.getWordInsightWithFormatting()} roll!
+        <div style="font-size: 18px">
+          <b>${game.i18n.format('CTHULHUDARK.RiskMoveMessage', { insightroll: this.getWordInsightRollWithFormatting() })}</b>
         <div>
     `;
   }
@@ -194,23 +199,18 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                     case "1":
                     case "2":
                     case "3":
-                        return `You get the bare minimum: if you need information to proceed with the scenario, you get it, but that’s all you get`;
+                        return game.i18n.localize("CTHULHUDARK.InvestigateMaxDieMessage123");
                     case "4":
-                        return `You get whatever a competent investigator would discover.`;
+                        return game.i18n.localize("CTHULHUDARK.InvestigateMaxDieMessage4");
                     case "5":
-                        return `You discover everything humanly possible.`;
+                        return game.i18n.localize("CTHULHUDARK.InvestigateMaxDieMessage5");
                     case "6":
-                        return `You succeed brilliantly, get something extra, and may glimpse beyond human knowledge (and probably make an ${this.getWordInsightWithFormatting()} Roll).`;
+                        return game.i18n.format('CTHULHUDARK.InvestigateMaxDieMessage6', {insightroll: this.getWordInsightRollWithFormatting()});
                     default: {
                         console.error("ERROR(getMaxDieMessage.1)");
                         return `<span style="color:#ff0000">ERROR(getMaxDieMessage.1)</span>`;
                     }
                 }
-            }
-        case 3:
-        case 4:
-            { // Compete & Cooperate
-                return `Your highest roll was ${maxDieNumber}`;
             }
         case 2: // Do Something Else
         default:
@@ -218,13 +218,13 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                 case "1":
                 case "2":
                 case "3":
-                    return `You get the bare minimum: if something needs to happen to proceed with the scenario, you get it, but that’s all you get`;
+                    return game.i18n.localize("CTHULHUDARK.DoSomethingElseMaxDieMessage123");
                 case "4":
-                    return `You succeed competently.`;
+                    return game.i18n.localize("CTHULHUDARK.DoSomethingElseMaxDieMessage4");
                 case "5":
-                    return `You succeed well and may get something extra.`;
+                    return game.i18n.localize("CTHULHUDARK.DoSomethingElseMaxDieMessage5");
                 case "6":
-                    return `You succeed brilliantly, get something extra, but maybe more than you wanted (and probably make an ${this.getWordInsightWithFormatting()} Roll).`;
+                    return game.i18n.format('CTHULHUDARK.DoSomethingElseMaxDieMessage6', {insightroll: this.getWordInsightRollWithFormatting()});
                 default:{
                     console.error("ERROR(getMaxDieMessage.2)");
                     return `<span style="color:#ff0000">ERROR(getMaxDieMessage.2)</span>`;
@@ -282,7 +282,6 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                         if (document.getElementById("humanDie").checked) {
                             let hdRoll = await new Roll('1d6').evaluate({ async: true });
                             dice.push({
-                                name: "Human Die",
                                 dieColor: CONFIG.CTHULHUDARK.BaseColor,
                                 isRisk: false,
                                 rollVal: hdRoll.result
@@ -292,7 +291,6 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                         if (document.getElementById("occupationalDie").checked) {
                             let odRoll = await new Roll('1d6').evaluate({ async: true });
                             dice.push({
-                                name: "Occupational Die",
                                 dieColor: CONFIG.CTHULHUDARK.BaseColor,
                                 isRisk: false,
                                 rollVal: odRoll.result
@@ -302,7 +300,6 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                         if (document.getElementById("insightDie").checked) {
                             let idRoll = await new Roll('1d6').evaluate({ async: true });
                             dice.push({
-                                name: "Insight Die",
                                 dieColor: CONFIG.CTHULHUDARK.RiskColor,
                                 isRisk: true,
                                 rollVal: idRoll.result
@@ -362,28 +359,26 @@ export class CthulhuDarkActorSheet extends ActorSheet {
   // -------
 
   insightChatContent(diceOutput, previousInsight, newInsight) {
-    let insightMessage = `<p><span style="font-size: 1.5em;">${this.getWordInsightWithFormatting()} Roll: </span>${diceOutput}</p>
-    <hr>
-    `;
+    let insightMessage = `<p><span style="font-size: 1.5em;">${this.getWordInsightRollWithFormatting()}: </span>${diceOutput}</p><hr>`;
 
     if (newInsight > previousInsight) {
         switch (newInsight) {
             case 1:
             case 2:
             case 3:
-            case 4: 
-                return insightMessage.concat(`Your previous ${this.getWordInsightWithFormatting()} was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. Roleplay your fear.`);
-            case 5: 
-                return insightMessage.concat(`Your previous ${this.getWordInsightWithFormatting()} was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. Roleplay your fear. <hr><b><i>Note:</i></b> You may now reduce your ${this.getWordInsightWithFormatting()} by suppressing Mythos knowledge.`);
+            case 4:
+                return insightMessage.concat(game.i18n.format('CTHULHUDARK.InsightChatContent4', {insight: this.getWordInsightWithFormatting(), previousinsight: previousInsight, newnsight: newInsight}));
+            case 5:
+                return insightMessage.concat(game.i18n.format('CTHULHUDARK.InsightChatContent5', {insight: this.getWordInsightWithFormatting(), previousinsight: previousInsight, newnsight: newInsight, insighttwo: this.getWordInsightWithFormatting()}));
             case 6: 
-                return insightMessage.concat(`Your previous ${this.getWordInsightWithFormatting()} was <b>${previousInsight}</b>. You rolled higher, so your insight is now  <b>${newInsight}</b>. <hr><b style="color:#bf0000;"><i>You go incurably insane.</i></b> This is a special moment: everyone focusses on your character’s last moments as their mind breaks. Go out however you want: fight, scream, run or collapse.`);
+                return insightMessage.concat(game.i18n.format('CTHULHUDARK.InsightChatContent6', {insight: this.getWordInsightWithFormatting(), previousinsight: previousInsight, newnsight: newInsight}));
             default: {
                 console.error("Error in the insightChatContent, bad dice numbers used.");
                 return insightMessage;
             }
         }
     } else {
-        return insightMessage.concat(`Your current ${this.getWordInsightWithFormatting()} is <b>${previousInsight}</b>. You keep it together, just barely...`);
+        return insightMessage.concat(game.i18n.format('CTHULHUDARK.InsightChatContent', {insight: this.getWordInsightWithFormatting(), previousinsight: previousInsight}));
     }
   }
 
@@ -400,9 +395,9 @@ export class CthulhuDarkActorSheet extends ActorSheet {
         this.actor.system.insight.value = newInsightVal;
         this.actor.update({"system.insight.value": newInsightVal});
         
-        console.log("this.actor.system.insight.value "+this.actor.system.insight.value);
-        console.log("currentInsightVal "+currentInsightVal);
-        console.log("newInsightVal "+newInsightVal);
+        // console.log("this.actor.system.insight.value "+this.actor.system.insight.value);
+        // console.log("currentInsightVal "+currentInsightVal);
+        // console.log("newInsightVal "+newInsightVal);
     }
 
     const chatContentMessage = this.insightChatContent(this.getDiceForOutput(insightRoll.result, CONFIG.CTHULHUDARK.RiskColor), currentInsightVal, newInsightVal);
@@ -424,9 +419,9 @@ export class CthulhuDarkActorSheet extends ActorSheet {
 
   failureChatContent(diceOutput) {
     return `
-        <p><span style="font-size: 1.5em;"><b>Failure Roll</b>: </span> ${diceOutput}</p>
+        <p><span style="font-size: 1.5em;">${game.i18n.localize('CTHULHUDARK.FailureRoll')} </span> ${diceOutput}</p>
         <hr>
-        <span>If your roll is higher than the other <b><i>Investigator's</i></b> highest die, they fail, just as you described. If not, they succeed as before.</span>
+        ${game.i18n.localize('CTHULHUDARK.FailureRollContent')}
     `;
   }
 
