@@ -33,8 +33,5 @@
 
   "CTHULHUDARK.DialogHumanDie": "If the task is within human capabilities.",
   "CTHULHUDARK.DialogOccupDie": "If it’s within your occupational expertise.",
-  "CTHULHUDARK.DialogRiskDie": "If you will risk your mind to succeed.",
-  
-  "CTHULHUDARK.RiskColor": "#2ba624",
-  "CTHULHUDARK.BaseColor": "#000000"
+  "CTHULHUDARK.DialogRiskDie": "If you will risk your mind to succeed."
 }

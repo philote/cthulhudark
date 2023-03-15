@@ -134,7 +134,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
   // ---------------------------
 
   getWordInsightWithFormatting() {
-    return `<b style="color: ${CTHULHUDARK.RiskColor}"><i>Insight</i></b>`;
+    return `<b style="color: ${CONFIG.CTHULHUDARK.RiskColor}"><i>Insight</i></b>`;
   }
 
   getRiskMoveMessage() {
@@ -179,7 +179,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                 </div>
                 <div class="form-group">
                     <input type="checkbox" id="insightDie" name="insightDie">
-                    <label for="insightDie" style="color: ${CTHULHUDARK.RiskColor}"><i class="fa-solid fa-dice-five"></i>&#8194;<b>${game.i18n.localize("CTHULHUDARK.DialogRiskDie")}</b></label>
+                    <label for="insightDie" style="color: ${CONFIG.CTHULHUDARK.RiskColor}"><i class="fa-solid fa-dice-five"></i>&#8194;<b>${game.i18n.localize("CTHULHUDARK.DialogRiskDie")}</b></label>
                 </div>
             </form>
             </br>
@@ -283,7 +283,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                             let hdRoll = await new Roll('1d6').evaluate({ async: true });
                             dice.push({
                                 name: "Human Die",
-                                dieColor: CTHULHUDARK.RiskColor,
+                                dieColor: CONFIG.CTHULHUDARK.BaseColor,
                                 isRisk: false,
                                 rollVal: hdRoll.result
                             });
@@ -293,7 +293,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                             let odRoll = await new Roll('1d6').evaluate({ async: true });
                             dice.push({
                                 name: "Occupational Die",
-                                dieColor: CTHULHUDARK.RiskColor,
+                                dieColor: CONFIG.CTHULHUDARK.BaseColor,
                                 isRisk: false,
                                 rollVal: odRoll.result
                             });
@@ -303,7 +303,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                             let idRoll = await new Roll('1d6').evaluate({ async: true });
                             dice.push({
                                 name: "Insight Die",
-                                dieColor: CTHULHUDARK.RiskColor,
+                                dieColor: CONFIG.CTHULHUDARK.RiskColor,
                                 isRisk: true,
                                 rollVal: idRoll.result
                             });
@@ -405,7 +405,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
         console.log("newInsightVal "+newInsightVal);
     }
 
-    const chatContentMessage = this.insightChatContent(this.getDiceForOutput(insightRoll.result, CTHULHUDARK.RiskColor), currentInsightVal, newInsightVal);
+    const chatContentMessage = this.insightChatContent(this.getDiceForOutput(insightRoll.result, CONFIG.CTHULHUDARK.RiskColor), currentInsightVal, newInsightVal);
     const user = game.user.id;
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get('core', 'rollMode');
@@ -433,7 +433,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
   async failureRoll() {
     let failureRoll = await new Roll('1d6').evaluate({ async: true });
 
-    const chatContentMessage = this.failureChatContent(this.getDiceForOutput(failureRoll.result, CTHULHUDARK.RiskColor));
+    const chatContentMessage = this.failureChatContent(this.getDiceForOutput(failureRoll.result, CONFIG.CTHULHUDARK.BaseColor));
     const user = game.user.id;
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get('core', 'rollMode');
