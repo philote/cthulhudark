@@ -2,7 +2,7 @@
   "id": "cthulhudark",
   "title": "Cthulhu Dark",
   "description": "An Unofficial Cthulhu Dark system for Foundry VTT.",
-  "version": "0.0.9",
+  "version": "0.1.1",
   "compatibility": {
     "minimum": 10,
     "verified": "10.291",
@@ -33,12 +33,14 @@
     {
       "type": "screenshot",
       "url": "https://raw.githubusercontent.com/philote/FoundryVTT-CthulhuDark/main/CD_screenshot.webp",
-      "loop": false
+      "loop": false,
+      "caption": "Cthulhu Dark screenshot from Foundry VTT."
     },
     {
       "type": "cover",
       "url": "https://raw.githubusercontent.com/philote/FoundryVTT-CthulhuDark/main/cover.webp",
-      "caption": "Unofficial Cthulhu Dark"
+      "loop": false,
+      "caption": "Cover Images for the Unofficial Cthulhu Dark package."
     }
   ]
 }
