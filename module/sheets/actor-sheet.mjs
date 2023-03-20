@@ -73,7 +73,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
 
-    // Rollable abilities.
+    // Rollable.
     html.find('.rollable').click(this._onRoll.bind(this));
   }
 
@@ -87,7 +87,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
 
-    // Handle item rolls.
+    // Handle rolls.
     if (dataset.rollType) {
       switch (dataset.rollType) {
         case 'investigate': { // Investigate
@@ -133,7 +133,6 @@ export class CthulhuDarkActorSheet extends ActorSheet {
   // From my macro rolling files
   // ---------------------------
 
-  //${game.i18n.localize("CTHULHUDARK.")}
   getWordInsightWithFormatting() {
     return `<b style="color: ${CONFIG.CTHULHUDARK.RiskColor}"><i>${game.i18n.localize("CTHULHUDARK.Insight")}</i></b>`;
   }
