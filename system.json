@@ -2,7 +2,7 @@
   "id": "cthulhudark",
   "title": "Cthulhu Dark",
   "description": "An Unofficial Cthulhu Dark system for Foundry VTT.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "compatibility": {
     "minimum": 10,
     "verified": "10.291",
@@ -11,7 +11,9 @@
   "authors": [{
     "name": "ephson",
     "url": "https://github.com/philote",
-    "discord": "ephson#3451"
+    "discord": "ephson#3451",
+    "mastodon": "@ephson@dice.camp",
+    "reddit": "u/ephson"
   }],
   "esmodules": ["module/cthulhudark.mjs"],
   "styles": ["css/cthulhudark.css"],

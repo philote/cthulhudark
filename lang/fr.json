@@ -30,6 +30,7 @@
   "CTHULHUDARK.InvestigateDialogDesc": "Quand vous enquêtez, lancez :",
   "CTHULHUDARK.DoSomethingElseDialogTitle": "Faire autre chose :",
   "CTHULHUDARK.DoSomethingElseDialogDesc": "Quand vous faites autre chose qu'enquêter, lancez :",
+  "CTHULHUDARK.Roll": "Lancer les dés!",
 
   "CTHULHUDARK.DialogHumanDie": "Si la tâche est dans les capacités humaines.",
   "CTHULHUDARK.DialogOccupDie": "Si c'est dans votre domaine d'expertise.",
@@ -41,14 +42,14 @@
 
   "CTHULHUDARK.RiskMoveMessage": "La situation révèle une horreur d'au-delà l'univers. Fais un {insightroll}",
 
-  "CTHULHUDARK.InvestigateMaxDieMessage123" : "Vous obtenez le strict minimum : si vous avez besoin d'informations indispensables pour poursuivre le scénario, vous les obtenez, mais pas plus",
-  "CTHULHUDARK.InvestigateMaxDieMessage4" : "Vous obtenez tout ce qu'un enquêteur compétent découvrirait",
-  "CTHULHUDARK.InvestigateMaxDieMessage5" : "Vous découvrez tout ce qu'il est humainement possible de découvrir.",
+  "CTHULHUDARK.InvestigateMaxDieMessage123": "Vous obtenez le strict minimum : si vous avez besoin d'informations indispensables pour poursuivre le scénario, vous les obtenez, mais pas plus",
+  "CTHULHUDARK.InvestigateMaxDieMessage4": "Vous obtenez tout ce qu'un enquêteur compétent découvrirait",
+  "CTHULHUDARK.InvestigateMaxDieMessage5": "Vous découvrez tout ce qu'il est humainement possible de découvrir.",
   "CTHULHUDARK.InvestigateMaxDieMessage6": "Vous réussissez brillamment, obtenez quelque chose de plus, et vous pouvez entrevoir ce qui est au-delà de la connaissance humaine (et probablement faire un {insightroll}).",
 
-  "CTHULHUDARK.DoSomethingElseMaxDieMessage123" : "Vous obtenez le strict minimum : si quelque chose doit se produire pour poursuivre le scénario, vous l'obtenez, mais rien de plus",
-  "CTHULHUDARK.DoSomethingElseMaxDieMessage4" : "Vous réussissez avec compétence",
-  "CTHULHUDARK.DoSomethingElseMaxDieMessage5" : "Vous réussissez bien et pouvez obtenir quelque chose de plus",
+  "CTHULHUDARK.DoSomethingElseMaxDieMessage123": "Vous obtenez le strict minimum : si quelque chose doit se produire pour poursuivre le scénario, vous l'obtenez, mais rien de plus",
+  "CTHULHUDARK.DoSomethingElseMaxDieMessage4": "Vous réussissez avec compétence",
+  "CTHULHUDARK.DoSomethingElseMaxDieMessage5": "Vous réussissez bien et pouvez obtenir quelque chose de plus",
   "CTHULHUDARK.DoSomethingElseMaxDieMessage6": "Vous réussissez brillamment, obtenez quelque chose en plus, mais peut-être plus que ce que vous vouliez (et faites probablement un {insightroll})",
 
   "CTHULHUDARK.InsightChatContent4": "Votre {insight} précédente était <b>{previousinsight}</b>. Vous avez obtenu au-dessus, donc votre démence est maintenant <b>{newnsight}</b>. Jouez votre peur !",

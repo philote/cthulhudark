@@ -3,26 +3,25 @@
  * @extends {ItemSheet}
  */
 export class CthulhuDarkItemSheet extends ItemSheet {
-
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["cthulhudark", "sheet", "item"],
       width: 310,
       height: 620,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+      tabs: [
+        {
+          navSelector: ".sheet-tabs",
+          contentSelector: ".sheet-body",
+          initial: "description",
+        },
+      ],
     });
   }
 
   /** @override */
   get template() {
-    const path = "systems/cthulhudark/templates/item";
-    // Return a single sheet for all item types.
-    return `${path}/item-sheet.html`;
-
-    // Alternatively, you could use the following return statement to do a
-    // unique item sheet by type, like `weapon-sheet.html`.
-    // return `${path}/item-${this.item.type}-sheet.html`;
+    return `systems/cthulhudark/templates/item/item-sheet.html`;
   }
 
   /* -------------------------------------------- */

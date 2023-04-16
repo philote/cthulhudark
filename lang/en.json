@@ -30,6 +30,7 @@
   "CTHULHUDARK.InvestigateDialogDesc": "When you investigate, roll:",
   "CTHULHUDARK.DoSomethingElseDialogTitle": "Do Something Else",
   "CTHULHUDARK.DoSomethingElseDialogDesc": "When you do something other than investigating, roll:",
+  "CTHULHUDARK.Roll": "Roll!",
 
   "CTHULHUDARK.DialogHumanDie": "If the task is within human capabilities.",
   "CTHULHUDARK.DialogOccupDie": "If it’s within your occupational expertise.",
