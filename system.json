@@ -8,13 +8,15 @@
     "verified": "10.291",
     "maximum": 10
   },
-  "authors": [{
-    "name": "ephson",
-    "url": "https://github.com/philote",
-    "discord": "ephson#3451",
-    "mastodon": "@ephson@dice.camp",
-    "reddit": "u/ephson"
-  }],
+  "authors": [
+    {
+      "name": "ephson",
+      "url": "https://github.com/philote",
+      "discord": "ephson#3451",
+      "mastodon": "@ephson@dice.camp",
+      "reddit": "u/ephson"
+    }
+  ],
   "esmodules": ["module/cthulhudark.mjs"],
   "styles": ["css/cthulhudark.css"],
   "languages": [
@@ -47,6 +49,11 @@
       "url": "https://raw.githubusercontent.com/philote/FoundryVTT-CthulhuDark/main/cover.webp",
       "loop": false,
       "caption": "Cover Images for the Unofficial Cthulhu Dark package."
+    },
+    {
+      "type": "setup",
+      "url": "https://raw.githubusercontent.com/philote/FoundryVTT-CthulhuDark/main/package_image.webp",
+      "thumbnail": "https://raw.githubusercontent.com/philote/FoundryVTT-CthulhuDark/main/package_image_thumb.webp"
     }
   ]
 }
