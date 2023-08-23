@@ -7,9 +7,10 @@
     "character": {
       "templates": ["base"],
       "insight": {
-        "min": 1,
+        "min": 0,
         "value": [1],
-        "max": 6
+        "max": 6,
+        "states": [true, false, false, false, false, false]
       },
       "occupation": ""
     },

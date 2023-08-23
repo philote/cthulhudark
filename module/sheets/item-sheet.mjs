@@ -9,13 +9,11 @@ export class CthulhuDarkItemSheet extends ItemSheet {
       classes: ["cthulhudark", "sheet", "item"],
       width: 310,
       height: 620,
-      tabs: [
-        {
-          navSelector: ".sheet-tabs",
-          contentSelector: ".sheet-body",
-          initial: "description",
-        },
-      ],
+      tabs: [{
+        navSelector: ".sheet-tabs",
+        contentSelector: ".sheet-body",
+        initial: "description",
+      }],
     });
   }
 

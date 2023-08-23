@@ -5,14 +5,14 @@
     <input class="charname" name="name" type="text" value="{{actor.name}}" placeholder="{{localize "CTHULHUDARK.ActorName"}}"/>
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
     <input class="header-fields" name="system.occupation" type="text" value="{{system.occupation}}" placeholder="{{localize "CTHULHUDARK.OccupationName"}}"/>
+
     <div class="insight">
-    <b style="color: #2ba624">{{localize "CTHULHUDARK.Insight"}}</b>
-    {{#multiboxes system.insight.value}}
-      {{#times_from_1 system.insight.max}}
-        <input type="radio" id="character-{{../_id}}-insight-{{this}}" name="system.insight.value" value="{{this}}">
-        <label for="character-{{../_id}}-insight-{{this}}"></label>
-      {{/times_from_1}}
-    {{/multiboxes}}
+      <b style="color: #2ba624">{{localize "CTHULHUDARK.Insight"}}</b>
+      
+      {{#each system.insight.states as |state count|}}
+        <input class="rollable" type="checkbox" data-pos="{{count}}" data-roll-type="toggle-insight" {{#if state}}checked{{/if}} >
+      {{/each}}
+      
     </div>  
 
     <div class="grid grid-2col">

@@ -40,7 +40,6 @@ export class CthulhuDarkActorSheet extends ActorSheet {
 
     // Add the actor's data to context.data for easier access, as well as flags.
     context.system = actorData.system;
-    context.flags = actorData.flags;
 
     // Add roll data for TinyMCE editors.
     context.rollData = context.actor.getRollData();
@@ -98,20 +97,27 @@ export class CthulhuDarkActorSheet extends ActorSheet {
           this.asyncCDMoveDialog({ move });
           return;
         }
+        case "toggle-insight": {
+          this._onToggleInsight(dataset.pos);
+          return;
+        }
       }
     }
+  }
 
-    // Handle rolls that supply the formula directly.
-    if (dataset.roll) {
-      let label = dataset.label ? `[ability] ${dataset.label}` : "";
-      let roll = new Roll(dataset.roll, this.actor.getRollData());
-      roll.toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: label,
-        rollMode: game.settings.get("core", "rollMode"),
-      });
-      return roll;
+  _onToggleInsight(pos) {
+    let currentArray = this.actor.system.insight.states;
+    let currentState = currentArray[pos];
+    let newState = 0;
+
+    if (currentState === false) {
+      newState = true;
+    } else {
+      newState = false;
     }
+
+    currentArray[pos] = newState;
+    this.actor.update({ ["system.insight.states"]: currentArray });
   }
 
   // ---------------------------
