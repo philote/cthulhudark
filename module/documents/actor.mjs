@@ -1,3 +1,6 @@
+// Import helper/utility classes and constants.
+// import { CTHULHUDARK } from "./helpers/config.mjs";
+
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -43,6 +46,7 @@ export class CthulhuDarkActor extends Actor {
 
     // update Insight so they can be used as token resources
     systemData.insight.value = systemData.insight.states.filter(Boolean).length;
+    systemData.insight.color = CONFIG.CTHULHUDARK.RiskColor;
   }
 
   /**

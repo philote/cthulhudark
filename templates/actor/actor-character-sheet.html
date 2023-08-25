@@ -7,7 +7,7 @@
     <input class="header-fields" name="system.occupation" type="text" value="{{system.occupation}}" placeholder="{{localize "CTHULHUDARK.OccupationName"}}"/>
 
     <div class="insight">
-      <b style="color: #2ba624">{{localize "CTHULHUDARK.Insight"}}</b>
+      <b class="rollable" data-roll-type="clear-insight" style="color: {{system.insight.color}}">{{localize "CTHULHUDARK.Insight"}}</b>
       
       {{#each system.insight.states as |state count|}}
         <input class="rollable" type="checkbox" data-pos="{{count}}" data-roll-type="toggle-insight" {{#if state}}checked{{/if}} >
@@ -23,7 +23,7 @@
         <i class="fa-solid fa-dice"></i> {{localize "CTHULHUDARK.OtherActionsBtn"}}
       </button>
       <button class="rollable" data-roll-type="insight">
-        <i class="fa-solid fa-dice"></i> <b style="color: #2ba624">{{localize "CTHULHUDARK.InsightRollBtn"}}</b>
+        <i class="fa-solid fa-dice insight-die"></i> <b style="color: {{system.insight.color}}">{{localize "CTHULHUDARK.InsightRollBtn"}}</b>
       </button>
       <button class="rollable" data-roll-type="failure">
         <i class="fa-solid fa-dice"></i> {{localize "CTHULHUDARK.FailureRollBtn"}}

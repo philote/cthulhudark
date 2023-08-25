@@ -101,6 +101,10 @@ export class CthulhuDarkActorSheet extends ActorSheet {
           this._onToggleInsight(dataset.pos);
           return;
         }
+        case "clear-insight": {
+          this._onClearInsight();
+          return;
+        }
       }
     }
   }
@@ -117,6 +121,17 @@ export class CthulhuDarkActorSheet extends ActorSheet {
     }
 
     currentArray[pos] = newState;
+    this.actor.update({ ["system.insight.states"]: currentArray });
+  }
+
+  _onClearInsight() {
+    let currentArray = this.actor.system.insight.states;
+    for (const i in currentArray) {
+      if (currentArray[i] === true) {
+        currentArray[i] = false;
+      }
+    }
+  
     this.actor.update({ ["system.insight.states"]: currentArray });
   }
 

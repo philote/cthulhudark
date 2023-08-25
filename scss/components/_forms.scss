@@ -1,3 +1,90 @@
+.window-content {
+  padding: 0;
+  background: #070507;
+  color: white;
+
+  h2 {
+    border-bottom: 1px solid #FFFFFF4D;
+  }
+
+  input {
+    color: white;
+    background-color: #0d020eCC;
+    border: 1px solid #FFFFFF4D;
+
+    &:focus {
+      box-shadow: 0 0 6px #B2CCB1;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: rgb(175, 175, 175);
+    }
+  }
+
+  textarea {
+    color: white;
+    background-color: #0d020eCC;
+    border: 1px solid #FFFFFF4D;
+    padding: 5px;
+
+    &:focus {
+      box-shadow: 0 0 6px #B2CCB1;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: rgb(175, 175, 175);
+    }
+  }
+
+  a {
+
+    i {
+      color: #ddcddf;
+    }
+
+    &:hover, &:focus {
+      text-shadow: 0 0 10px #B2CCB1;
+    }
+  }
+
+  .rollable {
+
+    &:hover, &:focus {
+      text-shadow: 0 0 10px #B2CCB1;
+    }
+  }
+
+  .editor {
+    height: 195px;
+  }
+}
+
+.npc {
+  background-color: black;
+  background-image: url(../assets/ui/actor/actor-sheet-bg.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+  .editor {
+    height: 225px;
+  }
+}
+
+.character {
+  background-color: black;
+  background-image: url(../assets/ui/actor/actor-sheet-bg.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+
+  .editor {
+    height: 195px;
+  }
+}
+
 .item-form {
   font-family: $font-primary;
 }
@@ -9,22 +96,46 @@
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
-  // margin-bottom: 10px;
+  padding: 8px 8px 0px 8px;
+
+  button {
+    color: white;
+    background-color: #423543;
+    border: none;
+
+    i {
+      color: #ddcddf;
+    }
+
+    &:hover, &:focus {
+      box-shadow: 0 0 5px #B2CCB1;
+      text-shadow: 0 0 10px #B2CCB1;
+    }
+  }
 
   .insight {
     font-size: 20px;
-    margin: 10px 0;
-    text-align: center;
-    // flex: 0;
-    // align-self: center;
-    // width: 100%;
-    // align-items: center;
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    input[type="checkbox"] {
+
+      &:checked {
+        accent-color: #B2CCB1;
+      }
+    }
+  }
+
+  .insight-die {
+    color: #B2CCB1;
   }
 
   .profile-img {
-    // flex: 0 0 292px;
     height: 292px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #FFFFFF4D;
   }
 
   .header-fields {
@@ -38,7 +149,6 @@
 
   .sub-header-fields {
     height: 20px;
-    padding: 2px;
     margin-bottom: 5px;
     font-size: 14px;
     width: 100%;
@@ -64,13 +174,45 @@
 
 .sheet-body,
 .sheet-body .tab,
-.sheet-body .tab .editor {
-  height: 100%;
+.sheet-body .tab {
+  color: white;
+}
+
+nav.sheet-tabs {
+  margin: 4px 0;
+  border-top: none;
+  border-bottom: 1px solid #616161;
+}
+
+.tabs .item {
+  color: #616161;
+
+  &.active {
+    text-shadow: none;
+    color: white;
+    border-bottom: 2px solid #DDC0DF;
+  }
+}
+
+.sheet-body {
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: rgba(0, 0, 0, 0.30);
+
+  .rules {
+    b {
+      color: #DDC0DF;
+    }
+  }
+}
+
+.editor {
+  color: white;
 }
 
 .tox {
   .tox-editor-container {
-    background: white;
+    background: rgba(255, 255, 255, 0.785);
   }
 
   .tox-edit-area {
