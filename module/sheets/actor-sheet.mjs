@@ -131,9 +131,24 @@ export class CthulhuDarkActorSheet extends ActorSheet {
         currentArray[i] = false;
       }
     }
-  
+
     this.actor.update({ ["system.insight.states"]: currentArray });
   }
+
+  _increaseInsightByOne() {
+    let newInsight = duplicate(this.actor.system.insight.value);
+
+    if (newInsight < 6) {
+      let currentArray = this.actor.system.insight.states;
+      const firstPos = currentArray.indexOf(false);
+      if (firstPos != -1) {
+        currentArray[firstPos] = true;
+        this.actor.update({ ["system.insight.states"]: currentArray });
+      }
+    }
+
+    this.actor.update({ "system.insight.value": newInsight });
+}
 
   // ---------------------------
   // From my macro rolling files
@@ -438,13 +453,12 @@ export class CthulhuDarkActorSheet extends ActorSheet {
   async insightRoll() {
     let insightRoll = await new Roll("1d6").evaluate({ async: true });
     let currentInsightVal = duplicate(this.actor.system.insight.value);
+
     let newInsightVal = currentInsightVal;
 
     if (insightRoll.result > currentInsightVal) {
       ++newInsightVal;
-      // update insight
-      this.actor.system.insight.value = newInsightVal;
-      this.actor.update({ "system.insight.value": newInsightVal });
+      this._increaseInsightByOne();
     }
 
     const chatContentMessage = this.insightChatContent(
