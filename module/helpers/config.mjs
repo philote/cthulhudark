@@ -2,4 +2,4 @@ export const CTHULHUDARK = {};
 
 CTHULHUDARK.RiskColor = "#99d097";
 // CTHULHUDARK.RiskColor = "#2ba624";
-CTHULHUDARK.BaseColor = "#000000";
+CTHULHUDARK.BaseColor = "#FFFFFF";

@@ -12,8 +12,28 @@
 }
 
 .cd-roll-chat {
-  background: none;
-  background-color: red;
+  background-color: black;
+  background-image: url(../assets/ui/actor/actor-sheet-bg.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  color: white;
+  border: 1px solid #FFFFFF4D;
+  border-radius: 5px;
+
+  .message-header {
+    line-height: 20px;
+    color: rgb(190, 190, 190);
+  }
+
+  hr {
+    flex-grow: 0;
+    width: -webkit-fill-available;
+    padding: 0;
+    border: none;
+    border-top: 1px solid rgb(126, 126, 126);;
+    margin: 10px 0 10px 0;
+  }
 }
 
 .cd-roll-dialog {

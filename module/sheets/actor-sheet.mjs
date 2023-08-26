@@ -363,6 +363,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                 speaker: speaker,
                 rollMode: rollMode,
                 content: chatContentMessage,
+                flags: { cthulhudark: { chatID: "cthulhudark" }}
               });
 
               // ----
@@ -493,6 +494,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
       speaker: speaker,
       rollMode: rollMode,
       content: chatContentMessage,
+      flags: { cthulhudark: { chatID: "cthulhudark" }}
     });
   }
 }

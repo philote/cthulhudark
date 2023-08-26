@@ -18,6 +18,7 @@ Image of the Charater Sheet and roll messages in Foundry's chat:
   - Buttons to roll Investigate, Do Something Else, Insight Roll, Failure Roll
   - A Rules section summarizing a few rules snippets
   - A Notes section
+  - Dark UI design
 - Clicking on the roll buttons on the character sheet creates dialogs to choose which die to roll
 - The Insight roll automatically increases your insight when appropriate
 - All rolls print appropriate outputs into the chat
@@ -25,7 +26,7 @@ Image of the Charater Sheet and roll messages in Foundry's chat:
 
 ## To Be Done
 
-- Designs and CSS improvements
+- Automatically roll insight and apply any updates when a roll calls for it
 
 ## How to Install
 
