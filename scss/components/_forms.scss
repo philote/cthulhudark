@@ -13,7 +13,7 @@
     border: 1px solid #FFFFFF4D;
 
     &:focus {
-      box-shadow: 0 0 6px #B2CCB1;
+      box-shadow: 0 0 6px #99d097;
       outline: none;
     }
 
@@ -29,7 +29,7 @@
     padding: 5px;
 
     &:focus {
-      box-shadow: 0 0 6px #B2CCB1;
+      box-shadow: 0 0 6px #99d097;
       outline: none;
     }
 
@@ -45,14 +45,14 @@
     }
 
     &:hover, &:focus {
-      text-shadow: 0 0 10px #B2CCB1;
+      text-shadow: 0 0 10px #99d097;
     }
   }
 
   .rollable {
 
     &:hover, &:focus {
-      text-shadow: 0 0 10px #B2CCB1;
+      text-shadow: 0 0 10px #99d097;
     }
   }
 
@@ -69,7 +69,7 @@
   background-position: bottom;
 
   .editor {
-    height: 225px;
+    height: 210px;
   }
 }
 
@@ -97,7 +97,7 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   padding: 8px 8px 0px 8px;
-
+  
   button {
     color: white;
     background-color: #423543;
@@ -108,8 +108,8 @@
     }
 
     &:hover, &:focus {
-      box-shadow: 0 0 5px #B2CCB1;
-      text-shadow: 0 0 10px #B2CCB1;
+      box-shadow: 0 0 5px #99d097;
+      text-shadow: 0 0 10px #99d097;
     }
   }
 
@@ -123,13 +123,13 @@
     input[type="checkbox"] {
 
       &:checked {
-        accent-color: #B2CCB1;
+        accent-color: #99d097;
       }
     }
   }
 
   .insight-die {
-    color: #B2CCB1;
+    color: #99d097;
   }
 
   .profile-img {
@@ -149,7 +149,7 @@
 
   .sub-header-fields {
     height: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     font-size: 14px;
     width: 100%;
   }
@@ -203,6 +203,10 @@ nav.sheet-tabs {
     b {
       color: #DDC0DF;
     }
+  }
+
+  .editor-content {
+    background-color: #ffffff12;
   }
 }
 

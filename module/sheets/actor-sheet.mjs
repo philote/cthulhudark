@@ -90,19 +90,19 @@ export class CthulhuDarkActorSheet extends ActorSheet {
           this.failureRoll();
           return;
         }
-        case "doSomethingElse":
-        default: {
-          // Do Something Else 2
-          const move = 2;
-          this.asyncCDMoveDialog({ move });
-          return;
-        }
         case "toggle-insight": {
           this._onToggleInsight(dataset.pos);
           return;
         }
         case "clear-insight": {
           this._onClearInsight();
+          return;
+        }
+        case "doSomethingElse":
+        default: {
+          // Do Something Else 2
+          const move = 2;
+          this.asyncCDMoveDialog({ move });
           return;
         }
       }
@@ -373,6 +373,9 @@ export class CthulhuDarkActorSheet extends ActorSheet {
         close: () => {
           resolve(null);
         },
+      }, {
+        // THIS ADDS A CLASS TO THE WINDOW
+        classes: ["cd-roll-dialog"],
       }).render(true);
     });
   }
@@ -457,6 +460,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
       speaker: speaker,
       rollMode: rollMode,
       content: chatContentMessage,
+      flags: { cthulhudark: { chatID: "cthulhudark" }}
     });
   }
 

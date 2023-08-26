@@ -34,6 +34,15 @@ Hooks.once('init', async function() {
   Items.registerSheet("cthulhudark", CthulhuDarkItemSheet, { makeDefault: true });
 });
 
+Hooks.on('renderChatMessage', (chatMessage, [html], messageData) => {
+  const flag = chatMessage.getFlag('cthulhudark', 'chatID');
+  if (flag && flag == "cthulhudark") {
+    // TODO add a class to chat messages
+    // const chatCard = html.find(".chat-message");
+    // chatCard.addClass("cthulhudark");
+  }
+});
+
 /* -------------------------------------------- */
 /*  Handlebars Helpers                          */
 /* -------------------------------------------- */
