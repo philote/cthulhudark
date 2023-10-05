@@ -29,7 +29,12 @@
       "lang": "fr",
       "name": "French",
       "path": "lang/fr.json"
-    }
+    },
+        {
+            "lang": "pt-br",
+            "name": "Português (Brasil)",
+            "path": "lang/pt-br.json"
+        }
   ],
   "primaryTokenAttribute": "insight",
   "url": "https://github.com/philote/FoundryVTT-CthulhuDark",
