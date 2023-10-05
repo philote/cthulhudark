@@ -1,0 +1,60 @@
+{
+  "CTHULHUDARK.Add": "Adicionar",
+  "CTHULHUDARK.Insight": "Insanidade",
+  "CTHULHUDARK.ActorName": "Nome",
+  "CTHULHUDARK.OccupationName": "Ocupação",
+  "CTHULHUDARK.InvestigateBtn": "Insvestigar",
+  "CTHULHUDARK.OtherActionsBtn": "Outras Ações",
+  "CTHULHUDARK.InsightRollBtn": "Rolagem de Insanidade",
+  "CTHULHUDARK.FailureRollBtn": "Rolagem de Falha",
+  "CTHULHUDARK.LooksNpcInput": "Aparência",
+  "CTHULHUDARK.BehaviorsNpcInput": "Comportamentos",
+  "CTHULHUDARK.MotivationsNpcInput": "Motivações",
+
+  "CTHULHUDARK.RulesTab": "Regras",
+  "CTHULHUDARK.NotesTab": "Notas",
+
+  "CTHULHUDARK.FailureRuleTitle": "Rolagem de Falha:",
+  "CTHULHUDARK.FailureRuleText": "Isso não pode ser feito se você estiver investigando e precisar de um sucesso para que o cenário possa prosseguir",
+  "CTHULHUDARK.TryingAgainRuleTitle": "Tentando Novamente:",
+  "CTHULHUDARK.TryingAgainRuleText": "Se você incluiu seu dado de Insanidade na rolagem e não está feliz com o resultado, você pode rolar novamente (todos os dados). Cada re-rolagem pode aumentar sua Insanidade. Role novamente quantas vezes quiser.",
+  "CTHULHUDARK.CooperateRuleTitle": "Cooperar:",
+  "CTHULHUDARK.CooperateRuleText": "Todos rolam. O dado mais alto, rolado por qualquer um, determina o resultado.",
+  "CTHULHUDARK.CompeteRuleTitle": "Competir:",
+  "CTHULHUDARK.CompeteRuleText": "Todos que estiverem competindo rolam seus dados.  O melhor resultado vence.",
+
+  "CTHULHUDARK.ItemName": "Nome",
+  "CTHULHUDARK.ItemDescription": "Descrição",
+
+  "CTHULHUDARK.InvestigateDialogTitle": "Insvestigar",
+  "CTHULHUDARK.InvestigateDialogDesc": "Ao investigar, role:",
+  "CTHULHUDARK.DoSomethingElseDialogTitle": "Fazendo Outra Coisa",
+  "CTHULHUDARK.DoSomethingElseDialogDesc": "Ao fazer outra coisa que não investigar, role:",
+  "CTHULHUDARK.Roll": "Rolar!",
+
+  "CTHULHUDARK.DialogHumanDie": "Se a tarefa estiver dentro das capacidades humanas.",
+  "CTHULHUDARK.DialogOccupDie": "Se estiver dentro dos seus conhecimentos ocupacionais.",
+  "CTHULHUDARK.DialogRiskDie": "Se você vai arriscar sua sanidade para ser bem-sucedido.",
+  "CTHULHUDARK.InsightRoll": "Rolagem de Insanidade!",
+
+  "CTHULHUDARK.FailureRollContent": "Se sua rolagem for mais alta que o dado mais alto rolado por outro <b><i>Investigador</i></b>, ele falha, conforme você descrever. Se não, ele continua com o sucesso.",
+  "CTHULHUDARK.FailureRoll": "<b>Rolagem de Falha</b>:",
+
+  "CTHULHUDARK.RiskMoveMessage": "A situação revela algum horror cósmico, faça uma {insightroll}",
+
+  "CTHULHUDARK.InvestigateMaxDieMessage123": "Você obtém o mínimo: se precisar de informações para prosseguir com o cenário, você até consegue, mas é tudo o que você terá.",
+  "CTHULHUDARK.InvestigateMaxDieMessage4": "Você consegue o que um investigador competente descobriria.",
+  "CTHULHUDARK.InvestigateMaxDieMessage5": "Você descobre tudo o que é humanamente possível.",
+  "CTHULHUDARK.InvestigateMaxDieMessage6": "Você tem um sucesso brilhante, consegue algo extra e pode vislumbrar além do conhecimento humano (e provavelmente fazer uma {insightroll}).",
+
+  "CTHULHUDARK.DoSomethingElseMaxDieMessage123": "Você obtém o mínimo: se algo precisa acontecer para prosseguir com o cenário, isso até acontece, mas é o básico.",
+  "CTHULHUDARK.DoSomethingElseMaxDieMessage4": "Você consegue com competência",
+  "CTHULHUDARK.DoSomethingElseMaxDieMessage5": "Você executa bem e consegue algo extra.",
+  "CTHULHUDARK.DoSomethingElseMaxDieMessage6": "Você consegue brilhantemente, consegue algo extra, mas talvez até mais do que você queria (e provavelmente faz uma {insightroll}).",
+
+  "CTHULHUDARK.InsightChatContent4": "Sua {insight} anterior era <b>{previousinsight}</b>. Você rolou mais alto, então sua Insanidade agora é <b>{newnsight}</b>. Interprete seu medo.",
+  "CTHULHUDARK.InsightChatContent5": "Sua {insight} anterior era <b>{previousinsight}</b>. Você rolou mais alto, então sua Insanidade agora é <b>{newnsight}</b>. Interprete seu medo. <hr><b><i>Nota:</i></b> Agora você pode reduzir sua {insighttwo} ao suprimir o conhecimento dos Mitos. ",
+  "CTHULHUDARK.InsightChatContent6": "Sua {insight} anterior era <b>{previousinsight}</b>. Você rolou mais alto, então sua Insanidade agora é <b>{newnsight}</b>. <hr><b><i>Você fica incuravelmente insano.</i></b> Esse é um momento especial: todos devem se focar nos últimos momentos de seu personagem, enquanto sua mente se estilhaça. Interprete-o como quiser: lute, grite, corra ou entre em colapso.",
+
+  "CTHULHUDARK.InsightChatContent": "Sua {insight} atual é <b>{previousinsight}</b>. Você se mantém firme, mas por pouco..."
+}
