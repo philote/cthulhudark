@@ -23,6 +23,8 @@ Image of the Charater Sheet and roll messages in Foundry's chat:
 - The Insight roll automatically increases your insight when appropriate
 - All rolls print appropriate outputs into the chat
 - Tokens show Insight state at the bottom
+- French translation added by Dispositif https://github.com/Dispositif
+- Brazilian Portuguese translation added by Igor Teuri https://github.com/igorteuri
 
 ## To Be Done
 
