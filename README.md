@@ -4,7 +4,7 @@
 
 An unofficial, community-supported system for playing the Cthulhu Dark TTRPG (Created by Graham Walmsley) on Foundry VTT.
 
-![Latest Release Download Count](https://img.shields.io/github/downloads/philote/FoundryVTT-CthulhuDark/latest/module.zip)
+![Latest Release Download Count](https://img.shields.io/github/downloads/philote/FoundryVTT-CthulhuDark/latest/system.zip)
 
 - The original free rules from the author: http://catchyourhare.com/files/Cthulhu%20Dark.pdf
 - A pay for version of the original Rules: https://www.drivethrurpg.com/product/98137/Cthulhu-Dark-Free-twopage-edition
