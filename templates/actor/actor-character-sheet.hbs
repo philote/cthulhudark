@@ -8,12 +8,10 @@
 
     <div class="insight">
       <b class="rollable" data-roll-type="clear-insight" style="color: {{system.insight.color}}">{{localize "CTHULHUDARK.Insight"}}</b>
-      
       {{#each system.insight.states as |state count|}}
         <input class="rollable" type="checkbox" data-pos="{{count}}" data-roll-type="toggle-insight" {{#if state}}checked{{/if}} >
       {{/each}}
-      
-    </div>  
+    </div>
 
     <div class="grid grid-2col">
       <button class="rollable" data-roll-type="investigate">

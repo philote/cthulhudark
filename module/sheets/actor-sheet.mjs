@@ -22,7 +22,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    return `systems/cthulhudark/templates/actor/actor-${this.actor.type}-sheet.html`;
+    return `systems/cthulhudark/templates/actor/actor-${this.actor.type}-sheet.hbs`;
   }
 
   /* -------------------------------------------- */
@@ -148,7 +148,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
     }
 
     this.actor.update({ "system.insight.value": newInsight });
-}
+  }
 
   // ---------------------------
   // From my macro rolling files
@@ -203,7 +203,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
     }
 
     const template_file =
-      "systems/cthulhudark/templates/dialog/roll-content-template.html";
+      "systems/cthulhudark/templates/dialog/roll-content-template.hbs";
     loadTemplates([template_file]);
     const template_data = {
       dialogTitle: dialogTitleDesc,

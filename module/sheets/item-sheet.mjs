@@ -19,7 +19,7 @@ export class CthulhuDarkItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    return `systems/cthulhudark/templates/item/item-sheet.html`;
+    return `systems/cthulhudark/templates/item/item-sheet.hbs`;
   }
 
   /* -------------------------------------------- */
