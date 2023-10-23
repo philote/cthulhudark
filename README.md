@@ -4,6 +4,13 @@
 
 An unofficial, community-supported system for playing the Cthulhu Dark TTRPG (Created by Graham Walmsley) on Foundry VTT.
 
+![](https://img.shields.io/badge/Foundry-v10-informational)
+![](https://img.shields.io/badge/Foundry-v11-informational)
+<!--- Downloads @ Latest Badge -->
+![Latest Release Download Count](https://img.shields.io/github/downloads/philote/FoundryVTT-CthulhuDark/latest/system.zip)
+<!--- Forge Bazaar Install % Badge -->
+![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fcthulhudark&colorB=4aa94a)
+
 - The original free rules from the author: http://catchyourhare.com/files/Cthulhu%20Dark.pdf
 - A pay for version of the original Rules: https://www.drivethrurpg.com/product/98137/Cthulhu-Dark-Free-twopage-edition
 - Newest updated rules: https://www.drivethrurpg.com/product/341997/Cthulhu-Dark
@@ -23,6 +30,8 @@ Image of the Charater Sheet and roll messages in Foundry's chat:
 - The Insight roll automatically increases your insight when appropriate
 - All rolls print appropriate outputs into the chat
 - Tokens show Insight state at the bottom
+- French translation added by Dispositif https://github.com/Dispositif
+- Brazilian Portuguese translation added by Igor Teuri https://github.com/igorteuri
 
 ## To Be Done
 

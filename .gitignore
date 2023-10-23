@@ -30,3 +30,6 @@ foundry
 *.css.map
 *.sass.map
 *.scss.map
+
+#OS
+.DS_Store

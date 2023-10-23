@@ -2,10 +2,10 @@
   "id": "cthulhudark",
   "title": "Cthulhu Dark",
   "description": "An Unofficial Cthulhu Dark system for Foundry VTT.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "compatibility": {
     "minimum": 10,
-    "verified": "11.308",
+    "verified": "11.313",
     "maximum": 11
   },
   "authors": [
@@ -29,6 +29,11 @@
       "lang": "fr",
       "name": "French",
       "path": "lang/fr.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
     }
   ],
   "primaryTokenAttribute": "insight",
@@ -42,7 +47,7 @@
       "type": "screenshot",
       "url": "https://raw.githubusercontent.com/philote/FoundryVTT-CthulhuDark/main/CD_screenshot.webp",
       "loop": false,
-      "caption": "Cthulhu Dark screenshot from Foundry VTT."
+      "caption": "Cthulhu Dark character sheet screenshot from Foundry VTT."
     },
     {
       "type": "cover",
