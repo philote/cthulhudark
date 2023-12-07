@@ -1,0 +1,60 @@
+{
+  "CTHULHUDARK.Add": "Agregar",
+  "CTHULHUDARK.Insight": "Locura",
+  "CTHULHUDARK.ActorName": "Nombre",
+  "CTHULHUDARK.OccupationName": "Trabajo",
+  "CTHULHUDARK.InvestigateBtn": "Investigar",
+  "CTHULHUDARK.OtherActionsBtn": "Otras Acciones",
+  "CTHULHUDARK.InsightRollBtn": "Tirada de Cordura",
+  "CTHULHUDARK.FailureRollBtn": "Tirada de Fallo",
+  "CTHULHUDARK.LooksNpcInput": "Apariencia",
+  "CTHULHUDARK.BehaviorsNpcInput": "Actitud",
+  "CTHULHUDARK.MotivationsNpcInput": "Motivaciones",
+
+  "CTHULHUDARK.RulesTab": "Reglas",
+  "CTHULHUDARK.NotesTab": "Notas",
+
+  "CTHULHUDARK.FailureRuleTitle": "Tirada de Fallo:",
+  "CTHULHUDARK.FailureRuleText": "No puede ser usada en tiradas de Investigar, o si el éxito es necesario.",
+  "CTHULHUDARK.TryingAgainRuleTitle": "Intentarlo de nuevo:",
+  "CTHULHUDARK.TryingAgainRuleText": "Si incluiste tu dado de Locura en la tirada y no estás contento con el resultado, puedes repetir la tirada. Si el resultado de tu dado de Locura es más alto que cualquier otro dado, haz una tirada de Locura.",
+  "CTHULHUDARK.CooperateRuleTitle": "Cooperar:",
+  "CTHULHUDARK.CooperateRuleText": "Todos los que cooperen tiran sus dados. El dado más alto determina el resultado",
+  "CTHULHUDARK.CompeteRuleTitle": "Competir:",
+  "CTHULHUDARK.CompeteRuleText": "Todos los que compitan tiran sus dados. El que consiga el dado más alto gana.",
+
+  "CTHULHUDARK.ItemName": "Nombre",
+  "CTHULHUDARK.ItemDescription": "Descripción",
+
+  "CTHULHUDARK.InvestigateDialogTitle": "Investigar",
+  "CTHULHUDARK.InvestigateDialogDesc": "Cuando investigues, lanza:",
+  "CTHULHUDARK.DoSomethingElseDialogTitle": "Hacer algo más",
+  "CTHULHUDARK.DoSomethingElseDialogDesc": "Si haces algo más que investigar, tira:",
+  "CTHULHUDARK.Roll": "¡Tirar!",
+
+  "CTHULHUDARK.DialogHumanDie": "Si lo que quieres está dentro del alcance humano.",
+  "CTHULHUDARK.DialogOccupDie": "Si está dentro de tu entrenamiento.",
+  "CTHULHUDARK.DialogRiskDie": "Si quieres arriesgar tu cordura para tener éxito.",
+  "CTHULHUDARK.InsightRoll": "¡Tirada de Cordura!",
+
+  "CTHULHUDARK.FailureRollContent": "Si tu tirada es más alta que la del otro <b><i>Investigador</i></b> falla como tu describes Si no, tiene éxito de forma normal.",
+  "CTHULHUDARK.FailureRoll": "<b>Tirada de Fallo</b>:",
+
+  "CTHULHUDARK.RiskMoveMessage": "La situación revela algo del horror real del universo, haz una {insightroll}",
+
+  "CTHULHUDARK.InvestigateMaxDieMessage123": "Tienes lo minimo: Si necesitas información para continuar, la recibes pero solo el minimo posible y nada mas",
+  "CTHULHUDARK.InvestigateMaxDieMessage4": "Tienes cualquier cosa que un investigador competente podría descubrir.",
+  "CTHULHUDARK.InvestigateMaxDieMessage5": "Descubres todo lo humanamente posible.",
+  "CTHULHUDARK.InvestigateMaxDieMessage6": "Excedes cualquier limite, recibes algo extra y vislumbras la verdad más allá del conocimiento humano(y haces un {insightroll}).",
+
+  "CTHULHUDARK.DoSomethingElseMaxDieMessage123": "Recibes lo minimo: si algo debe suceder para continuar, lo logras. Pero solo eso y nada más.",
+  "CTHULHUDARK.DoSomethingElseMaxDieMessage4": "Tienes éxito.",
+  "CTHULHUDARK.DoSomethingElseMaxDieMessage5": "Lo consigues y recibes algo extra.",
+  "CTHULHUDARK.DoSomethingElseMaxDieMessage6": "Lo logras con éxito y recibes algo extra... Pero quizás mas de lo que deseabas(y haces una{insightroll}).",
+
+  "CTHULHUDARK.InsightChatContent4": "Tu {insight} anterior era <b>{previousinsight}</b>. Tiraste por encima, así que aumenta a <b>{newnsight}</b>. Narra y rolea el temor que sientes.",
+  "CTHULHUDARK.InsightChatContent5": "Tu {insight} anterior era <b>{previousinsight}</b>. Tiraste por encima, asi que aumenta a  <b>{newnsight}</b>. Narra y rolea el temor que sientes. <hr><b><i>Nota:</i></b> Puedes reducir tu {insighttwo} reprimiendo recuerdos y conocimiento.",
+  "CTHULHUDARK.InsightChatContent6": "Tu {insight} anterior era <b>{previousinsight}</b>. Tiraste por encima, asi que aumenta a  <b>{newnsight}</b>.  <hr><b><i>Pierdes la cordura.</i></b> Esto es tu momento especial: todos se concentran en los ultimos momentos de tu personaje antes de que su mente se rompa. Dale un final como quieras: peleando, gritando, llorando o incluso un sacrificio noble.",
+
+  "CTHULHUDARK.InsightChatContent": "Tu{insight} actual es <b>{previousinsight}</b>. Te las arreglas, por ahora..."
+}
