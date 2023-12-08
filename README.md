@@ -1,6 +1,6 @@
 # Cthulhu Dark (Unofficial) System
 
-![Cover](cover.webp)
+![Cover](./assets/cover.webp)
 
 An unofficial, community-supported system for playing the Cthulhu Dark TTRPG (Created by Graham Walmsley) on Foundry VTT.
 
@@ -16,7 +16,7 @@ An unofficial, community-supported system for playing the Cthulhu Dark TTRPG (Cr
 - Newest updated rules: https://www.drivethrurpg.com/product/341997/Cthulhu-Dark
 
 Image of the Charater Sheet and roll messages in Foundry's chat:
-![Screenshot](CD_screenshot.webp)
+![Screenshot](./assets/CD_screenshot.webp)
 
 ## Features
 
