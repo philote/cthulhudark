@@ -32,6 +32,7 @@ Image of the Charater Sheet and roll messages in Foundry's chat:
 - Tokens show Insight state at the bottom
 - French translation added by Dispositif https://github.com/Dispositif
 - Brazilian Portuguese translation added by Igor Teuri https://github.com/igorteuri
+- Spanish translation added by WarriorAmhar https://github.com/WarriorAmhar
 
 ## To Be Done
 
