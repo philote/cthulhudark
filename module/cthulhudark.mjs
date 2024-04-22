@@ -39,24 +39,4 @@ Hooks.on('renderChatMessage', (chatMessage, [html], messageData) => {
   if (flag && flag == "cthulhudark") {
     $(html).addClass("cd-roll-chat");
   }
-  /**
-   <li class="chat-message message flexcol " data-message-id="4MwkrgTH5PYtlEHs">
-    <header class="message-header flexrow">
-        <h4 class="message-sender">Bob</h4>
-        <span class="message-metadata">
-            <time class="message-timestamp">Now</time>
-            <a class="message-delete"><i class="fas fa-trash"></i></a>
-        </span>
-
-
-    </header>
-    <div class="message-content">
-        <p><span style="font-size:1.5em"><b style="color:#99d097"><i>Insight Roll!</i></b>: </span><i class="fas fa-dice-five" style="color:#99d097;font-size:2em"></i></p><hr>Your previous <b style="color:#99d097"><i>Insight</i></b> was <b>1</b>. You rolled higher, so your insight is now  <b>2</b>. Roleplay your fear.
-    </div>
-  </li>
-  */
 });
-
-/* -------------------------------------------- */
-/*  Handlebars Helpers                          */
-/* -------------------------------------------- */
