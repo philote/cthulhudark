@@ -50,20 +50,20 @@
   "media": [
     {
       "type": "screenshot",
-      "url": "https://raw.githubusercontent.com/philote/FoundryVTT-CthulhuDark/main/assets/CD_screenshot.webp",
+      "url": "https://raw.githubusercontent.com/philote/cthulhudark/main/assets/CD_screenshot.webp",
       "loop": false,
       "caption": "Cthulhu Dark character sheet screenshot from Foundry VTT."
     },
     {
       "type": "cover",
-      "url": "https://raw.githubusercontent.com/philote/FoundryVTT-CthulhuDark/main/assets/cover.webp",
+      "url": "https://raw.githubusercontent.com/philote/cthulhudark/main/assets/cover.webp",
       "loop": false,
       "caption": "Cover Images for the Unofficial Cthulhu Dark package."
     },
     {
       "type": "setup",
-      "url": "https://raw.githubusercontent.com/philote/FoundryVTT-CthulhuDark/main/assets/package_image.webp",
-      "thumbnail": "https://raw.githubusercontent.com/philote/FoundryVTT-CthulhuDark/main/assets/package_image_thumb.webp"
+      "url": "https://raw.githubusercontent.com/philote/cthulhudark/main/assets/package_image.webp",
+      "thumbnail": "https://raw.githubusercontent.com/philote/cthulhudark/main/assets/package_image_thumb.webp"
     }
   ]
 }
