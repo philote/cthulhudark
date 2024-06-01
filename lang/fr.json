@@ -1,60 +1,62 @@
 {
-  "CTHULHUDARK.Add": "Ajout",
-  "CTHULHUDARK.Insight": "Démence",
-  "CTHULHUDARK.ActorName": "Nom",
-  "CTHULHUDARK.OccupationName": "Occupation",
-  "CTHULHUDARK.InvestigateBtn": "Enquêter",
-  "CTHULHUDARK.OtherActionsBtn": "Autres actions",
-  "CTHULHUDARK.InsightRollBtn": "Jet démence",
-  "CTHULHUDARK.FailureRollBtn": "Faillir",
-  "CTHULHUDARK.LooksNpcInput": "Apparence",
-  "CTHULHUDARK.BehaviorsNpcInput": "Comportement",
-  "CTHULHUDARK.MotivationsNpcInput": "Motivations",
-
-  "CTHULHUDARK.RulesTab": "Règles",
-  "CTHULHUDARK.NotesTab": "Notes",
-
-  "CTHULHUDARK.FailureRuleTitle": "Jet d'échec :",
-  "CTHULHUDARK.FailureRuleText": "Ne peut pas être utilisé pour les jets d'enquête ou si la réussite est nécessaire au scénario.",
-  "CTHULHUDARK.TryingAgainRuleTitle": "Relancer :",
-  "CTHULHUDARK.TryingAgainRuleText": "Si vous incluez ou avez inclus votre dé de démence, vous pouvez relancer le dé. Chaque relance risque d'augmenter la démence. Relancez autant que vous le souhaitez.",
-  "CTHULHUDARK.CooperateRuleTitle": "Coopérer :",
-  "CTHULHUDARK.CooperateRuleText": "Tout le monde lance. Conservez le dé le plus élevé.",
-  "CTHULHUDARK.CompeteRuleTitle": "Rivaliser :",
-  "CTHULHUDARK.CompeteRuleText": "Les joueurs rivaux lancent leurs dés. Le dé le plus élevé gagne.",
-
-  "CTHULHUDARK.ItemName": "Nom",
-  "CTHULHUDARK.ItemDescription": "Description",
-
-  "CTHULHUDARK.InvestigateDialogTitle": "Enquêter",
-  "CTHULHUDARK.InvestigateDialogDesc": "Quand vous enquêtez, lancez :",
-  "CTHULHUDARK.DoSomethingElseDialogTitle": "Faire autre chose :",
-  "CTHULHUDARK.DoSomethingElseDialogDesc": "Quand vous faites autre chose qu'enquêter, lancez :",
-  "CTHULHUDARK.Roll": "Lancer les dés!",
-
-  "CTHULHUDARK.DialogHumanDie": "Si la tâche est dans les capacités humaines.",
-  "CTHULHUDARK.DialogOccupDie": "Si c'est dans votre domaine d'expertise.",
-  "CTHULHUDARK.DialogRiskDie": "Si vous voulez risquer votre santé mentale.",
-  "CTHULHUDARK.InsightRoll": "Jet de démence !",
-
-  "CTHULHUDARK.FailureRollContent": "Si ton jet est supérieur à celui des autres <b>investigateur</b>, ils échouent comme tu l'as décrit. Sinon ils réussissent.",
-  "CTHULHUDARK.FailureRoll": "<b>Faillir</b>:",
-
-  "CTHULHUDARK.RiskMoveMessage": "La situation révèle une horreur d'au-delà l'univers. Fais un {insightroll}",
-
-  "CTHULHUDARK.InvestigateMaxDieMessage123": "Vous obtenez le strict minimum : si vous avez besoin d'informations indispensables pour poursuivre le scénario, vous les obtenez, mais pas plus",
-  "CTHULHUDARK.InvestigateMaxDieMessage4": "Vous obtenez tout ce qu'un enquêteur compétent découvrirait",
-  "CTHULHUDARK.InvestigateMaxDieMessage5": "Vous découvrez tout ce qu'il est humainement possible de découvrir.",
-  "CTHULHUDARK.InvestigateMaxDieMessage6": "Vous réussissez brillamment, obtenez quelque chose de plus, et vous pouvez entrevoir ce qui est au-delà de la connaissance humaine (et probablement faire un {insightroll}).",
-
-  "CTHULHUDARK.DoSomethingElseMaxDieMessage123": "Vous obtenez le strict minimum : si quelque chose doit se produire pour poursuivre le scénario, vous l'obtenez, mais rien de plus",
-  "CTHULHUDARK.DoSomethingElseMaxDieMessage4": "Vous réussissez avec compétence",
-  "CTHULHUDARK.DoSomethingElseMaxDieMessage5": "Vous réussissez bien et pouvez obtenir quelque chose de plus",
-  "CTHULHUDARK.DoSomethingElseMaxDieMessage6": "Vous réussissez brillamment, obtenez quelque chose en plus, mais peut-être plus que ce que vous vouliez (et faites probablement un {insightroll})",
-
-  "CTHULHUDARK.InsightChatContent4": "Votre {insight} précédente était <b>{previousinsight}</b>. Vous avez obtenu au-dessus, donc votre démence est maintenant <b>{newnsight}</b>. Jouez votre peur !",
-  "CTHULHUDARK.InsightChatContent5": "Votre {insight} précédente était <b>{previousinsight}</b>. Vous avez obtenu au-dessus, donc votre démence est maintenant <b>{newnsight}</b>. Jouez votre peur !<hr><b><i>Note:</i></b> Vous pouvez maintenant réduire votre {insighttwo} en détruisant des connaissances liées au Mythe.",
-  "CTHULHUDARK.InsightChatContent6": "Votre {insight} précédente était <b>{previousinsight}</b>. Vous avez obtenu au-dessus, donc votre démence est maintenant <b>{newnsight}</b>. <hr><b><i>Vous devenez dément incurable.</i></b> Il s'agit d'un moment particulier : tout le monde se concentre sur les derniers instants de votre personnage, dont l'esprit s'effondre. Vous pouvez partir comme vous le souhaitez : en vous battant, en criant, en courant ou en vous effondrant.",
-
-  "CTHULHUDARK.InsightChatContent": "Votre {insight} actuelle est <b>{previousinsight}</b>. Vous tenez le coup, à peine..."
+  "CTHULHUDARK": {
+    "Add": "Ajout",
+    "Insight": "Démence",
+    "ActorName": "Nom",
+    "OccupationName": "Occupation",
+    "InvestigateBtn": "Enquêter",
+    "OtherActionsBtn": "Autres actions",
+    "InsightRollBtn": "Jet démence",
+    "FailureRollBtn": "Faillir",
+    "LooksNpcInput": "Apparence",
+    "BehaviorsNpcInput": "Comportement",
+    "MotivationsNpcInput": "Motivations",
+  
+    "RulesTab": "Règles",
+    "NotesTab": "Notes",
+  
+    "FailureRuleTitle": "Jet d'échec :",
+    "FailureRuleText": "Ne peut pas être utilisé pour les jets d'enquête ou si la réussite est nécessaire au scénario.",
+    "TryingAgainRuleTitle": "Relancer :",
+    "TryingAgainRuleText": "Si vous incluez ou avez inclus votre dé de démence, vous pouvez relancer le dé. Chaque relance risque d'augmenter la démence. Relancez autant que vous le souhaitez.",
+    "CooperateRuleTitle": "Coopérer :",
+    "CooperateRuleText": "Tout le monde lance. Conservez le dé le plus élevé.",
+    "CompeteRuleTitle": "Rivaliser :",
+    "CompeteRuleText": "Les joueurs rivaux lancent leurs dés. Le dé le plus élevé gagne.",
+  
+    "ItemName": "Nom",
+    "ItemDescription": "Description",
+  
+    "InvestigateDialogTitle": "Enquêter",
+    "InvestigateDialogDesc": "Quand vous enquêtez, lancez :",
+    "DoSomethingElseDialogTitle": "Faire autre chose :",
+    "DoSomethingElseDialogDesc": "Quand vous faites autre chose qu'enquêter, lancez :",
+    "Roll": "Lancer les dés!",
+  
+    "DialogHumanDie": "Si la tâche est dans les capacités humaines.",
+    "DialogOccupDie": "Si c'est dans votre domaine d'expertise.",
+    "DialogRiskDie": "Si vous voulez risquer votre santé mentale.",
+    "InsightRoll": "Jet de démence !",
+  
+    "FailureRollContent": "Si ton jet est supérieur à celui des autres <b>investigateur</b>, ils échouent comme tu l'as décrit. Sinon ils réussissent.",
+    "FailureRoll": "<b>Faillir</b>:",
+  
+    "RiskMoveMessage": "La situation révèle une horreur d'au-delà l'univers. Fais un {insightroll}",
+  
+    "InvestigateMaxDieMessage123": "Vous obtenez le strict minimum : si vous avez besoin d'informations indispensables pour poursuivre le scénario, vous les obtenez, mais pas plus",
+    "InvestigateMaxDieMessage4": "Vous obtenez tout ce qu'un enquêteur compétent découvrirait",
+    "InvestigateMaxDieMessage5": "Vous découvrez tout ce qu'il est humainement possible de découvrir.",
+    "InvestigateMaxDieMessage6": "Vous réussissez brillamment, obtenez quelque chose de plus, et vous pouvez entrevoir ce qui est au-delà de la connaissance humaine (et probablement faire un {insightroll}).",
+  
+    "DoSomethingElseMaxDieMessage123": "Vous obtenez le strict minimum : si quelque chose doit se produire pour poursuivre le scénario, vous l'obtenez, mais rien de plus",
+    "DoSomethingElseMaxDieMessage4": "Vous réussissez avec compétence",
+    "DoSomethingElseMaxDieMessage5": "Vous réussissez bien et pouvez obtenir quelque chose de plus",
+    "DoSomethingElseMaxDieMessage6": "Vous réussissez brillamment, obtenez quelque chose en plus, mais peut-être plus que ce que vous vouliez (et faites probablement un {insightroll})",
+  
+    "InsightChatContent4": "Votre {insight} précédente était <b>{previousinsight}</b>. Vous avez obtenu au-dessus, donc votre démence est maintenant <b>{newnsight}</b>. Jouez votre peur !",
+    "InsightChatContent5": "Votre {insight} précédente était <b>{previousinsight}</b>. Vous avez obtenu au-dessus, donc votre démence est maintenant <b>{newnsight}</b>. Jouez votre peur !<hr><b><i>Note:</i></b> Vous pouvez maintenant réduire votre {insighttwo} en détruisant des connaissances liées au Mythe.",
+    "InsightChatContent6": "Votre {insight} précédente était <b>{previousinsight}</b>. Vous avez obtenu au-dessus, donc votre démence est maintenant <b>{newnsight}</b>. <hr><b><i>Vous devenez dément incurable.</i></b> Il s'agit d'un moment particulier : tout le monde se concentre sur les derniers instants de votre personnage, dont l'esprit s'effondre. Vous pouvez partir comme vous le souhaitez : en vous battant, en criant, en courant ou en vous effondrant.",
+  
+    "InsightChatContent": "Votre {insight} actuelle est <b>{previousinsight}</b>. Vous tenez le coup, à peine..."
+  }
 }
