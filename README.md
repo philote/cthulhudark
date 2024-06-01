@@ -6,8 +6,9 @@ An unofficial, community-supported system for playing the Cthulhu Dark TTRPG (Cr
 
 ![](https://img.shields.io/badge/Foundry-v10-informational)
 ![](https://img.shields.io/badge/Foundry-v11-informational)
+![](https://img.shields.io/badge/Foundry-v12-informational)
 <!--- Downloads @ Latest Badge -->
-![Latest Release Download Count](https://img.shields.io/github/downloads/philote/FoundryVTT-CthulhuDark/latest/system.zip)
+![Latest Release Download Count](https://img.shields.io/github/downloads/philote/cthulhudark/latest/system.zip)
 <!--- Forge Bazaar Install % Badge -->
 ![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fcthulhudark&colorB=4aa94a)
 
@@ -41,3 +42,8 @@ Image of the Charater Sheet and roll messages in Foundry's chat:
 ## How to Install
 
 You can install the latest released version of the system by using this manifest link in Foundry VTT. [Instructions](https://foundryvtt.com/article/tutorial/): https://github.com/philote/FoundryVTT-CthulhuDark/releases/latest/download/system.json
+
+## Attribution
+The entire text of Cthulhu Dark is © [Graham Walmsley](http://catchyourhare.com) 2010
+
+Icons from [game-icons.net](http://game-icons.net) are released under a Creative Commons Attribution 3.0 Unported license. https://creativecommons.org/licenses/by/3.0
