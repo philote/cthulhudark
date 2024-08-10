@@ -5,7 +5,7 @@
   "version": "#{VERSION}#",
   "compatibility": {
     "minimum": 10,
-    "verified": "12.325",
+    "verified": "12.330",
     "maximum": 12
   },
   "authors": [
@@ -15,6 +15,10 @@
       "discord": "ephson",
       "mastodon": "@ephson@dice.camp",
       "reddit": "u/ephson"
+    },
+    {
+      "name": "friendlylambda",
+      "url": "https://github.com/friendlylambda"
     }
   ],
   "esmodules": ["module/cthulhudark.mjs"],

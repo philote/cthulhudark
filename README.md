@@ -34,6 +34,7 @@ Image of the Charater Sheet and roll messages in Foundry's chat:
 - French translation added by Dispositif https://github.com/Dispositif
 - Brazilian Portuguese translation added by Igor Teuri https://github.com/igorteuri
 - Spanish translation added by WarriorAmhar https://github.com/WarriorAmhar
+- Dice so Nice support by friendlylambda https://github.com/friendlylambda
 
 ## To Be Done
 
