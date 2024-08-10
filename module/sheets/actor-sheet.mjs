@@ -313,6 +313,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                   dieColor: CONFIG.CTHULHUDARK.BaseColor,
                   isRisk: false,
                   rollVal: hdRoll.result,
+                  roll: hdRoll,
                 });
               }
 
@@ -322,6 +323,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                   dieColor: CONFIG.CTHULHUDARK.BaseColor,
                   isRisk: false,
                   rollVal: odRoll.result,
+                  roll: odRoll,
                 });
               }
 
@@ -331,6 +333,7 @@ export class CthulhuDarkActorSheet extends ActorSheet {
                   dieColor: CONFIG.CTHULHUDARK.RiskColor,
                   isRisk: true,
                   rollVal: idRoll.result,
+                  roll: idRoll,
                 });
               }
 
@@ -375,10 +378,32 @@ export class CthulhuDarkActorSheet extends ActorSheet {
 
               ChatMessage.create({
                 user: user,
+                type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+                rolls: dice.map((die) => {
+                  // If "Dice So Nice!" is installed, this configuration will trigger a visual
+                  // dice roll with appropriate standard and insight colored dice
+                  if (game.dice3d) {
+                    if (die.isRisk) {
+                      die.roll.dice[0].options.appearance = {
+                        colorset: "custom",
+                        foreground: "black",
+                        background: CONFIG.CTHULHUDARK.RiskColor,
+                      };
+                    } else {
+                      die.roll.dice[0].options.appearance = {
+                        colorset: "custom",
+                        foreground: "black",
+                        background: CONFIG.CTHULHUDARK.BaseColor,
+                      };
+                    }
+                  }
+
+                  return die.roll;
+                }),
                 speaker: speaker,
                 rollMode: rollMode,
                 content: chatContentMessage,
-                flags: { cthulhudark: { chatID: "cthulhudark" }}
+                flags: { cthulhudark: { chatID: "cthulhudark" }},
               });
 
               // ----
@@ -470,9 +495,19 @@ export class CthulhuDarkActorSheet extends ActorSheet {
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get("core", "rollMode");
 
+    // If "Dice So Nice!" is installed, this data will cause it to roll a
+    // visual die with the insight theme colors
+    insightRoll.dice[0].options.appearance = {
+      colorset: "custom",
+      foreground: "black",
+      background: CONFIG.CTHULHUDARK.RiskColor,
+    }
+
     ChatMessage.create({
       user: user,
       speaker: speaker,
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      rolls: [insightRoll],
       rollMode: rollMode,
       content: chatContentMessage,
       flags: { cthulhudark: { chatID: "cthulhudark" }}
@@ -503,9 +538,19 @@ export class CthulhuDarkActorSheet extends ActorSheet {
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get("core", "rollMode");
 
+    // If "Dice So Nice!" is installed, this data will cause it to roll a
+    // visual die with the insight theme colors
+    failureRoll.dice[0].options.appearance = {
+      colorset: "custom",
+      foreground: "black",
+      background: CONFIG.CTHULHUDARK.BaseColor,
+    }
+
     ChatMessage.create({
       user: user,
       speaker: speaker,
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      rolls: [failureRoll],
       rollMode: rollMode,
       content: chatContentMessage,
       flags: { cthulhudark: { chatID: "cthulhudark" }}
