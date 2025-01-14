@@ -4,17 +4,36 @@
 
 An unofficial, community-supported system for playing the Cthulhu Dark TTRPG (Created by Graham Walmsley) on Foundry VTT.
 
-![](https://img.shields.io/badge/Foundry-v10-informational)
-![](https://img.shields.io/badge/Foundry-v11-informational)
-![](https://img.shields.io/badge/Foundry-v12-informational)
-<!--- Downloads @ Latest Badge -->
-![Latest Release Download Count](https://img.shields.io/github/downloads/philote/cthulhudark/latest/system.zip)
-<!--- Forge Bazaar Install % Badge -->
-![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fcthulhudark&colorB=4aa94a)
+<p align="center">
+    <img alt="Foundry Version 12 support" src="https://img.shields.io/badge/Foundry-v12-informational">
+    <img alt="Latest Release Download Count" src="https://img.shields.io/github/downloads/philote/cthulhudark/latest/total"> 
+    <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/philote/cthulhudark"> 
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/philote/cthulhudark">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/philote/cthulhudark">
+</p>
+<p align="center">
+    <img alt="GitHub" src="https://img.shields.io/github/license/philote/cthulhudark"> 
+    <a href="https://github.com/philote/cthulhudark/issues">
+        <img alt="GitHub issues" src="https://img.shields.io/github/issues/philote/cthulhudark">
+    </a> 
+    <a href="https://github.com/philote/cthulhudark/network">
+        <img alt="GitHub forks" src="https://img.shields.io/github/forks/philote/cthulhudark">
+    </a> 
+    <a href="https://github.com/philote/cthulhudark/stargazers">
+        <img alt="GitHub stars" src="https://img.shields.io/github/stars/philote/cthulhudark">
+    </a>
+</p>
+<p align="center">
+   	<a href='https://ko-fi.com/G2G3I91JQ' target='_blank'>
+					<img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi3.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' />
+				</a>
+</p>
 
 - The original free rules from the author: http://catchyourhare.com/files/Cthulhu%20Dark.pdf
 - A pay for version of the original Rules: https://www.drivethrurpg.com/product/98137/Cthulhu-Dark-Free-twopage-edition
 - Newest updated rules: https://www.drivethrurpg.com/product/341997/Cthulhu-Dark
+
+If you’ve enjoyed my work and find value in what I create, please consider supporting me with a small donation on [Ko-fi](https://ko-fi.com/G2G3I91JQ). I truly love what I do, and your support helps me dedicate time and resources to ongoing development. Every contribution, no matter the size, makes a difference and allows me to continue doing what I’m passionate about. Thank you for considering—it means the world to me.
 
 Image of the Charater Sheet and roll messages in Foundry's chat:
 ![Screenshot](./assets/CD_screenshot.webp)
