@@ -5,8 +5,8 @@
   "version": "#{VERSION}#",
   "compatibility": {
     "minimum": 10,
-    "verified": "12.330",
-    "maximum": 12
+    "verified": "13.339",
+    "maximum": 13
   },
   "authors": [
     {
@@ -21,6 +21,21 @@
       "url": "https://github.com/friendlylambda"
     }
   ],
+  "documentTypes": {
+    "Actor": {
+      "character": {
+        "htmlFields": ["notes"]
+      },
+      "npc": {
+        "htmlFields": ["notes"]
+      }
+    },
+    "Item": {
+      "item": {
+        "htmlFields": ["description"]
+      }
+    }
+  },
   "esmodules": ["module/cthulhudark.mjs"],
   "styles": ["css/cthulhudark.css"],
   "languages": [
