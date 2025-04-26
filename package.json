@@ -1,7 +1,7 @@
 {
   "name": "cthulhudark",
   "description": "CSS compiler for the Cthulhu Dark system",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "Joseph Hopson",
   "license": "MIT",
   "browserslist": [
@@ -9,16 +9,10 @@
   ],
   "private": true,
   "scripts": {
-    "build": "gulp build",
-    "compile": "gulp css",
-    "watch": "gulp",
-    "gulp": "gulp"
+    "build": "sass scss/cthulhudark.scss css/cthulhudark.css --style=expanded --no-source-map",
+    "watch": "sass scss/cthulhudark.scss css/cthulhudark.css --style=expanded --source-map --watch"
   },
   "devDependencies": {
-    "gulp": "^5.0.0",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^2.6.5",
     "sass": "^1.53.0"
   }
 }

@@ -33,3 +33,11 @@ foundry
 
 #OS
 .DS_Store
+
+# other
+.roomodes
+.roo/*
+.design/*
+.docs/*
+.specs/*
+project_state.json
