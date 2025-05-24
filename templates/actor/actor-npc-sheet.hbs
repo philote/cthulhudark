@@ -2,8 +2,21 @@
 
   {{!-- Sheet Header --}}
   <header class="cd-sheet-header">
-    <input class="charname" name="name" type="text" value="{{actor.name}}" placeholder="{{localize "CTHULHUDARK.ActorName"}}"/>
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    <input 
+      class="charname" 
+      name="name" 
+      type="text" 
+      value="{{actor.name}}" 
+      placeholder="{{localize "CTHULHUDARK.ActorName"}}"/>
+    <img
+      class='profile-img'
+      src='{{actor.img}}'
+      alt="{{actor.name}}"
+      title="{{actor.name}}"
+      data-edit='img'
+      data-action='onEditImage'
+      data-tooltip='{{actor.name}}'
+    />
     <textarea class="sub-header-fields" name="system.looks" type="text" value="{{system.looks}}" placeholder="{{localize "CTHULHUDARK.LooksNpcInput"}}">{{system.looks}}</textarea>
     <textarea class="sub-header-fields" name="system.behaviors" type="text" value="{{system.behaviors}}" placeholder="{{localize "CTHULHUDARK.BehaviorsNpcInput"}}">{{system.behaviors}}</textarea>
     <textarea class="sub-header-fields" name="system.motivations" type="text" value="{{system.motivations}}" placeholder="{{localize "CTHULHUDARK.MotivationsNpcInput"}}">{{system.motivations}}</textarea>

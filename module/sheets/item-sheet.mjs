@@ -1,60 +1,95 @@
+const { api, sheets } = foundry.applications;
+
 /**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
-export class CthulhuDarkItemSheet extends ItemSheet {
+export class CthulhuDarkItemSheet extends api.HandlebarsApplicationMixin(
+  sheets.ItemSheetV2
+) {
   /** @override */
-  static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
-      classes: ["cthulhudark", "sheet", "item"],
+  static DEFAULT_OPTIONS = {
+    classes: ["cthulhudark", "sheet", "item"],
+    position: {
       width: 310,
       height: 620,
-      tabs: [{
-        navSelector: ".sheet-tabs",
-        contentSelector: ".sheet-body",
-        initial: "description",
-      }],
-    });
-  }
+		},
+    window: {
+			resizable: true,
+		},
+    actions: {
+      onEditImage: this._onEditImage,
+    },
+    form: {
+      submitOnChange: true,
+    }
+  };
 
   /** @override */
-  get template() {
-    return `systems/cthulhudark/templates/item/item-sheet.hbs`;
+  static PARTS = {
+    item: {
+      template: "systems/cthulhudark/templates/item/item-sheet.hbs",
+      scrollable: [""],
+    }
+  };
+
+  /** @override */
+  get title() {
+    return `${this.item.name}`;
   }
 
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
-    // Retrieve base data structure.
-    const context = super.getData();
+	_configureRenderOptions(options) {
+		super._configureRenderOptions(options);
+		// Not all parts always render
+		options.parts = ['item'];
+	}
 
-    // Use a safe clone of the item data for further operations.
-    const itemData = context.item;
+  /** @override */
+  _prepareContext(options) {
+    // Retrieve base data structure.
+    const context = super._prepareContext(options);
 
     // Retrieve the roll data for TinyMCE editors.
-    context.rollData = {};
-    let actor = this.object?.parent ?? null;
-    if (actor) {
-      context.rollData = actor.getRollData();
-    }
-
-    // Add the actor's data to context.data for easier access, as well as flags.
-    context.system = itemData.system;
-    context.flags = itemData.flags;
+    // context.rollData = {};
+    // let actor = this.object?.parent ?? null;
+    // if (actor) {
+    //   context.rollData = actor.getRollData();
+    // }
 
     return context;
   }
 
   /* -------------------------------------------- */
 
-  /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
+  /**
+	 * Handle changing a Document's image.
+	 *
+	 * @this BoilerplateActorSheet
+	 * @param {PointerEvent} event   The originating click event
+	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+	 * @returns {Promise}
+	 * @protected
+	 */
+	static async _onEditImage(event, target) {
+		const attr = target.dataset.edit;
+		const current = foundry.utils.getProperty(this.document, attr);
+		const { img } =
+			this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ??
+			{};
+		const fp = new FilePicker({
+			current,
+			type: "image",
+			redirectToRoot: img ? [img] : [],
+			callback: (path) => {
+				this.document.update({ [attr]: path });
+			},
+			top: this.position.top + 40,
+			left: this.position.left + 10,
+		});
+		return fp.browse();
+	}
 
-    // Everything below here is only needed if the sheet is editable
-    if (!this.isEditable) return;
-
-    // Roll handlers, click handlers, etc. would go here.
-  }
 }

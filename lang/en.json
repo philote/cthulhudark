@@ -64,6 +64,20 @@
     "InsightChatContent5": "Your previous {insight} was <b>{previousinsight}</b>. You rolled higher, so your insight is now  <b>{newnsight}</b>. Roleplay your fear. <hr><b><i>Note:</i></b> You may now reduce your {insighttwo} by suppressing Mythos knowledge.",
     "InsightChatContent6": "Your previous {insight} was <b>{previousinsight}</b>. You rolled higher, so your insight is now  <b>{newnsight}</b>. <hr><b><i>You go incurably insane.</i></b> This is a special moment: everyone focusses on your character’s last moments as their mind breaks. Go out however you want: fight, scream, run or collapse.",
 
-    "InsightChatContent": "Your current {insight} is <b>{previousinsight}</b>. You keep it together, just barely..."
+    "InsightChatContent": "Your current {insight} is <b>{previousinsight}</b>. You keep it together, just barely...",
+    "Settings": {
+      "game": {
+				"heading": "Cthulhu Dark",
+				"publisher": {
+					"title": "Graham Walmsley"
+				},
+				"github": {
+					"title": "Module Repository"
+				},
+				"kofi": {
+					"title": "Support me on Ko-fi"
+				}
+			}
+    }
   }
 }

@@ -2,28 +2,71 @@
 
   {{!-- Sheet Header --}}
   <header class="cd-sheet-header">
-    <input class="charname" name="name" type="text" value="{{actor.name}}" placeholder="{{localize "CTHULHUDARK.ActorName"}}"/>
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
-    <input class="header-fields" name="system.occupation" type="text" value="{{system.occupation}}" placeholder="{{localize "CTHULHUDARK.OccupationName"}}"/>
+    <input 
+      class="charname" 
+      name="name" 
+      type="text" 
+      value="{{actor.name}}" 
+      placeholder='{{localize "CTHULHUDARK.ActorName"}}' />
+    <img
+      class='profile-img'
+      src='{{actor.img}}'
+      alt="{{actor.name}}"
+      title="{{actor.name}}"
+      data-edit='img'
+      data-action='onEditImage'
+      data-tooltip='{{actor.name}}'
+    />
+    <input 
+      type="text" 
+      class="header-fields" 
+      name="system.occupation" 
+      value="{{system.occupation}}"
+      data-dtype='String'
+      placeholder='{{localize "CTHULHUDARK.OccupationName"}}' />
 
     <div class="insight">
-      <b class="rollable" data-roll-type="clear-insight" style="color: {{system.insight.color}}">{{localize "CTHULHUDARK.Insight"}}</b>
+      <b 
+        data-action="roll"
+        data-roll-type="clearInsight" 
+        style="color: {{system.insight.color}}">
+          {{localize "CTHULHUDARK.Insight"}}
+      </b>
       {{#each system.insight.states as |state count|}}
-        <input class="rollable" type="checkbox" data-pos="{{count}}" data-roll-type="toggle-insight" {{#if state}}checked{{/if}} >
+        <input
+          type="checkbox"
+          name="system.insight.states.{{count}}"
+          data-insight-pos="{{count}}"
+          data-action="roll"
+          data-roll-type="toggleInsight"
+          {{#if state}}checked{{/if}}>
       {{/each}}
     </div>
 
     <div class="grid grid-2col">
-      <button class="rollable" data-roll-type="investigate">
-        <i class="fa-solid fa-dice"></i> {{localize "CTHULHUDARK.InvestigateBtn"}}
+      <button 
+        type="button" 
+        data-action="roll"
+        data-roll-type="investigate">
+          <i class="fa-solid fa-dice"></i> {{localize "CTHULHUDARK.InvestigateBtn"}}
       </button>
-      <button class="rollable" data-roll-type="doSomethingElse">
+      <button 
+        type="button" 
+        data-action="roll"
+        data-roll-type="doSomethingElse">
         <i class="fa-solid fa-dice"></i> {{localize "CTHULHUDARK.OtherActionsBtn"}}
       </button>
-      <button class="rollable" data-roll-type="insight">
-        <i class="fa-solid fa-dice insight-die"></i> <b style="color: {{system.insight.color}}">{{localize "CTHULHUDARK.InsightRollBtn"}}</b>
+      <button 
+        type="button" 
+        data-action="roll"
+        data-roll-type="insight">
+        <i class="fa-solid fa-dice insight-die"></i> 
+        <b style="color: {{system.insight.color}}">{{localize "CTHULHUDARK.InsightRollBtn"}}</b>
       </button>
-      <button class="rollable" data-roll-type="failure">
+      <button 
+        type="button" 
+        data-action="roll"
+        data-roll-type="failure">
         <i class="fa-solid fa-dice"></i> {{localize "CTHULHUDARK.FailureRollBtn"}}
       </button>
     </div>
@@ -49,7 +92,13 @@
 
     {{!-- Notes Tab --}}
     <div class="tab notes" data-group="primary" data-tab="notes">
-      {{editor system.notes target="system.notes" rollData=rollData button=true owner=owner editable=editable}}
+      {{editor 
+        system.notes 
+        target="system.notes" 
+        rollData=rollData 
+        button=true 
+        owner=owner 
+        editable=editable}}
     </div>
 
   </section>

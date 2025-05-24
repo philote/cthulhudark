@@ -27,7 +27,6 @@ export class CthulhuDarkActor extends Actor {
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     this._prepareCharacterData(actorData);
-    this._prepareNpcData(actorData);
   }
 
   /**
@@ -42,13 +41,6 @@ export class CthulhuDarkActor extends Actor {
     // update Insight so they can be used as token resources
     systemData.insight.value = [systemData.insight.states.filter(Boolean).length];
     systemData.insight.color = CONFIG.CTHULHUDARK.RiskColor;
-  }
-
-  /**
-   * Prepare NPC type specific data.
-   */
-  _prepareNpcData(actorData) {
-    if (this.type == 'character') return;
   }
 
 }

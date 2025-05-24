@@ -3,12 +3,18 @@
  * @extends {foundry.abstract.TypeDataModel}
  */
 export class CthulhuDarkActorData extends foundry.abstract.TypeDataModel {
+  
   /** @override */
   static defineSchema() {
     const fields = foundry.data.fields;
-    return {
-      notes: new fields.HTMLField({ required: true, blank: true }),
-    };
+    const schema = {};
+
+    schema.notes = new fields.HTMLField({ 
+      required: true, 
+      blank: true 
+    });
+    
+    return schema;
   }
 }
 
@@ -17,35 +23,38 @@ export class CthulhuDarkActorData extends foundry.abstract.TypeDataModel {
  * @extends {CthulhuDarkActorData}
  */
 export class CharacterData extends CthulhuDarkActorData {
+
   /** @override */
   static defineSchema() {
     const requiredInteger = { required: true, nullable: false, integer: true };
     const requiredString = { required: true, blank: true };
     const fields = foundry.data.fields;
-    return {
-      ...super.defineSchema(),
-      insight: new fields.SchemaField({
-        min: new fields.NumberField({
-          ...requiredInteger,
-          initial: 0,
-          min: 0
-        }),
-        value: new fields.ArrayField(
-          new fields.NumberField(), 
-          {initial: [1]}
-        ),
-        max: new fields.NumberField({
-          ...requiredInteger,
-          initial: 6,
-          min: 0
-        }),
-        states: new fields.ArrayField(
-          new fields.BooleanField(), 
-          {initial: [true, false, false, false, false, false]}
-        )
+    const schema = super.defineSchema();
+
+    schema.insight = new fields.SchemaField({
+      min: new fields.NumberField({
+        ...requiredInteger,
+        initial: 0,
+        min: 0
       }),
-      occupation: new fields.StringField({ ...requiredString })
-    };
+      value: new fields.ArrayField(
+        new fields.NumberField(), 
+        {initial: [1]}
+      ),
+      max: new fields.NumberField({
+        ...requiredInteger,
+        initial: 6,
+        min: 0
+      }),
+      states: new fields.ArrayField(
+        new fields.BooleanField(), 
+        {initial: [true, false, false, false, false, false]}
+      )
+    });
+    
+    schema.occupation = new fields.StringField({ ...requiredString });
+
+    return schema;
   }
   
   prepareDerivedData() {
@@ -66,11 +75,12 @@ export class NPCData extends CthulhuDarkActorData {
   static defineSchema() {
     const requiredString = { required: true, blank: true };
     const fields = foundry.data.fields;
-    return {
-      ...super.defineSchema(),
-      looks: new fields.StringField({ ...requiredString }),
-      behaviors: new fields.StringField({ ...requiredString }),
-      motivations: new fields.StringField({ ...requiredString })
-    };
+    const schema = super.defineSchema();
+
+    schema.looks = new fields.StringField({ ...requiredString });
+    schema.behaviors = new fields.StringField({ ...requiredString });
+    schema.motivations = new fields.StringField({ ...requiredString });
+    
+    return schema;
   }
 }
