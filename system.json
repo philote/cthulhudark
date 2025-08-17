@@ -5,7 +5,7 @@
   "version": "#{VERSION}#",
   "compatibility": {
     "minimum": 12,
-    "verified": "13.339",
+    "verified": 13.346,
     "maximum": 13
   },
   "authors": [
@@ -13,7 +13,6 @@
       "name": "ephson",
       "url": "https://github.com/philote",
       "discord": "ephson",
-      "mastodon": "@ephson@dice.camp",
       "reddit": "u/ephson"
     },
     {
@@ -72,8 +71,8 @@
   "download": "#{DOWNLOAD}#",
   "license": "LICENSE",
   "readme": "README.md",
-  "socket": false,
   "background": "systems/cthulhudark/assets/package_image.webp",
+  "bugs": "https://github.com/philote/cthulhudark/issues",
   "media": [
     {
       "type": "screenshot",

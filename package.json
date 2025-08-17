@@ -10,7 +10,8 @@
   "private": true,
   "scripts": {
     "build": "sass scss/cthulhudark.scss css/cthulhudark.css --style=expanded --no-source-map",
-    "watch": "sass scss/cthulhudark.scss css/cthulhudark.css --style=expanded --source-map --watch"
+    "watch": "sass scss/cthulhudark.scss css/cthulhudark.css --style=expanded --source-map --watch",
+    "createSymlinks": "node ./tools/create-symlinks.mjs"
   },
   "devDependencies": {
     "sass": "^1.53.0"

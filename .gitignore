@@ -34,10 +34,13 @@ foundry
 #OS
 .DS_Store
 
-# other
-.roomodes
-.roo/*
-.design/*
-.docs/*
-.specs/*
-project_state.json
+# Foundry code base symlinks
+foundry-config.yaml
+foundry
+
+# Environment variables
+.env
+
+# Other
+CLAUDE.md
+.claude/
