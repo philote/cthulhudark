@@ -28,8 +28,14 @@ An unofficial, community-supported system for playing the Cthulhu Dark TTRPG (Cr
 </p>
 <p align="center">
    	<a href='https://ko-fi.com/G2G3I91JQ' target='_blank'>
-					<img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi3.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' />
-				</a>
+        <img 
+            height='36' 
+            style='border:0px;height:36px;' 
+            src='https://storage.ko-fi.com/cdn/kofi3.png?v=6' 
+            border='0' 
+            alt='Buy Me a Coffee at ko-fi.com' 
+        />
+    </a>
 </p>
 
 - The original free rules from the author: http://catchyourhare.com/files/Cthulhu%20Dark.pdf

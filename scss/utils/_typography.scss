@@ -1,1 +1,63 @@
-$font-primary: "Roboto", sans-serif;
+@use "../utils/variables" as *;
+
+$fonts-path: "#{$asset-path}fonts/";
+
+@font-face {
+	font-family: "gabriele";
+	src: url("#{$fonts-path}gabriele/gabriele-l.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "gabriele";
+	src: url("#{$fonts-path}gabriele/gabriele-bad.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
+}
+
+
+@font-face {
+	font-family: "Erika Type";
+	src: url("#{$fonts-path}erica-type/Erika Type.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Erika Type";
+	src: url("#{$fonts-path}erica-type/Erika Type_B.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "TeX Gyre Cursor";
+	src: url("#{$fonts-path}TeX-Gyre-Cursor/texgyrecursor-bold.otf") format("opentype");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "TeX Gyre Cursor";
+	src: url("#{$fonts-path}TeX-Gyre-Cursor/texgyrecursor-regular.otf") format("opentype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: "TeX Gyre Cursor";
+    src: url("#{$fonts-path}TeX-Gyre-Cursor/texgyrecursor-italic.otf") format("opentype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "TeX Gyre Cursor";
+    src: url("#{$fonts-path}TeX-Gyre-Cursor/texgyrecursor-bolditalic.otf") format("opentype");
+    font-weight: bold;
+    font-style: italic;
+}
+$font-primary: "TeX Gyre Cursor", "Courier New", monospace;
+$font-secondary: "Erika Type", serif;
+$font-tertiary: "gabriele", serif;

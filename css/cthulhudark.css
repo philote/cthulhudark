@@ -1,61 +1,163 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-/* Global styles */
-.window-app {
-  font-family: "Roboto", sans-serif;
+@font-face {
+  font-family: "gabriele";
+  src: url("../assets/fonts/gabriele/gabriele-l.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "gabriele";
+  src: url("../assets/fonts/gabriele/gabriele-bad.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Erika Type";
+  src: url("../assets/fonts/erica-type/Erika Type.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Erika Type";
+  src: url("../assets/fonts/erica-type/Erika Type_B.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TeX Gyre Cursor";
+  src: url("../assets/fonts/TeX-Gyre-Cursor/texgyrecursor-bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TeX Gyre Cursor";
+  src: url("../assets/fonts/TeX-Gyre-Cursor/texgyrecursor-regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TeX Gyre Cursor";
+  src: url("../assets/fonts/TeX-Gyre-Cursor/texgyrecursor-italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "TeX Gyre Cursor";
+  src: url("../assets/fonts/TeX-Gyre-Cursor/texgyrecursor-bolditalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+:root,
+.application.cthulhudark.themed.theme-light {
+  --cthulhudark-c-dark: #191813;
+  --cthulhudark-c-faint: #6f4d74;
+  --cthulhudark-c-beige: #989584;
+  --cthulhudark-c-tan: #444444;
+  --cthulhudark-c-white: #f8e6f9;
+  --cthulhudark-c-black: #000000;
+  --cthulhudark-c-groove: #ab8eb1;
+  --cthulhudark-c-insight: #097805;
+  --cthulhudark-c-lt-insight: #99d097;
+  --cthulhudark-c-purple: #560561;
+  --cthulhudark-c-lt-purple: #e2bde6;
+  --cthulhudark-c-pink: #b8016c;
+  --cthulhudark-input-background-color: rgba(0, 0, 0, 0.1);
+  --cthulhudark-input-border-color: #666;
 }
 
-.rollable:hover, .rollable:focus {
-  color: #000;
-  text-shadow: 0 0 10px red;
-  cursor: pointer;
+.theme-dark,
+.application.cthulhudark.themed.theme-dark {
+  --cthulhudark-c-dark: #c9c7b8;
+  --cthulhudark-c-faint: #e0d3e2;
+  --cthulhudark-c-beige: #868686;
+  --cthulhudark-c-tan: #b5b3a4;
+  --cthulhudark-c-white: #0d020e;
+  --cthulhudark-c-black: #ded1de;
+  --cthulhudark-c-groove: #413643;
+  --cthulhudark-c-insight: #99d097;
+  --cthulhudark-c-lt-insight: #2c7f2b;
+  --cthulhudark-c-purple: #ddaee4;
+  --cthulhudark-c-lt-purple: #95449f;
+  --cthulhudark-c-pink: #b54285;
+  --cthulhudark-input-background-color: rgba(255, 255, 255, 0.045);
+  --cthulhudark-input-border-color: var(--cthulhudark-c-groove);
+}
+
+.insight-color {
+  color: var(--cthulhudark-c-insight) !important;
+}
+
+.base-color {
+  color: var(--cthulhudark-c-black) !important;
+}
+
+.error-color {
+  color: var(--cthulhudark-c-pink) !important;
+}
+
+.insight-die {
+  color: var(--cthulhudark-c-lt-insight) !important;
+}
+
+.font-large {
+  font-size: 1.5em;
+}
+
+.font-x-large {
+  font-size: 2em;
 }
 
 .cd-roll-chat {
-  background-color: black;
-  background-image: url(../assets/ui/actor/actor-sheet-bg.webp);
+  background-color: var(--cthulhudark-c-white);
+  background-image: url("../assets/ui/actor/sheet-bg.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3019607843);
+  color: var(--cthulhudark-c-black);
+  border: 1px solid var(--cthulhudark-c-groove);
   border-radius: 5px;
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
 }
 .cd-roll-chat .message-header {
   line-height: 20px;
-  color: rgb(190, 190, 190);
+  color: var(--cthulhudark-c-black);
 }
 .cd-roll-chat hr {
   flex-grow: 0;
   width: -webkit-fill-available;
   padding: 0;
   border: none;
-  border-top: 1px solid rgb(126, 126, 126);
+  border-top: 1px solid var(--cthulhudark-c-groove);
   margin: 10px 0 10px 0;
 }
 
 .cd-roll-dialog .window-content {
-  background-color: black;
-  background-image: url(../assets/ui/actor/actor-sheet-bg.webp);
+  background-color: var(--cthulhudark-c-white);
+  background-image: url("../assets/ui/actor/sheet-bg.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
-  color: white;
+  color: var(--cthulhudark-c-black);
 }
 .cd-roll-dialog .window-content label {
   display: flex;
   align-items: center;
 }
 .cd-roll-dialog .window-content button {
-  color: white;
-  background-color: #423543;
+  color: var(--cthulhudark-c-white);
+  background-color: var(--cthulhudark-c-faint);
   border: none;
+  font-family: "gabriele", serif;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  height: auto;
+  overflow-x: hidden;
 }
 .cd-roll-dialog .window-content button i {
-  color: #ddcddf;
+  color: var(--cthulhudark-c-lt-purple);
 }
 .cd-roll-dialog .window-content button:hover, .cd-roll-dialog .window-content button:focus {
-  box-shadow: 0 0 5px #99d097;
-  text-shadow: 0 0 10px #99d097;
+  box-shadow: 0 0 5px var(--cthulhudark-c-insight);
+  text-shadow: 0 0 10px var(--cthulhudark-c-insight);
 }
 
 .grid,
@@ -206,123 +308,78 @@
   grid-column-end: span 12;
 }
 
-.flex-group-center,
-.flex-group-left,
-.flex-group-right {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.flex-group-left {
-  justify-content: flex-start;
-  text-align: left;
-}
-
-.flex-group-right {
-  justify-content: flex-end;
-  text-align: right;
-}
-
-.flexshrink {
-  flex: 0;
-}
-
-.flex-between {
-  justify-content: space-between;
-}
-
-.flexlarge {
-  flex: 2;
-}
-
-.align-left {
-  justify-content: flex-start;
-  text-align: left;
-}
-
-.align-right {
-  justify-content: flex-end;
-  text-align: right;
-}
-
-.align-center {
-  justify-content: center;
-  text-align: center;
-}
-
+/* Utilities. */
+/* Global styles */
+/* Styles limited to cthulhudark sheets */
 /* Styles limited to cthulhudark sheets */
 .cthulhudark .window-content {
   padding: 0;
-  background: #070507;
-  color: white;
-}
-.cthulhudark .window-content h2 {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3019607843);
-}
-.cthulhudark .window-content input {
-  color: white;
-  background-color: rgba(13, 2, 14, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.3019607843);
-}
-.cthulhudark .window-content input:focus {
-  box-shadow: 0 0 6px #99d097;
-  outline: none;
-}
-.cthulhudark .window-content input::placeholder {
-  color: rgb(175, 175, 175);
-}
-.cthulhudark .window-content textarea {
-  color: white;
-  background-color: rgba(13, 2, 14, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.3019607843);
-  padding: 5px;
-}
-.cthulhudark .window-content textarea:focus {
-  box-shadow: 0 0 6px #99d097;
-  outline: none;
-}
-.cthulhudark .window-content textarea::placeholder {
-  color: rgb(175, 175, 175);
-}
-.cthulhudark .window-content a i {
-  color: #ddcddf;
-}
-.cthulhudark .window-content a:hover, .cthulhudark .window-content a:focus {
-  text-shadow: 0 0 10px #99d097;
-}
-.cthulhudark .window-content .rollable:hover, .cthulhudark .window-content .rollable:focus {
-  text-shadow: 0 0 10px #99d097;
-}
-.cthulhudark .window-content .editor {
-  height: 190px;
-}
-.cthulhudark .npc {
-  background-color: black;
-  background-image: url(../assets/ui/actor/actor-sheet-bg.webp);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
-}
-.cthulhudark .npc .editor {
-  height: 180px;
-}
-.cthulhudark .character {
-  background-color: black;
-  background-image: url(../assets/ui/actor/actor-sheet-bg.webp);
+  background-color: var(--cthulhudark-c-white);
+  background-image: url("../assets/ui/actor/sheet-bg.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
+  overflow-y: auto;
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
 }
-.cthulhudark .character .editor {
-  height: 190px;
+.cthulhudark .window-content h2 {
+  border-bottom: 1px solid var(--cthulhudark-c-beige);
 }
-.cthulhudark .item-form {
-  font-family: "Roboto", sans-serif;
+.cthulhudark .window-content button,
+.cthulhudark .window-content a {
+  color: var(--cthulhudark-c-black);
+}
+.cthulhudark .window-content input {
+  color: var(--cthulhudark-c-black);
+}
+.cthulhudark .window-content input:focus {
+  box-shadow: 0 0 6px var(--cthulhudark-c-insight);
+  outline: none;
+}
+.cthulhudark .window-content input::placeholder {
+  color: var(--cthulhudark-c-beige);
+}
+.cthulhudark .window-content textarea {
+  color: var(--cthulhudark-c-black);
+  padding: 5px;
+}
+.cthulhudark .window-content textarea:focus {
+  box-shadow: 0 0 6px var(--cthulhudark-c-insight);
+  outline: none;
+}
+.cthulhudark .window-content textarea::placeholder {
+  color: var(--cthulhudark-c-beige);
+}
+.cthulhudark .window-content a i {
+  color: var(--cthulhudark-c-purple);
+}
+.cthulhudark .window-content a:hover, .cthulhudark .window-content a:focus {
+  text-shadow: 0 0 10px var(--cthulhudark-c-insight);
+}
+.cthulhudark .window-content .rollable:hover, .cthulhudark .window-content .rollable:focus {
+  text-shadow: 0 0 10px var(--cthulhudark-c-insight);
+}
+.cthulhudark prose-mirror {
+  min-height: 180px;
+}
+.cthulhudark prose-mirror .editor-content {
+  padding: 0 0.5rem;
+  background: var(--cthulhudark-input-background-color);
+  border: 1px solid var(--cthulhudark-input-border-color);
+  border-radius: 4px;
+}
+.cthulhudark .prosemirror menu,
+.cthulhudark prose-mirror menu {
+  padding: 0px;
+  gap: 0px;
+}
+.cthulhudark .npc-header h2 {
+  font-size: large;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .cthulhudark .cd-sheet-header {
   flex: 0 auto;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -330,16 +387,22 @@
   padding: 8px 8px 0px 8px;
 }
 .cthulhudark .cd-sheet-header button {
-  color: white;
-  background-color: #423543;
+  color: var(--cthulhudark-c-white);
+  background-color: var(--cthulhudark-c-faint);
   border: none;
+  font-family: "gabriele", serif;
+  font-size: 13px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  height: auto;
+  overflow-x: hidden;
 }
 .cthulhudark .cd-sheet-header button i {
-  color: #ddcddf;
+  color: var(--cthulhudark-c-lt-purple);
 }
 .cthulhudark .cd-sheet-header button:hover, .cthulhudark .cd-sheet-header button:focus {
-  box-shadow: 0 0 5px #99d097;
-  text-shadow: 0 0 10px #99d097;
+  box-shadow: 0 0 5px var(--cthulhudark-c-lt-insight);
+  text-shadow: 0 0 10px var(--cthulhudark-c-lt-insight);
 }
 .cthulhudark .cd-sheet-header .insight {
   font-size: 20px;
@@ -348,16 +411,36 @@
   justify-content: space-around;
   align-items: center;
 }
-.cthulhudark .cd-sheet-header .insight input[type=checkbox]:checked {
-  accent-color: #99d097;
+.cthulhudark .cd-sheet-header .insight input[type=checkbox]::before,
+.cthulhudark .cd-sheet-header .insight input[type=radio]::before {
+  color: var(--cthulhudark-c-insight);
 }
-.cthulhudark .cd-sheet-header .insight-die {
-  color: #99d097;
+.cthulhudark .cd-sheet-header .insight input[type=checkbox]:not(:first-child:last-child):last-child::before,
+.cthulhudark .cd-sheet-header .insight input[type=radio]:not(:first-child:last-child):last-child::before {
+  color: var(--cthulhudark-c-pink);
+}
+.cthulhudark .cd-sheet-header .insight input[type=checkbox]:checked::before,
+.cthulhudark .cd-sheet-header .insight input[type=radio]:checked::before {
+  color: var(--cthulhudark-c-white);
+  margin-top: 2px;
+}
+.cthulhudark .cd-sheet-header .insight input[type=checkbox]:checked::after,
+.cthulhudark .cd-sheet-header .insight input[type=radio]:checked::after {
+  color: var(--cthulhudark-c-insight);
+}
+.cthulhudark .cd-sheet-header .insight input[type=checkbox]:checked:not(:first-child:last-child):last-child::before,
+.cthulhudark .cd-sheet-header .insight input[type=radio]:checked:not(:first-child:last-child):last-child::before {
+  color: var(--cthulhudark-c-white);
+  margin-top: 2px;
+}
+.cthulhudark .cd-sheet-header .insight input[type=checkbox]:checked:not(:first-child:last-child):last-child::after,
+.cthulhudark .cd-sheet-header .insight input[type=radio]:checked:not(:first-child:last-child):last-child::after {
+  color: var(--cthulhudark-c-pink);
 }
 .cthulhudark .cd-sheet-header .profile-img {
   height: 292px;
   margin-bottom: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.3019607843);
+  border: 1px solid var(--cthulhudark-c-groove);
 }
 .cthulhudark .cd-sheet-header .header-fields {
   height: 30px;
@@ -368,9 +451,7 @@
   width: 100%;
 }
 .cthulhudark .cd-sheet-header .sub-header-fields {
-  height: 20px;
   margin-bottom: 10px;
-  font-size: 14px;
   width: 100%;
 }
 .cthulhudark .cd-sheet-header .charname {
@@ -382,48 +463,27 @@
   width: 100%;
 }
 .cthulhudark .cd-sheet-header textarea {
+  min-height: 45px;
   resize: none;
 }
-.cthulhudark .sheet-tabs {
-  flex: 0;
-}
-.cthulhudark .sheet-body,
-.cthulhudark .sheet-body .tab,
-.cthulhudark .sheet-body .tab {
-  color: white;
+.cthulhudark .tab {
+  padding: 0px 8px;
 }
 .cthulhudark nav.sheet-tabs {
   margin: 4px 0;
   border-top: none;
-  border-bottom: 1px solid #616161;
+  border-bottom: 1px solid var(--cthulhudark-c-groove);
 }
-.cthulhudark .tabs .item {
-  color: #616161;
-}
-.cthulhudark .tabs .item.active {
+.cthulhudark a.active {
   text-shadow: none;
-  color: white;
-  border-bottom: 2px solid #DDC0DF;
+  color: var(--cthulhudark-c-purple);
+  border-bottom: 2px solid var(--cthulhudark-c-purple);
 }
-.cthulhudark .sheet-body {
-  padding-left: 8px;
-  padding-right: 8px;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-.cthulhudark .sheet-body .rules b {
-  color: #DDC0DF;
-}
-.cthulhudark .sheet-body .editor-content {
-  background-color: rgba(255, 255, 255, 0.0705882353);
+.cthulhudark .rules b {
+  color: var(--cthulhudark-c-purple);
 }
 .cthulhudark .editor {
-  color: white;
-}
-.cthulhudark .tox .tox-editor-container {
-  background: rgba(255, 255, 255, 0.785);
-}
-.cthulhudark .tox .tox-edit-area {
-  padding: 0 8px;
+  color: var(--cthulhudark-c-black);
 }
 
 /*# sourceMappingURL=cthulhudark.css.map */

@@ -38,8 +38,6 @@ export class CthulhuDarkActor extends Actor {
     // Make modifications to data here. For example:
     const systemData = actorData.system;
 
-    // update Insight so they can be used as token resources
-    systemData.insight.value = [systemData.insight.states.filter(Boolean).length];
     systemData.insight.color = CONFIG.CTHULHUDARK.RiskColor;
   }
 

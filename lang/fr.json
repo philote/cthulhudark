@@ -11,10 +11,11 @@
     "LooksNpcInput": "Apparence",
     "BehaviorsNpcInput": "Comportement",
     "MotivationsNpcInput": "Motivations",
-  
-    "RulesTab": "Règles",
-    "NotesTab": "Notes",
-  
+    "Tabs": {
+      "rules": "Règles",
+      "notes": "Notes"
+    },
+    "InsightRollHoverText": "Éliminez votre démence",
     "FailureRuleTitle": "Jet d'échec :",
     "FailureRuleText": "Ne peut pas être utilisé pour les jets d'enquête ou si la réussite est nécessaire au scénario.",
     "TryingAgainRuleTitle": "Relancer :",

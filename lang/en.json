@@ -18,10 +18,11 @@
     "LooksNpcInput": "Looks",
     "BehaviorsNpcInput": "Behaviors",
     "MotivationsNpcInput": "Motivations",
-
-    "RulesTab": "Rules",
-    "NotesTab": "Notes",
-
+    "Tabs": {
+      "rules": "Rules",
+      "notes": "Notes"
+    },
+    "InsightRollHoverText": "Clear your Insight",
     "FailureRuleTitle": "Failure Roll:",
     "FailureRuleText": "Cannot be used on Investigation Rolls or if success is needed for the scenario.",
     "TryingAgainRuleTitle": "Trying Again:",

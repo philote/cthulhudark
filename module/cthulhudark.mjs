@@ -6,6 +6,7 @@ import { CthulhuDarkActorSheet } from "./sheets/actor-sheet.mjs";
 import { CthulhuDarkItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { CTHULHUDARK } from "./helpers/config.mjs";
+import * as utils from "./helpers/utils.mjs";
 // Import data models.
 import { CharacterData, NPCData } from "./data/actor.mjs";
 import { CthulhuDarkItemData } from "./data/item.mjs";
@@ -49,6 +50,8 @@ Hooks.once("init", async function () {
 	Items.registerSheet("cthulhudark", CthulhuDarkItemSheet, {
 		makeDefault: true,
 	});
+
+    utils.registerHandlebarsHelpers();
 });
 
 /* -------------------------------------------- */

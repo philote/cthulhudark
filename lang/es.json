@@ -11,10 +11,11 @@
     "LooksNpcInput": "Apariencia",
     "BehaviorsNpcInput": "Actitud",
     "MotivationsNpcInput": "Motivaciones",
-  
-    "RulesTab": "Reglas",
-    "NotesTab": "Notas",
-  
+    "Tabs": {
+      "rules": "Reglas",
+      "notes": "Notas"
+    },
+    "InsightRollHoverText": "Borra tu Locura",
     "FailureRuleTitle": "Tirada de Fallo:",
     "FailureRuleText": "No puede ser usada en tiradas de Investigar, o si el exito es necesario.",
     "TryingAgainRuleTitle": "Intentarlo de nuevo:",

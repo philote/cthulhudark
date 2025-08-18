@@ -11,10 +11,11 @@
     "LooksNpcInput": "Aparência",
     "BehaviorsNpcInput": "Comportamentos",
     "MotivationsNpcInput": "Motivações",
-  
-    "RulesTab": "Regras",
-    "NotesTab": "Notas",
-  
+    "Tabs": {
+      "rules": "Regras",
+      "notes": "Notas"
+    },
+    "InsightRollHoverText": "Limpe sua insanidade",
     "FailureRuleTitle": "Rolagem de Falha:",
     "FailureRuleText": "Isso não pode ser feito se você estiver investigando e precisar de um sucesso para que o cenário possa prosseguir",
     "TryingAgainRuleTitle": "Tentando Novamente:",

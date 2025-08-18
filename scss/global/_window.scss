@@ -1,29 +1,45 @@
-.window-app {
-  font-family: $font-primary;
+@use "../utils/variables" as *;
+@use "../utils/colors" as *;
+@use "../utils/typography" as *;
+
+.insight-color {
+  color: $c-insight !important;
 }
 
-.rollable {
-  &:hover,
-  &:focus {
-    color: #000;
-    text-shadow: 0 0 10px red;
-    cursor: pointer;
-  }
+.base-color {
+  color: $c-black !important;
+}
+
+.error-color {
+  color: $c-pink !important;
+}
+
+.insight-die {
+  color: $c-lt-insight !important;
+}
+
+.font-large {
+  font-size: 1.5em;
+}
+
+.font-x-large {
+  font-size: 2em;
 }
 
 .cd-roll-chat {
-  background-color: black;
-  background-image: url(../assets/ui/actor/actor-sheet-bg.webp);
+  background-color: $c-white;
+	background-image: url("#{$asset-path}ui/actor/sheet-bg.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
-  color: white;
-  border: 1px solid #FFFFFF4D;
+  color: $c-black;
+  border: 1px solid $c-groove;
   border-radius: 5px;
+  font-family: $font-primary;
 
   .message-header {
     line-height: 20px;
-    color: rgb(190, 190, 190);
+    color: $c-black;
   }
 
   hr {
@@ -31,7 +47,7 @@
     width: -webkit-fill-available;
     padding: 0;
     border: none;
-    border-top: 1px solid rgb(126, 126, 126);;
+    border-top: 1px solid $c-groove;
     margin: 10px 0 10px 0;
   }
 }
@@ -39,13 +55,12 @@
 .cd-roll-dialog {
 
   .window-content {
-    background-color: black;
-    background-image: url(../assets/ui/actor/actor-sheet-bg.webp);
+    background-color: $c-white;
+	  background-image: url("#{$asset-path}ui/actor/sheet-bg.webp");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
-
-    color: white;
+    color: $c-black;
 
     label {
       display: flex;
@@ -53,17 +68,22 @@
     }
 
     button {
-      color: white;
-      background-color: #423543;
-      border: none;
+      color: $c-white;
+			background-color: $c-faint;
+			border: none;
+      font-family: $font-tertiary;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      height: auto;
+      overflow-x: hidden;
   
       i {
-        color: #ddcddf;
+        color: $c-lt-purple;
       }
   
       &:hover, &:focus {
-        box-shadow: 0 0 5px #99d097;
-        text-shadow: 0 0 10px #99d097;
+        box-shadow: 0 0 5px $c-insight;
+        text-shadow: 0 0 10px $c-insight;
       }
     }
   }

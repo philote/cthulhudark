@@ -32,37 +32,21 @@ export class CharacterData extends CthulhuDarkActorData {
     const schema = super.defineSchema();
 
     schema.insight = new fields.SchemaField({
-      min: new fields.NumberField({
-        ...requiredInteger,
-        initial: 0,
-        min: 0
-      }),
-      value: new fields.ArrayField(
-        new fields.NumberField(), 
-        {initial: [1]}
-      ),
-      max: new fields.NumberField({
-        ...requiredInteger,
-        initial: 6,
-        min: 0
-      }),
-      states: new fields.ArrayField(
-        new fields.BooleanField(), 
-        {initial: [true, false, false, false, false, false]}
-      )
-    });
+			value: new fields.NumberField({
+				...requiredInteger,
+				initial: 1,
+				min: 0,
+			}),
+			max: new fields.NumberField({
+				...requiredInteger,
+				initial: 6,
+				min: 0,
+			}),
+		});
     
     schema.occupation = new fields.StringField({ ...requiredString });
 
     return schema;
-  }
-  
-  prepareDerivedData() {
-    // Calculate insight value based on states
-    // In the original data, value was an array, but for simplicity and based on the
-    // states array, we'll calculate a single value representing the current insight level
-    const insightLevel = this.insight.states.filter(Boolean).length;
-    this.insight.value = [insightLevel]; // Keep as array for backward compatibility
   }
 }
 
