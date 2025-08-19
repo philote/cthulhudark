@@ -86,16 +86,16 @@
   color: var(--cthulhudark-c-insight) !important;
 }
 
+.insight-lt-color {
+  color: var(--cthulhudark-c-lt-insight) !important;
+}
+
 .base-color {
   color: var(--cthulhudark-c-black) !important;
 }
 
 .error-color {
   color: var(--cthulhudark-c-pink) !important;
-}
-
-.insight-die {
-  color: var(--cthulhudark-c-lt-insight) !important;
 }
 
 .font-large {

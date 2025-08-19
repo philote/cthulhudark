@@ -43,7 +43,8 @@ An unofficial, community-supported system for playing the Cthulhu Dark TTRPG (Cr
 If you’ve enjoyed my work and find value in what I create, please consider supporting me with a small donation on [Ko-fi](https://ko-fi.com/G2G3I91JQ). I truly love what I do, and your support helps me dedicate time and resources to ongoing development. Every contribution, no matter the size, makes a difference and allows me to continue doing what I’m passionate about. Thank you for considering—it means the world to me.
 
 Image of the Character Sheet and roll messages in Foundry's chat:
-![Screenshot](./assets/CD_screenshot.webp)
+![Screenshot of pc, npc sheets, and rolls in the chat in dark mode](./assets/CD_screenshot.webp)
+![Screenshot of pc, npc sheets, and rolls in the chat in light mode](./assets/CD_screenshot-lt.webp)
 
 > [!WARNING]
 > ### Cthulhu Dark V2.0+
@@ -70,6 +71,7 @@ Image of the Character Sheet and roll messages in Foundry's chat:
 ## To Be Done
 
 - Automatically roll insight and apply any updates when a roll calls for it
+- fix items
 
 ## How to Install
 
