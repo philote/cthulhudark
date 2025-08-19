@@ -1,63 +1,63 @@
 {
-  "CTHULHUDARK": {
-    "Add": "Agregar",
-    "Insight": "Locura",
-    "ActorName": "Nombre",
-    "OccupationName": "Trabajo",
-    "InvestigateBtn": "Investigar",
-    "OtherActionsBtn": "Otras Acciones",
-    "InsightRollBtn": "Tirada de Cordura",
-    "FailureRollBtn": "Tirada de Fallo",
-    "LooksNpcInput": "Apariencia",
-    "BehaviorsNpcInput": "Actitud",
-    "MotivationsNpcInput": "Motivaciones",
-    "Tabs": {
-      "rules": "Reglas",
-      "notes": "Notas"
-    },
-    "InsightRollHoverText": "Borra tu Locura",
-    "FailureRuleTitle": "Tirada de Fallo:",
-    "FailureRuleText": "No puede ser usada en tiradas de Investigar, o si el exito es necesario.",
-    "TryingAgainRuleTitle": "Intentarlo de nuevo:",
-    "TryingAgainRuleText": "Si incluiste tu dado de Locura en la tirada y no estas contento con el resultado, puedes repetir la tirada. Si el resultado de tu dado de Locura es mas alto que cualquier otro dado, haz una tirada de Locura.",
-    "CooperateRuleTitle": "Cooperar:",
-    "CooperateRuleText": "Todos los que cooperen tiran sus dados. El dado mas alto determina el resultado",
-    "CompeteRuleTitle": "Competir:",
-    "CompeteRuleText": "Todos los que compitan tiran sus dados. El que consiga el dado mas alto gana.",
-  
-    "ItemName": "Nombre",
-    "ItemDescription": "Descripcion",
-  
-    "InvestigateDialogTitle": "Investigar",
-    "InvestigateDialogDesc": "Cuando investigues, lanza:",
-    "DoSomethingElseDialogTitle": "Hacer algo mas",
-    "DoSomethingElseDialogDesc": "Si haces algo mas que investigar, tira:",
-    "Roll": "�Tirar!",
-  
-    "DialogHumanDie": "Si lo que quieres esta dentro del alcance humano.",
-    "DialogOccupDie": "Si esta dentro de tu entrenamiento.",
-    "DialogRiskDie": "Si quieres arriesgar tu cordura para tener exito.",
-    "InsightRoll": "�Tirada de Cordura!",
-  
-    "FailureRollContent": "Si tu tirada es mas alta que la del otro <b><i>Investigador</i></b> falla como tu describes Si no, tiene exito de forma normal.",
-    "FailureRoll": "<b>Tirada de Fallo</b>:",
-  
-    "RiskMoveMessage": "La situacion revela algo del horror real del universo, haz una {insightroll}",
-  
-    "InvestigateMaxDieMessage123": "Tienes lo minimo: Si necesitas informacion para continuar, la recibes pero solo el minimo posible y nada mas",
-    "InvestigateMaxDieMessage4": "Tienes cualquier cosa que un investigador competente podria descubrir.",
-    "InvestigateMaxDieMessage5": "Descubres todo lo humanamente posible.",
-    "InvestigateMaxDieMessage6": "Excedes cualquier limite, recibes algo extra y vislumbras la verdad mas alla del conocimiento humano(y haces un {insightroll}).",
-  
-    "DoSomethingElseMaxDieMessage123": "Recibes lo minimo: si algo debe suceder para continuar, lo logras. Pero solo eso y nada mas.",
-    "DoSomethingElseMaxDieMessage4": "Tienes exito.",
-    "DoSomethingElseMaxDieMessage5": "Lo consigues y recibes algo extra.",
-    "DoSomethingElseMaxDieMessage6": "Lo logras con exito y recibes algo extra... Pero quizas mas de lo que deseabas(y haces una{insightroll}).",
-  
-    "InsightChatContent4": "Tu {insight} anterior era <b>{previousinsight}</b>. Tiraste por encima, asi que aumenta a <b>{newnsight}</b>. Narra y rolea el temor que sientes.",
-    "InsightChatContent5": "Tu {insight} anterior era <b>{previousinsight}</b>. Tiraste por encima, asi que aumenta a <b>{newnsight}</b>. Narra y rolea el temor que sientes. <hr><b><i>Nota:</i></b> Puedes reducir tu {insighttwo} reprimiendo recuerdos y conocimiento.",
-    "InsightChatContent6": "Tu {insight} anterior era <b>{previousinsight}</b>. Tiraste por encima, asi que aumenta a <b>{newnsight}</b>. <hr><b><i>Pierdes la cordura.</i></b> Esto es tu momento especial: todos se concentran en los ultimos momentos de tu personaje antes de que su mente se rompa. Dale un final como quieras: peleando, gritando, llorando o incluso un sacrificio noble.",
-  
-    "InsightChatContent": "Tu{insight} actual es <b>{previousinsight}</b>. Te las arreglas, por ahora..."
-  }
+	"CTHULHUDARK": {
+		"Add": "Agregar",
+		"Insight": "Locura",
+		"ActorName": "Nombre",
+		"OccupationName": "Trabajo",
+		"InvestigateBtn": "Investigar",
+		"OtherActionsBtn": "Otras Acciones",
+		"InsightRollBtn": "Tirada de Cordura",
+		"FailureRollBtn": "Tirada de Fallo",
+		"LooksNpcInput": "Apariencia",
+		"BehaviorsNpcInput": "Actitud",
+		"MotivationsNpcInput": "Motivaciones",
+		"Tabs": {
+			"rules": "Reglas",
+			"notes": "Notas"
+		},
+		"InsightRollHoverText": "Borra tu Locura",
+		"FailureRuleTitle": "Tirada de Fallo:",
+		"FailureRuleText": "No puede ser usada en tiradas de Investigar, o si el exito es necesario.",
+		"TryingAgainRuleTitle": "Intentarlo de nuevo:",
+		"TryingAgainRuleText": "Si incluiste tu dado de Locura en la tirada y no estas contento con el resultado, puedes repetir la tirada. Si el resultado de tu dado de Locura es mas alto que cualquier otro dado, haz una tirada de Locura.",
+		"CooperateRuleTitle": "Cooperar:",
+		"CooperateRuleText": "Todos los que cooperen tiran sus dados. El dado mas alto determina el resultado",
+		"CompeteRuleTitle": "Competir:",
+		"CompeteRuleText": "Todos los que compitan tiran sus dados. El que consiga el dado mas alto gana.",
+
+		"ItemName": "Nombre",
+		"ItemDescription": "Descripcion",
+
+		"InvestigateDialogTitle": "Investigar",
+		"InvestigateDialogDesc": "Cuando investigues, lanza:",
+		"DoSomethingElseDialogTitle": "Hacer algo mas",
+		"DoSomethingElseDialogDesc": "Si haces algo mas que investigar, tira:",
+		"Roll": "�Tirar!",
+
+		"DialogHumanDie": "Si lo que quieres esta dentro del alcance humano.",
+		"DialogOccupDie": "Si esta dentro de tu entrenamiento.",
+		"DialogRiskDie": "Si quieres arriesgar tu cordura para tener exito.",
+		"InsightRoll": "�Tirada de Cordura!",
+
+		"FailureRollContent": "Si tu tirada es mas alta que la del otro <b><i>Investigador</i></b> falla como tu describes Si no, tiene exito de forma normal.",
+		"FailureRoll": "<b>Tirada de Fallo</b>:",
+
+		"RiskMoveMessage": "La situacion revela algo del horror real del universo, haz una {insightroll}",
+
+		"InvestigateMaxDieMessage123": "Tienes lo minimo: Si necesitas informacion para continuar, la recibes pero solo el minimo posible y nada mas",
+		"InvestigateMaxDieMessage4": "Tienes cualquier cosa que un investigador competente podria descubrir.",
+		"InvestigateMaxDieMessage5": "Descubres todo lo humanamente posible.",
+		"InvestigateMaxDieMessage6": "Excedes cualquier limite, recibes algo extra y vislumbras la verdad mas alla del conocimiento humano(y haces un {insightroll}).",
+
+		"DoSomethingElseMaxDieMessage123": "Recibes lo minimo: si algo debe suceder para continuar, lo logras. Pero solo eso y nada mas.",
+		"DoSomethingElseMaxDieMessage4": "Tienes exito.",
+		"DoSomethingElseMaxDieMessage5": "Lo consigues y recibes algo extra.",
+		"DoSomethingElseMaxDieMessage6": "Lo logras con exito y recibes algo extra... Pero quizas mas de lo que deseabas(y haces una{insightroll}).",
+
+		"InsightChatContent4": "Tu {insight} anterior era <b>{previousinsight}</b>. Tiraste por encima, asi que aumenta a <b>{newnsight}</b>. Narra y rolea el temor que sientes.",
+		"InsightChatContent5": "Tu {insight} anterior era <b>{previousinsight}</b>. Tiraste por encima, asi que aumenta a <b>{newnsight}</b>. Narra y rolea el temor que sientes. <hr><b><i>Nota:</i></b> Puedes reducir tu {insighttwo} reprimiendo recuerdos y conocimiento.",
+		"InsightChatContent6": "Tu {insight} anterior era <b>{previousinsight}</b>. Tiraste por encima, asi que aumenta a <b>{newnsight}</b>. <hr><b><i>Pierdes la cordura.</i></b> Esto es tu momento especial: todos se concentran en los ultimos momentos de tu personaje antes de que su mente se rompa. Dale un final como quieras: peleando, gritando, llorando o incluso un sacrificio noble.",
+
+		"InsightChatContent": "Tu{insight} actual es <b>{previousinsight}</b>. Te las arreglas, por ahora..."
+	}
 }

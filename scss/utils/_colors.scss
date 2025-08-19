@@ -1,39 +1,39 @@
-:root, 
+:root,
 .application.cthulhudark.themed.theme-light {
-  --cthulhudark-c-dark: #191813;
-  --cthulhudark-c-faint: #6f4d74;
-  --cthulhudark-c-beige: #989584;
-  --cthulhudark-c-tan: #444444;
-  --cthulhudark-c-white: #f8e6f9;
-  --cthulhudark-c-black: #000000;
-  --cthulhudark-c-groove: #ab8eb1;
-  --cthulhudark-c-insight: #097805;
-  --cthulhudark-c-lt-insight: #99d097;
-  --cthulhudark-c-purple: #560561;
-  --cthulhudark-c-lt-purple: #e2bde6;
-  --cthulhudark-c-pink: #b8016c;
+	--cthulhudark-c-dark: #191813;
+	--cthulhudark-c-faint: #6f4d74;
+	--cthulhudark-c-beige: #989584;
+	--cthulhudark-c-tan: #444444;
+	--cthulhudark-c-white: #f8e6f9;
+	--cthulhudark-c-black: #000000;
+	--cthulhudark-c-groove: #ab8eb1;
+	--cthulhudark-c-insight: #097805;
+	--cthulhudark-c-lt-insight: #99d097;
+	--cthulhudark-c-purple: #560561;
+	--cthulhudark-c-lt-purple: #e2bde6;
+	--cthulhudark-c-pink: #b8016c;
 
-  --cthulhudark-input-background-color: rgba(0, 0, 0, 0.1);
-  --cthulhudark-input-border-color: #666;
+	--cthulhudark-input-background-color: rgba(0, 0, 0, 0.1);
+	--cthulhudark-input-border-color: #666;
 }
 
-.theme-dark, 
+.theme-dark,
 .application.cthulhudark.themed.theme-dark {
-  --cthulhudark-c-dark: #c9c7b8;
-  --cthulhudark-c-faint: #e0d3e2;
-  --cthulhudark-c-beige: #868686;
-  --cthulhudark-c-tan: #b5b3a4;
-  --cthulhudark-c-white: #0d020e;
-  --cthulhudark-c-black: #ded1de;
-  --cthulhudark-c-groove: #413643;
-  --cthulhudark-c-insight: #99d097;
-  --cthulhudark-c-lt-insight: #2c7f2b;
-  --cthulhudark-c-purple: #ddaee4;
-  --cthulhudark-c-lt-purple: #95449f;
-  --cthulhudark-c-pink: #b54285;
+	--cthulhudark-c-dark: #c9c7b8;
+	--cthulhudark-c-faint: #e0d3e2;
+	--cthulhudark-c-beige: #868686;
+	--cthulhudark-c-tan: #b5b3a4;
+	--cthulhudark-c-white: #0d020e;
+	--cthulhudark-c-black: #ded1de;
+	--cthulhudark-c-groove: #413643;
+	--cthulhudark-c-insight: #99d097;
+	--cthulhudark-c-lt-insight: #2c7f2b;
+	--cthulhudark-c-purple: #ddaee4;
+	--cthulhudark-c-lt-purple: #95449f;
+	--cthulhudark-c-pink: #b54285;
 
-  --cthulhudark-input-background-color: rgba(255, 255, 255, 0.045);
-  --cthulhudark-input-border-color: var(--cthulhudark-c-groove);
+	--cthulhudark-input-background-color: rgba(255, 255, 255, 0.045);
+	--cthulhudark-input-border-color: var(--cthulhudark-c-groove);
 }
 // bg #0d020eCC
 // btn bg #423543

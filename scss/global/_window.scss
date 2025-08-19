@@ -3,88 +3,88 @@
 @use "../utils/typography" as *;
 
 .insight-color {
-  color: $c-insight !important;
+	color: $c-insight !important;
 }
 
 .base-color {
-  color: $c-black !important;
+	color: $c-black !important;
 }
 
 .error-color {
-  color: $c-pink !important;
+	color: $c-pink !important;
 }
 
 .insight-die {
-  color: $c-lt-insight !important;
+	color: $c-lt-insight !important;
 }
 
 .font-large {
-  font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 .font-x-large {
-  font-size: 2em;
+	font-size: 2em;
 }
 
 .cd-roll-chat {
-  background-color: $c-white;
+	background-color: $c-white;
 	background-image: url("#{$asset-path}ui/actor/sheet-bg.webp");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
-  color: $c-black;
-  border: 1px solid $c-groove;
-  border-radius: 5px;
-  font-family: $font-primary;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top;
+	color: $c-black;
+	border: 1px solid $c-groove;
+	border-radius: 5px;
+	font-family: $font-primary;
 
-  .message-header {
-    line-height: 20px;
-    color: $c-black;
-  }
+	.message-header {
+		line-height: 20px;
+		color: $c-black;
+	}
 
-  hr {
-    flex-grow: 0;
-    width: -webkit-fill-available;
-    padding: 0;
-    border: none;
-    border-top: 1px solid $c-groove;
-    margin: 10px 0 10px 0;
-  }
+	hr {
+		flex-grow: 0;
+		width: -webkit-fill-available;
+		padding: 0;
+		border: none;
+		border-top: 1px solid $c-groove;
+		margin: 10px 0 10px 0;
+	}
 }
 
 .cd-roll-dialog {
+	.window-content {
+		background-color: $c-white;
+		background-image: url("#{$asset-path}ui/actor/sheet-bg.webp");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: bottom;
+		color: $c-black;
 
-  .window-content {
-    background-color: $c-white;
-	  background-image: url("#{$asset-path}ui/actor/sheet-bg.webp");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    color: $c-black;
+		label {
+			display: flex;
+			align-items: center;
+		}
 
-    label {
-      display: flex;
-      align-items: center;
-    }
-
-    button {
-      color: $c-white;
+		button {
+			color: $c-white;
 			background-color: $c-faint;
 			border: none;
-      font-family: $font-tertiary;
-      padding-top: 2px;
-      padding-bottom: 2px;
-      height: auto;
-      overflow-x: hidden;
-  
-      i {
-        color: $c-lt-purple;
-      }
-  
-      &:hover, &:focus {
-        box-shadow: 0 0 5px $c-insight;
-        text-shadow: 0 0 10px $c-insight;
-      }
-    }
-  }
+			font-family: $font-tertiary;
+			padding-top: 2px;
+			padding-bottom: 2px;
+			height: auto;
+			overflow-x: hidden;
+
+			i {
+				color: $c-lt-purple;
+			}
+
+			&:hover,
+			&:focus {
+				box-shadow: 0 0 5px $c-insight;
+				text-shadow: 0 0 10px $c-insight;
+			}
+		}
+	}
 }

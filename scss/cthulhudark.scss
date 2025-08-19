@@ -1,16 +1,16 @@
 /* Utilities. */
-@use 'utils/variables';
-@use 'utils/typography';
-@use 'utils/colors';
+@use "utils/variables";
+@use "utils/typography";
+@use "utils/colors";
 
 /* Global styles */
-@use 'global/window';
-@use 'global/grid';
+@use "global/window";
+@use "global/grid";
 
 /* Styles limited to cthulhudark sheets */
-@use 'components/forms';
+@use "components/forms";
 
 /* Styles limited to cthulhudark sheets */
 .cthulhudark {
-  @include forms.forms;
+	@include forms.forms;
 }

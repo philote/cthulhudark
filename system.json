@@ -1,95 +1,95 @@
 {
-  "id": "cthulhudark",
-  "title": "Cthulhu Dark",
-  "description": "An Unofficial Cthulhu Dark system for Foundry VTT.",
-  "version": "#{VERSION}#",
-  "compatibility": {
-    "minimum": 12,
-    "verified": 13.346,
-    "maximum": 13
-  },
-  "authors": [
-    {
-      "name": "ephson",
-      "url": "https://github.com/philote",
-      "discord": "ephson",
-      "reddit": "u/ephson"
-    },
-    {
-      "name": "friendlylambda",
-      "url": "https://github.com/friendlylambda"
-    }
-  ],
-  "documentTypes": {
-    "Actor": {
-      "character": {
-        "htmlFields": ["notes"]
-      },
-      "npc": {
-        "htmlFields": ["notes"]
-      }
-    },
-    "Item": {
-      "item": {
-        "htmlFields": ["description"]
-      }
-    }
-  },
-  "esmodules": ["module/cthulhudark.mjs"],
-  "styles": ["css/cthulhudark.css"],
-  "flags": {
-    "hotReload": {
-      "extensions": ["css", "html", "hbs", "json"],
-      "paths": ["css", "lang", "templates"]
-    }
-  },
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    },
-    {
-      "lang": "fr",
-      "name": "French",
-      "path": "lang/fr.json"
-    },
-    {
-      "lang": "es",
-      "name": "Spanish",
-      "path": "lang/es.json"
-    },
-    {
-      "lang": "pt-BR",
-      "name": "Português (Brasil)",
-      "path": "lang/pt-BR.json"
-    }
-  ],
-  "primaryTokenAttribute": "insight",
-  "url": "#{URL}#",
-  "manifest": "#{MANIFEST}#",
-  "download": "#{DOWNLOAD}#",
-  "license": "LICENSE",
-  "readme": "README.md",
-  "background": "systems/cthulhudark/assets/package_image.webp",
-  "bugs": "https://github.com/philote/cthulhudark/issues",
-  "media": [
-    {
-      "type": "screenshot",
-      "url": "https://raw.githubusercontent.com/philote/cthulhudark/main/assets/CD_screenshot.webp",
-      "loop": false,
-      "caption": "Cthulhu Dark character sheet screenshot from Foundry VTT."
-    },
-    {
-      "type": "cover",
-      "url": "https://raw.githubusercontent.com/philote/cthulhudark/main/assets/cover.webp",
-      "loop": false,
-      "caption": "Cover Images for the Unofficial Cthulhu Dark package."
-    },
-    {
-      "type": "setup",
-      "url": "https://raw.githubusercontent.com/philote/cthulhudark/main/assets/package_image.webp",
-      "thumbnail": "https://raw.githubusercontent.com/philote/cthulhudark/main/assets/package_image_thumb.webp"
-    }
-  ]
+	"id": "cthulhudark",
+	"title": "Cthulhu Dark",
+	"description": "An Unofficial Cthulhu Dark system for Foundry VTT.",
+	"version": "#{VERSION}#",
+	"compatibility": {
+		"minimum": 12,
+		"verified": 13.346,
+		"maximum": 13
+	},
+	"authors": [
+		{
+			"name": "ephson",
+			"url": "https://github.com/philote",
+			"discord": "ephson",
+			"reddit": "u/ephson"
+		},
+		{
+			"name": "friendlylambda",
+			"url": "https://github.com/friendlylambda"
+		}
+	],
+	"documentTypes": {
+		"Actor": {
+			"character": {
+				"htmlFields": ["notes"]
+			},
+			"npc": {
+				"htmlFields": ["notes"]
+			}
+		},
+		"Item": {
+			"item": {
+				"htmlFields": ["description"]
+			}
+		}
+	},
+	"esmodules": ["module/cthulhudark.mjs"],
+	"styles": ["css/cthulhudark.css"],
+	"flags": {
+		"hotReload": {
+			"extensions": ["css", "html", "hbs", "json"],
+			"paths": ["css", "lang", "templates"]
+		}
+	},
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		},
+		{
+			"lang": "fr",
+			"name": "French",
+			"path": "lang/fr.json"
+		},
+		{
+			"lang": "es",
+			"name": "Spanish",
+			"path": "lang/es.json"
+		},
+		{
+			"lang": "pt-BR",
+			"name": "Português (Brasil)",
+			"path": "lang/pt-BR.json"
+		}
+	],
+	"primaryTokenAttribute": "insight",
+	"url": "#{URL}#",
+	"manifest": "#{MANIFEST}#",
+	"download": "#{DOWNLOAD}#",
+	"license": "LICENSE",
+	"readme": "README.md",
+	"background": "systems/cthulhudark/assets/package_image.webp",
+	"bugs": "https://github.com/philote/cthulhudark/issues",
+	"media": [
+		{
+			"type": "screenshot",
+			"url": "https://raw.githubusercontent.com/philote/cthulhudark/main/assets/CD_screenshot.webp",
+			"loop": false,
+			"caption": "Cthulhu Dark character sheet screenshot from Foundry VTT."
+		},
+		{
+			"type": "cover",
+			"url": "https://raw.githubusercontent.com/philote/cthulhudark/main/assets/cover.webp",
+			"loop": false,
+			"caption": "Cover Images for the Unofficial Cthulhu Dark package."
+		},
+		{
+			"type": "setup",
+			"url": "https://raw.githubusercontent.com/philote/cthulhudark/main/assets/package_image.webp",
+			"thumbnail": "https://raw.githubusercontent.com/philote/cthulhudark/main/assets/package_image_thumb.webp"
+		}
+	]
 }

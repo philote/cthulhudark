@@ -73,6 +73,7 @@ Image of the Character Sheet and roll messages in Foundry's chat:
 You can install the latest released version of the system by using this manifest link in Foundry VTT. [Instructions](https://foundryvtt.com/article/tutorial/): https://github.com/philote/FoundryVTT-CthulhuDark/releases/latest/download/system.json
 
 ## Attribution
+
 The entire text of Cthulhu Dark is © [Graham Walmsley](http://catchyourhare.com) 2010
 
 Icons from [game-icons.net](http://game-icons.net) are released under a Creative Commons Attribution 3.0 Unported license. https://creativecommons.org/licenses/by/3.0

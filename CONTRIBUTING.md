@@ -12,5 +12,5 @@ With the change to LevelDB, there is an extra step to create the packs locally.
 - then `npm run build` to build once or `npm run watch` to have a SCSS watcher running to update the CSS when SCSS is updated automatically.
 - If you want Foundry to hot-reload pages as you make updates, you will need to launch Foundry with the `--hotReload` flag. See [Using Command Line Flags](https://foundryvtt.com/article/configuration/)
 - `npm run createSymlinks` - Create development symlinks for improved intellisense
-    - You will need to update `example-foundry-config.yaml` & `example-jsconfig.json`
-    - documentation: https://foundryvtt.wiki/en/development/guides/improving-intellisense
+  - You will need to update `example-foundry-config.yaml` & `example-jsconfig.json`
+  - documentation: https://foundryvtt.wiki/en/development/guides/improving-intellisense
