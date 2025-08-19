@@ -30,20 +30,20 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 	/** @override */
 	static PARTS = {
 		character: {
-			template: 'systems/cthulhudark/templates/actor/actor-character-sheet.hbs',
+			template: "systems/cthulhudark/templates/actor/actor-character-sheet.hbs",
 		},
 		npc: {
-			template: 'systems/cthulhudark/templates/actor/actor-npc-sheet.hbs',
+			template: "systems/cthulhudark/templates/actor/actor-npc-sheet.hbs",
 		},
 		tabs: {
 			// Foundry-provided generic template
-			template: 'templates/generic/tab-navigation.hbs',
+			template: "templates/generic/tab-navigation.hbs",
 		},
 		notes: {
-			template: 'systems/cthulhudark/templates/actor/notes.hbs',
+			template: "systems/cthulhudark/templates/actor/notes.hbs",
 		},
 		rules: {
-			template: 'systems/cthulhudark/templates/actor/rules.hbs',
+			template: "systems/cthulhudark/templates/actor/rules.hbs",
 		},
 	};
 
@@ -99,65 +99,65 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 	/** @override */
 	async _preparePartContext(partId, context) {
 		switch (partId) {
-		case 'rules':
-			context.tab = context.tabs[partId];
-			break;
-		case 'notes':
-			context.tab = context.tabs[partId];
-			// Enrich biography info for display
-			// Enrichment turns text like `[[/r 1d20]]` into buttons
-			context.enrichedNotes = await TextEditor.enrichHTML(
-			this.actor.system.notes,
-			{
-				// Whether to show secret blocks in the finished html
-				secrets: this.document.isOwner,
-				// Data to fill in for inline rolls
-				rollData: this.actor.getRollData(),
-				// Relative UUID resolution
-				relativeTo: this.actor,
-			}
-			);
-			break;
+			case "rules":
+				context.tab = context.tabs[partId];
+				break;
+			case "notes":
+				context.tab = context.tabs[partId];
+				// Enrich biography info for display
+				// Enrichment turns text like `[[/r 1d20]]` into buttons
+				context.enrichedNotes = await TextEditor.enrichHTML(
+					this.actor.system.notes,
+					{
+						// Whether to show secret blocks in the finished html
+						secrets: this.document.isOwner,
+						// Data to fill in for inline rolls
+						rollData: this.actor.getRollData(),
+						// Relative UUID resolution
+						relativeTo: this.actor,
+					}
+				);
+				break;
 		}
 		return context;
 	}
 
-  /**
-   * Generates the data for the generic tab navigation template
-   * @param {string[]} parts An array of named template parts to render
-   * @returns {Record<string, Partial<ApplicationTab>>}
-   * @protected
-   */
+	/**
+	 * Generates the data for the generic tab navigation template
+	 * @param {string[]} parts An array of named template parts to render
+	 * @returns {Record<string, Partial<ApplicationTab>>}
+	 * @protected
+	 */
 	_getTabs(parts) {
 		// If you have sub-tabs this is necessary to change
-		const tabGroup = 'primary';
+		const tabGroup = "primary";
 		// Default tab for first time it's rendered this session
-		if (!this.tabGroups[tabGroup]) this.tabGroups[tabGroup] = 'notes';
+		if (!this.tabGroups[tabGroup]) this.tabGroups[tabGroup] = "notes";
 		return parts.reduce((tabs, partId) => {
 			const tab = {
-			cssClass: '',
-			group: tabGroup,
-			// Matches tab property to
-			id: '',
-			// FontAwesome Icon, if you so choose
-			icon: '',
-			// Run through localization
-			label: 'CTHULHUDARK.Tabs.',
+				cssClass: "",
+				group: tabGroup,
+				// Matches tab property to
+				id: "",
+				// FontAwesome Icon, if you so choose
+				icon: "",
+				// Run through localization
+				label: "CTHULHUDARK.Tabs.",
 			};
 			switch (partId) {
-			case 'character':
-			case 'tabs':
-				return tabs;
-			case 'notes':
-				tab.id = 'notes';
-				tab.label += 'notes';
-				break;
-			case 'rules':
-				tab.id = 'rules';
-				tab.label += 'rules';
-				break;
+				case "character":
+				case "tabs":
+					return tabs;
+				case "notes":
+					tab.id = "notes";
+					tab.label += "notes";
+					break;
+				case "rules":
+					tab.id = "rules";
+					tab.label += "rules";
+					break;
 			}
-			if (this.tabGroups[tabGroup] === tab.id) tab.cssClass = 'active';
+			if (this.tabGroups[tabGroup] === tab.id) tab.cssClass = "active";
 			tabs[partId] = tab;
 			return tabs;
 		}, {});
@@ -279,9 +279,9 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 			this.actor.update({ "system.insight.value": newInsightVal });
 		}
 	}
-	
+
 	/* -------------------------------------------- */
-	
+
 	// ---------------------------
 	// From my macro rolling files
 	// ---------------------------
@@ -304,8 +304,8 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
         <div style="font-size: 18px">
           	<b>
 		  		${game.i18n.format("CTHULHUDARK.RiskMoveMessage", {
-					insightroll: this.getWordInsightRollWithFormatting(),
-				})}
+							insightroll: this.getWordInsightRollWithFormatting(),
+						})}
 			</b>
         <div>
     `;
@@ -643,7 +643,6 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 			content: chatContentMessage,
 			flags: { cthulhudark: { chatID: "cthulhudark" } },
 		});
-
 	}
 
 	// -------

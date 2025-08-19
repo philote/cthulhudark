@@ -1,35 +1,39 @@
-<form class="{{cssClass}} flexcol" autocomplete="off">
-  
-  {{!-- Sheet Header --}}
-  <header class="cd-sheet-header">
-    <input 
-      class="charname" 
-      name="name" 
-      type="text" 
-      value="{{item.name}}" 
-      placeholder="{{localize "CTHULHUDARK.ItemName"}}"/>
-    <img
-      class='profile-img'
-      src='{{item.img}}'
-      alt="{{item.name}}"
-      title="{{item.name}}"
-      data-edit='img'
-      data-action='onEditImage'
-      data-tooltip='{{item.name}}'
-    />
-  </header>
+<form class="flexcol">
 
-  <section class="sheet-body">
-    <h2>{{localize "CTHULHUDARK.ItemDescription"}}</h2>
-    <div class="tab description">
-      {{editor 
-        system.description 
-        target="system.description" 
-        rollData=rollData 
-        button=true 
-        owner=owner 
-        editable=editable}}
-    </div>
-  </section>
+	{{! Sheet Header }}
+	<header class="cd-sheet-header">
+		<input
+			class="charname"
+			name="name"
+			type="text"
+			value="{{item.name}}"
+			placeholder="{{localize 'CTHULHUDARK.ItemName'}}"
+		/>
+		<img
+			class="profile-img"
+			src="{{item.img}}"
+			alt="{{item.name}}"
+			title="{{item.name}}"
+			data-edit="img"
+			data-action="onEditImage"
+			data-tooltip="{{item.name}}"
+		/>
+	</header>
+
+	<section class="sheet-body">
+		<h2>{{localize "CTHULHUDARK.ItemDescription"}}</h2>
+		<div class="tab description">
+			<prose-mirror
+				name="system.description"
+				compact="true"
+				data-document-u-u-i-d="{{item.uuid}}"
+				value="{{system.description}}"
+				collaborate="true"
+				toggled="true"
+			>
+				{{{enrichedDescription}}}
+			</prose-mirror>
+		</div>
+	</section>
 
 </form>
