@@ -5,8 +5,6 @@
 An unofficial, community-supported system for playing the Cthulhu Dark TTRPG (Created by Graham Walmsley) on Foundry VTT.
 
 <p align="center">
-	<img alt="Foundry Version 10 support" src="https://img.shields.io/badge/Foundry-v10-informational">
-	<img alt="Foundry Version 11 support" src="https://img.shields.io/badge/Foundry-v11-informational">
     <img alt="Foundry Version 12 support" src="https://img.shields.io/badge/Foundry-v12-informational">
     <img alt="Foundry Version 13 support" src="https://img.shields.io/badge/Foundry-v13-informational">
     <img alt="Latest Release Download Count" src="https://img.shields.io/github/downloads/philote/cthulhudark/latest/total"> 
@@ -46,6 +44,11 @@ If you’ve enjoyed my work and find value in what I create, please consider sup
 
 Image of the Character Sheet and roll messages in Foundry's chat:
 ![Screenshot](./assets/CD_screenshot.webp)
+
+> [!WARNING]
+> ### Cthulhu Dark V2.0+
+> **ONLY** works with Foundry v12+\
+> If you use Foundry v10 or v11 then use Cthulhu Dark [v1.2.1](https://github.com/philote/cthulhudark/releases/tag/1.2.1)
 
 ## Features
 
