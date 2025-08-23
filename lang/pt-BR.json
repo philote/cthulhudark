@@ -1,5 +1,16 @@
 {
+	"TYPES": {
+		"Actor": {
+			"character": "Investigador",
+			"npc": "NPC"
+		},
+		"Item.item": "Item"
+	},
 	"CTHULHUDARK": {
+		"SheetLabels": {
+			"Investigator": "Ficha de Investigador",
+			"Gear": "Ficha de Equipamento"
+		},
 		"Add": "Adicionar",
 		"Insight": "Insanidade",
 		"ActorName": "Nome",

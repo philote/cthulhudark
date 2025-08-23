@@ -1,5 +1,16 @@
 {
+	"TYPES": {
+		"Actor": {
+			"character": "Investigador",
+			"npc": "PNJ"
+		},
+		"Item.item": "Objeto"
+	},
 	"CTHULHUDARK": {
+		"SheetLabels": {
+			"Investigator": "Hoja de Investigador",
+			"Gear": "Hoja de Equipo"
+		},
 		"Add": "Agregar",
 		"Insight": "Locura",
 		"ActorName": "Nombre",

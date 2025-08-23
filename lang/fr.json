@@ -1,5 +1,16 @@
 {
+	"TYPES": {
+		"Actor": {
+			"character": "Investigateur",
+			"npc": "PNJ"
+		},
+		"Item.item": "Objet"
+	},
 	"CTHULHUDARK": {
+		"SheetLabels": {
+			"Investigator": "Feuille d'Investigateur",
+			"Gear": "Feuille d'Équipement"
+		},
 		"Add": "Ajout",
 		"Insight": "Démence",
 		"ActorName": "Nom",

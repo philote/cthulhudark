@@ -5,7 +5,7 @@
 	"version": "#{VERSION}#",
 	"compatibility": {
 		"minimum": 12,
-		"verified": 13.346,
+		"verified": 13.347,
 		"maximum": 13
 	},
 	"authors": [
@@ -71,7 +71,7 @@
 	"download": "#{DOWNLOAD}#",
 	"license": "LICENSE",
 	"readme": "README.md",
-	"background": "systems/cthulhudark/assets/package_image.webp",
+	"background": "systems/cthulhudark/assets/cover-bg.webp",
 	"bugs": "https://github.com/philote/cthulhudark/issues",
 	"media": [
 		{
@@ -88,8 +88,8 @@
 		},
 		{
 			"type": "setup",
-			"url": "https://raw.githubusercontent.com/philote/cthulhudark/main/assets/package_image.webp",
-			"thumbnail": "https://raw.githubusercontent.com/philote/cthulhudark/main/assets/package_image_thumb.webp"
+			"url": "https://raw.githubusercontent.com/philote/cthulhudark/main/assets/setup-image.webp",
+			"thumbnail": "https://raw.githubusercontent.com/philote/cthulhudark/main/assets/setup-image-thumb.webp"
 		}
 	]
 }
