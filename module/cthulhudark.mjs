@@ -54,10 +54,6 @@ Hooks.once("init", async function () {
 	utils.registerHandlebarsHelpers();
 });
 
-/* -------------------------------------------- */
-/*  Ready Hook                                  */
-/* -------------------------------------------- */
-
 Hooks.on("renderChatMessage", (chatMessage, [html], messageData) => {
 	const flag = chatMessage.getFlag("cthulhudark", "chatID");
 	if (flag && flag == "cthulhudark") {
