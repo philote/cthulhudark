@@ -70,7 +70,7 @@ export class CthulhuDarkItemSheet extends api.HandlebarsApplicationMixin(
 	async _preparePartContext(partId, context) {
 		switch (partId) {
 			case "item":
-				context.enrichedDescription = await TextEditor.enrichHTML(
+				context.enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
 					this.item.system.description,
 					{
 						secrets: this.document.isOwner,
@@ -119,7 +119,7 @@ export class CthulhuDarkItemSheet extends api.HandlebarsApplicationMixin(
 		const { img } =
 			this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ??
 			{};
-		const fp = new FilePicker({
+		const fp = new foundry.applications.apps.FilePicker.implementation({
 			current,
 			type: "image",
 			redirectToRoot: img ? [img] : [],

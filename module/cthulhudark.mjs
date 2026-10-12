@@ -40,12 +40,11 @@ Hooks.once("init", async function () {
 	};
 
 	// Register sheet application classes
-	Actors.unregisterSheet("core", ActorSheet);
+	const { Actors, Items } = foundry.documents.collections;
 	Actors.registerSheet("cthulhudark", CthulhuDarkActorSheet, {
 		makeDefault: true,
 		label: "CTHULHUDARK.SheetLabels.Investigator",
 	});
-	Items.unregisterSheet("core", ItemSheet);
 	Items.registerSheet("cthulhudark", CthulhuDarkItemSheet, {
 		makeDefault: true,
 		label: "CTHULHUDARK.SheetLabels.Gear",
@@ -54,10 +53,10 @@ Hooks.once("init", async function () {
 	utils.registerHandlebarsHelpers();
 });
 
-Hooks.on("renderChatMessage", (chatMessage, [html], messageData) => {
+Hooks.on("renderChatMessageHTML", (chatMessage, html, messageData) => {
 	const flag = chatMessage.getFlag("cthulhudark", "chatID");
 	if (flag && flag == "cthulhudark") {
-		$(html).addClass("cd-roll-chat");
+		html.classList.add("cd-roll-chat");
 	}
 });
 

@@ -106,7 +106,7 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 				context.tab = context.tabs[partId];
 				// Enrich biography info for display
 				// Enrichment turns text like `[[/r 1d20]]` into buttons
-				context.enrichedNotes = await TextEditor.enrichHTML(
+				context.enrichedNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
 					this.actor.system.notes,
 					{
 						// Whether to show secret blocks in the finished html
@@ -257,7 +257,7 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 		const { img } =
 			this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ??
 			{};
-		const fp = new FilePicker({
+		const fp = new foundry.applications.apps.FilePicker.implementation({
 			current,
 			type: "image",
 			redirectToRoot: img ? [img] : [],
@@ -336,12 +336,14 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 
 		const template_file =
 			"systems/cthulhudark/templates/dialog/roll-content-template.hbs";
-		loadTemplates([template_file]);
 		const template_data = {
 			dialogTitle: dialogTitleDesc,
 			riskColor: CONFIG.CTHULHUDARK.RiskColor,
 		};
-		const rendered_html = await renderTemplate(template_file, template_data);
+		const rendered_html = await foundry.applications.handlebars.renderTemplate(
+			template_file,
+			template_data
+		);
 		return rendered_html;
 	}
 
@@ -419,133 +421,120 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 	}
 
 	async _asyncCDMoveDialog({ move = 0 } = {}) {
-		return await new Promise(async (resolve) => {
-			new Dialog(
-				{
-					title: this.dialogTitle(move),
-					content: await this.dialogContent(move),
-					buttons: {
-						button1: {
-							icon: '<i class="fa-solid fa-dice"></i>',
-							label: game.i18n.localize("CTHULHUDARK.Roll"),
-							callback: async (html) => {
-								// get and roll selected dice
-								const dice = [];
-								// Using native DOM methods to check if checkboxes are checked
-								const humanDieEl = document.getElementById("humanDie");
-								const occupationalDieEl = document.getElementById("occupationalDie");
-								const insightDieEl = document.getElementById("insightDie");
-
-								if (humanDieEl?.checked) {
-									let hdRoll = await new Roll("1d6").evaluate({ async: true });
-									dice.push({
-										dieColor: CONFIG.CTHULHUDARK.BaseColor,
-										isRisk: false,
-										rollVal: hdRoll.result,
-										roll: hdRoll,
-									});
-								}
-
-								if (occupationalDieEl?.checked) {
-									let odRoll = await new Roll("1d6").evaluate({ async: true });
-									dice.push({
-										dieColor: CONFIG.CTHULHUDARK.BaseColor,
-										isRisk: false,
-										rollVal: odRoll.result,
-										roll: odRoll,
-									});
-								}
-
-								if (insightDieEl?.checked) {
-									let idRoll = await new Roll("1d6").evaluate({ async: true });
-									dice.push({
-										dieColor: CONFIG.CTHULHUDARK.RiskColor,
-										isRisk: true,
-										rollVal: idRoll.result,
-										roll: idRoll,
-									});
-								}
-
-								const maxDie = dice.reduce((a, b) => (a.rollVal > b.rollVal ? a : b));
-
-								// Determine if the risk die won
-								let isRiskDie = false;
-								dice.every((die) => {
-									if (die.rollVal == maxDie.rollVal && die.isRisk) {
-										isRiskDie = true;
-										return false;
-									}
-									return true;
-								});
-
-								let riskMessage = "";
-								if (isRiskDie) {
-									riskMessage = this.getRiskMoveMessage();
-								}
-
-								// Build Dice list
-								let diceOutput = "";
-								dice.forEach((die) => {
-									diceOutput = diceOutput.concat(
-										this.getDiceForOutput(die.rollVal, die.dieColor),
-										" "
-									);
-								});
-
-								// Initialize chat data.
-								const chatContentMessage = this.chatContent(
-									move,
-									diceOutput,
-									maxDie.rollVal,
-									riskMessage
-								);
-								const user = game.user.id;
-								const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-								const messageMode = game.settings.get("core", "messageMode");
-
-								ChatMessage.create({
-									author: user,
-									rolls: dice.map((die) => {
-										// If "Dice So Nice!" is installed, this configuration will trigger a visual
-										// dice roll with appropriate standard and insight colored dice
-										if (game.dice3d) {
-											if (die.isRisk) {
-												die.roll.dice[0].options.appearance = {
-													colorset: "custom",
-													foreground: "black",
-													background: CONFIG.CTHULHUDARK.RiskColor,
-												};
-											} else {
-												die.roll.dice[0].options.appearance = {
-													colorset: "custom",
-													foreground: "black",
-													background: CONFIG.CTHULHUDARK.BaseColor,
-												};
-											}
-										}
-
-										return die.roll;
-									}),
-									speaker: speaker,
-									content: chatContentMessage,
-									flags: { cthulhudark: { chatID: "cthulhudark" } },
-								}, { messageMode });
-
-								// ----
-								resolve(null);
-							},
-						},
-					},
-					close: () => {
-						resolve(null);
-					},
-				},
-				{
-					// THIS ADDS A CLASS TO THE WINDOW
-					classes: ["cd-roll-dialog"],
-				}
-			).render(true);
+		const selection = await api.DialogV2.input({
+			window: { title: this.dialogTitle(move) },
+			// THIS ADDS A CLASS TO THE WINDOW
+			classes: ["cd-roll-dialog"],
+			content: await this.dialogContent(move),
+			ok: {
+				icon: "fa-solid fa-dice",
+				label: "CTHULHUDARK.Roll",
+			},
 		});
+
+		// Dialog was closed without rolling
+		if (!selection) return;
+
+		// get and roll selected dice
+		const dice = [];
+
+		if (selection.humanDie) {
+			let hdRoll = await new Roll("1d6").evaluate();
+			dice.push({
+				dieColor: CONFIG.CTHULHUDARK.BaseColor,
+				isRisk: false,
+				rollVal: hdRoll.result,
+				roll: hdRoll,
+			});
+		}
+
+		if (selection.occupationalDie) {
+			let odRoll = await new Roll("1d6").evaluate();
+			dice.push({
+				dieColor: CONFIG.CTHULHUDARK.BaseColor,
+				isRisk: false,
+				rollVal: odRoll.result,
+				roll: odRoll,
+			});
+		}
+
+		if (selection.insightDie) {
+			let idRoll = await new Roll("1d6").evaluate();
+			dice.push({
+				dieColor: CONFIG.CTHULHUDARK.RiskColor,
+				isRisk: true,
+				rollVal: idRoll.result,
+				roll: idRoll,
+			});
+		}
+
+		// No dice selected, nothing to roll
+		if (!dice.length) return;
+
+		const maxDie = dice.reduce((a, b) => (a.rollVal > b.rollVal ? a : b));
+
+		// Determine if the risk die won
+		let isRiskDie = false;
+		dice.every((die) => {
+			if (die.rollVal == maxDie.rollVal && die.isRisk) {
+				isRiskDie = true;
+				return false;
+			}
+			return true;
+		});
+
+		let riskMessage = "";
+		if (isRiskDie) {
+			riskMessage = this.getRiskMoveMessage();
+		}
+
+		// Build Dice list
+		let diceOutput = "";
+		dice.forEach((die) => {
+			diceOutput = diceOutput.concat(
+				this.getDiceForOutput(die.rollVal, die.dieColor),
+				" "
+			);
+		});
+
+		// Initialize chat data.
+		const chatContentMessage = this.chatContent(
+			move,
+			diceOutput,
+			maxDie.rollVal,
+			riskMessage
+		);
+		const user = game.user.id;
+		const speaker = ChatMessage.getSpeaker({ actor: this.actor });
+		const messageMode = game.settings.get("core", "messageMode");
+
+		ChatMessage.create({
+			author: user,
+			rolls: dice.map((die) => {
+				// If "Dice So Nice!" is installed, this configuration will trigger a visual
+				// dice roll with appropriate standard and insight colored dice
+				if (game.dice3d) {
+					if (die.isRisk) {
+						die.roll.dice[0].options.appearance = {
+							colorset: "custom",
+							foreground: "black",
+							background: CONFIG.CTHULHUDARK.RiskColor,
+						};
+					} else {
+						die.roll.dice[0].options.appearance = {
+							colorset: "custom",
+							foreground: "black",
+							background: CONFIG.CTHULHUDARK.BaseColor,
+						};
+					}
+				}
+
+				return die.roll;
+			}),
+			speaker: speaker,
+			content: chatContentMessage,
+			flags: { cthulhudark: { chatID: "cthulhudark" } },
+		}, { messageMode });
 	}
 
 	// -------
@@ -606,7 +595,7 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 	}
 
 	async _insightRoll() {
-		let insightRoll = await new Roll("1d6").evaluate({ async: true });
+		let insightRoll = await new Roll("1d6").evaluate();
 		let currentInsightVal = this.actor.system.insight.value;
 
 		let newInsightVal = currentInsightVal;
@@ -658,7 +647,7 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 	}
 
 	async _failureRoll() {
-		let failureRoll = await new Roll("1d6").evaluate({ async: true });
+		let failureRoll = await new Roll("1d6").evaluate();
 
 		const chatContentMessage = this.failureChatContent(
 			this.getDiceForOutput(failureRoll.result, CONFIG.CTHULHUDARK.BaseColor)
