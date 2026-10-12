@@ -501,11 +501,10 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 								);
 								const user = game.user.id;
 								const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-								const rollMode = game.settings.get("core", "rollMode");
+								const messageMode = game.settings.get("core", "messageMode");
 
 								ChatMessage.create({
-									user: user,
-									type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+									author: user,
 									rolls: dice.map((die) => {
 										// If "Dice So Nice!" is installed, this configuration will trigger a visual
 										// dice roll with appropriate standard and insight colored dice
@@ -528,10 +527,9 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 										return die.roll;
 									}),
 									speaker: speaker,
-									rollMode: rollMode,
 									content: chatContentMessage,
 									flags: { cthulhudark: { chatID: "cthulhudark" } },
-								});
+								}, { messageMode });
 
 								// ----
 								resolve(null);
@@ -609,7 +607,7 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 
 	async _insightRoll() {
 		let insightRoll = await new Roll("1d6").evaluate({ async: true });
-		let currentInsightVal = duplicate(this.actor.system.insight.value);
+		let currentInsightVal = this.actor.system.insight.value;
 
 		let newInsightVal = currentInsightVal;
 		if (insightRoll.result > currentInsightVal && currentInsightVal < 6) {
@@ -624,7 +622,7 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 		);
 		const user = game.user.id;
 		const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-		const rollMode = game.settings.get("core", "rollMode");
+		const messageMode = game.settings.get("core", "messageMode");
 
 		// If "Dice So Nice!" is installed, this data will cause it to roll a
 		// visual die with the insight theme colors
@@ -635,14 +633,12 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 		};
 
 		ChatMessage.create({
-			user: user,
+			author: user,
 			speaker: speaker,
-			type: CONST.CHAT_MESSAGE_TYPES.ROLL,
 			rolls: [insightRoll],
-			rollMode: rollMode,
 			content: chatContentMessage,
 			flags: { cthulhudark: { chatID: "cthulhudark" } },
-		});
+		}, { messageMode });
 	}
 
 	// -------
@@ -669,7 +665,7 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 		);
 		const user = game.user.id;
 		const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-		const rollMode = game.settings.get("core", "rollMode");
+		const messageMode = game.settings.get("core", "messageMode");
 
 		// If "Dice So Nice!" is installed, this data will cause it to roll a
 		// visual die with the insight theme colors
@@ -680,13 +676,11 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 		};
 
 		ChatMessage.create({
-			user: user,
+			author: user,
 			speaker: speaker,
-			type: CONST.CHAT_MESSAGE_TYPES.ROLL,
 			rolls: [failureRoll],
-			rollMode: rollMode,
 			content: chatContentMessage,
 			flags: { cthulhudark: { chatID: "cthulhudark" } },
-		});
+		}, { messageMode });
 	}
 }
