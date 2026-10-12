@@ -275,7 +275,7 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 	}
 
 	_increaseInsightByOne(newInsightVal) {
-		if (newInsightVal < 6) {
+		if (newInsightVal <= 6) {
 			this.actor.update({ "system.insight.value": newInsightVal });
 		}
 	}
@@ -511,22 +511,12 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 		ChatMessage.create({
 			author: user,
 			rolls: dice.map((die) => {
-				// If "Dice So Nice!" is installed, this configuration will trigger a visual
-				// dice roll with appropriate standard and insight colored dice
-				if (game.dice3d) {
-					if (die.isRisk) {
-						die.roll.dice[0].options.appearance = {
-							colorset: "custom",
-							foreground: "black",
-							background: CONFIG.CTHULHUDARK.RiskColor,
-						};
-					} else {
-						die.roll.dice[0].options.appearance = {
-							colorset: "custom",
-							foreground: "black",
-							background: CONFIG.CTHULHUDARK.BaseColor,
-						};
-					}
+				// If "Dice So Nice!" is installed, color the risk die so it stands out.
+				// Other dice keep the player's own Dice So Nice appearance.
+				if (die.isRisk) {
+					die.roll.dice[0].options.appearance = {
+						...CONFIG.CTHULHUDARK.RiskDieAppearance,
+					};
 				}
 
 				return die.roll;
@@ -616,9 +606,7 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 		// If "Dice So Nice!" is installed, this data will cause it to roll a
 		// visual die with the insight theme colors
 		insightRoll.dice[0].options.appearance = {
-			colorset: "custom",
-			foreground: "black",
-			background: CONFIG.CTHULHUDARK.RiskColor,
+			...CONFIG.CTHULHUDARK.RiskDieAppearance,
 		};
 
 		ChatMessage.create({
@@ -655,14 +643,6 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 		const user = game.user.id;
 		const speaker = ChatMessage.getSpeaker({ actor: this.actor });
 		const messageMode = game.settings.get("core", "messageMode");
-
-		// If "Dice So Nice!" is installed, this data will cause it to roll a
-		// visual die with the insight theme colors
-		failureRoll.dice[0].options.appearance = {
-			colorset: "custom",
-			foreground: "black",
-			background: CONFIG.CTHULHUDARK.BaseColor,
-		};
 
 		ChatMessage.create({
 			author: user,

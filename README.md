@@ -5,8 +5,7 @@
 An unofficial, community-supported system for playing the Cthulhu Dark TTRPG (Created by Graham Walmsley) on Foundry VTT.
 
 <p align="center">
-    <img alt="Foundry Version 12 support" src="https://img.shields.io/badge/Foundry-v12-informational">
-    <img alt="Foundry Version 13 support" src="https://img.shields.io/badge/Foundry-v13-informational">
+    <img alt="Foundry Version 14 support" src="https://img.shields.io/badge/Foundry-v14-informational">
     <img alt="Latest Release Download Count" src="https://img.shields.io/github/downloads/philote/cthulhudark/latest/total"> 
     <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/philote/cthulhudark"> 
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/philote/cthulhudark">
@@ -47,8 +46,9 @@ Image of the Character Sheet and roll messages in Foundry's chat:
 ![Screenshot of pc, npc sheets, and rolls in the chat in light mode](./assets/CD_screenshot-lt.webp)
 
 > [!WARNING]
-> ### Cthulhu Dark V2.0+
-> **ONLY** works with Foundry v12+\
+> ### Cthulhu Dark V3.0+
+> **ONLY** works with Foundry v14+\
+> If you use Foundry v12 or v13 then use Cthulhu Dark [v2.0.1](https://github.com/philote/cthulhudark/releases/tag/2.0.1)\
 > If you use Foundry v10 or v11 then use Cthulhu Dark [v1.2.1](https://github.com/philote/cthulhudark/releases/tag/1.2.1)
 
 ## Features
@@ -75,7 +75,7 @@ Image of the Character Sheet and roll messages in Foundry's chat:
 
 ## How to Install
 
-You can install the latest released version of the system by using this manifest link in Foundry VTT. [Instructions](https://foundryvtt.com/article/tutorial/): https://github.com/philote/FoundryVTT-CthulhuDark/releases/latest/download/system.json
+You can install the latest released version of the system by using this manifest link in Foundry VTT. [Instructions](https://foundryvtt.com/article/tutorial/): https://github.com/philote/cthulhudark/releases/latest/download/system.json
 
 ## Attribution
 

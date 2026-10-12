@@ -4,8 +4,6 @@ This module is under the MIT license and is accepting merge requests and issue r
 
 # How to use the system locally
 
-With the change to LevelDB, there is an extra step to create the packs locally.
-
 - Clone the repository as usual
 - You need to have a node.js installation done
 - run `npm install`: will generate the node_modules depending on package.json and package-lock.json
