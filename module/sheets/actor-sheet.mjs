@@ -18,7 +18,6 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 			resizable: true,
 		},
 		actions: {
-			onEditImage: this._onEditImage,
 			roll: this._onRoll,
 			onInsightUpdate: this._onInsightUpdate,
 		},
@@ -44,6 +43,15 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 		},
 		rules: {
 			template: "systems/cthulhudark/templates/actor/rules.hbs",
+		},
+	};
+
+	/** @override */
+	static TABS = {
+		primary: {
+			tabs: [{ id: "notes" }, { id: "rules" }],
+			labelPrefix: "CTHULHUDARK.Tabs",
+			initial: "notes",
 		},
 	};
 
@@ -87,7 +95,7 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 			flags: this.actor.flags,
 			// Adding a pointer to CONFIG.BOILERPLATE
 			config: CONFIG.CTHULHUDARK,
-			tabs: this._getTabs(options.parts),
+			tabs: this._prepareTabs("primary"),
 			// Necessary for formInput and formFields helpers
 			fields: this.document.schema.fields,
 			systemFields: this.document.system.schema.fields,
@@ -120,47 +128,6 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 				break;
 		}
 		return context;
-	}
-
-	/**
-	 * Generates the data for the generic tab navigation template
-	 * @param {string[]} parts An array of named template parts to render
-	 * @returns {Record<string, Partial<ApplicationTab>>}
-	 * @protected
-	 */
-	_getTabs(parts) {
-		// If you have sub-tabs this is necessary to change
-		const tabGroup = "primary";
-		// Default tab for first time it's rendered this session
-		if (!this.tabGroups[tabGroup]) this.tabGroups[tabGroup] = "notes";
-		return parts.reduce((tabs, partId) => {
-			const tab = {
-				cssClass: "",
-				group: tabGroup,
-				// Matches tab property to
-				id: "",
-				// FontAwesome Icon, if you so choose
-				icon: "",
-				// Run through localization
-				label: "CTHULHUDARK.Tabs.",
-			};
-			switch (partId) {
-				case "character":
-				case "tabs":
-					return tabs;
-				case "notes":
-					tab.id = "notes";
-					tab.label += "notes";
-					break;
-				case "rules":
-					tab.id = "rules";
-					tab.label += "rules";
-					break;
-			}
-			if (this.tabGroups[tabGroup] === tab.id) tab.cssClass = "active";
-			tabs[partId] = tab;
-			return tabs;
-		}, {});
 	}
 
 	/**
@@ -242,34 +209,6 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 		}
 	}
 
-	/**
-	 * Handle changing a Document's image.
-	 *
-	 * @this BoilerplateActorSheet
-	 * @param {PointerEvent} event   The originating click event
-	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
-	 * @returns {Promise}
-	 * @protected
-	 */
-	static async _onEditImage(event, target) {
-		const attr = target.dataset.edit;
-		const current = foundry.utils.getProperty(this.document, attr);
-		const { img } =
-			this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ??
-			{};
-		const fp = new foundry.applications.apps.FilePicker.implementation({
-			current,
-			type: "image",
-			redirectToRoot: img ? [img] : [],
-			callback: (path) => {
-				this.document.update({ [attr]: path });
-			},
-			top: this.position.top + 40,
-			left: this.position.left + 10,
-		});
-		return fp.browse();
-	}
-
 	_onClearInsight() {
 		this.actor.update({ ["system.insight.value"]: 0 });
 	}
@@ -299,16 +238,9 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 	}
 
 	getRiskMoveMessage() {
-		return `
-        <hr>
-        <div style="font-size: 18px">
-          	<b>
-		  		${game.i18n.format("CTHULHUDARK.RiskMoveMessage", {
-							insightroll: this.getWordInsightRollWithFormatting(),
-						})}
-			</b>
-        <div>
-    `;
+		return game.i18n.format("CTHULHUDARK.RiskMoveMessage", {
+			insightroll: this.getWordInsightRollWithFormatting(),
+		});
 	}
 
 	dialogTitle(moveNumber) {
@@ -391,33 +323,30 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 		}
 	}
 
-	chatContent(moveNumber, diceOutput, maxDieNumber, riskMessage) {
-		const moveName = this.dialogTitle(moveNumber);
-		return `
-			<p><span class="font-large"><b>${moveName}</b>: </span>${diceOutput}</p>
-			<hr>
-			<p>${this.getMaxDieMessage(moveNumber, maxDieNumber)}</p>
-			${riskMessage}
-		`;
+	/**
+	 * Build the template data for a rolled die.
+	 * @param {string} dieNumber   The rolled value, "1" through "6"
+	 * @param {string} colorClass  CSS class used to color the die icon
+	 * @returns {{icon: string, colorClass: string}}
+	 */
+	getDieForOutput(dieNumber, colorClass) {
+		const icons = ["one", "two", "three", "four", "five", "six"];
+		const name = icons[Number(dieNumber) - 1];
+		if (!name) console.error("Error in the getDieForOutput, bad die number used.");
+		return { icon: `fa-dice-${name}`, colorClass };
 	}
 
-	getDiceForOutput(dieNumber, colorHex) {
-		switch (dieNumber) {
-			case "1":
-				return `<i class="fas fa-dice-one ${colorHex} font-x-large"></i>`;
-			case "2":
-				return `<i class="fas fa-dice-two ${colorHex} font-x-large"></i>`;
-			case "3":
-				return `<i class="fas fa-dice-three ${colorHex} font-x-large"></i>`;
-			case "4":
-				return `<i class="fas fa-dice-four ${colorHex} font-x-large"></i>`;
-			case "5":
-				return `<i class="fas fa-dice-five ${colorHex} font-x-large"></i>`;
-			case "6":
-				return `<i class="fas fa-dice-six ${colorHex} font-x-large"></i>`;
-			default:
-				console.error("Error in the getDiceForOutput, bad die number used.");
-		}
+	/**
+	 * Render one of the system's chat card templates.
+	 * @param {string} name  Template file name in templates/chat, without extension
+	 * @param {object} data  Template data
+	 * @returns {Promise<string>}
+	 */
+	async renderChatCard(name, data) {
+		return foundry.applications.handlebars.renderTemplate(
+			`systems/cthulhudark/templates/chat/${name}.hbs`,
+			data
+		);
 	}
 
 	async _asyncCDMoveDialog({ move = 0 } = {}) {
@@ -474,36 +403,17 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 		const maxDie = dice.reduce((a, b) => (a.rollVal > b.rollVal ? a : b));
 
 		// Determine if the risk die won
-		let isRiskDie = false;
-		dice.every((die) => {
-			if (die.rollVal == maxDie.rollVal && die.isRisk) {
-				isRiskDie = true;
-				return false;
-			}
-			return true;
-		});
-
-		let riskMessage = "";
-		if (isRiskDie) {
-			riskMessage = this.getRiskMoveMessage();
-		}
-
-		// Build Dice list
-		let diceOutput = "";
-		dice.forEach((die) => {
-			diceOutput = diceOutput.concat(
-				this.getDiceForOutput(die.rollVal, die.dieColor),
-				" "
-			);
-		});
+		const isRiskDie = dice.some(
+			(die) => die.isRisk && die.rollVal == maxDie.rollVal
+		);
 
 		// Initialize chat data.
-		const chatContentMessage = this.chatContent(
-			move,
-			diceOutput,
-			maxDie.rollVal,
-			riskMessage
-		);
+		const chatContentMessage = await this.renderChatCard("move-roll", {
+			moveName: this.dialogTitle(move),
+			dice: dice.map((die) => this.getDieForOutput(die.rollVal, die.dieColor)),
+			outcome: this.getMaxDieMessage(move, maxDie.rollVal),
+			riskMessage: isRiskDie ? this.getRiskMoveMessage() : "",
+		});
 		const user = game.user.id;
 		const speaker = ChatMessage.getSpeaker({ actor: this.actor });
 		const messageMode = game.settings.get("core", "messageMode");
@@ -531,56 +441,41 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 	// Insight
 	// -------
 
-	insightChatContent(diceOutput, previousInsight, newInsight) {
-		let insightMessage = `
-			<p>
-				<span class="font-large">${this.getWordInsightRollWithFormatting()}: </span>${diceOutput}
-			</p>
-			<hr>
-		`;
-
+	insightMessage(previousInsight, newInsight) {
 		if (newInsight > previousInsight) {
 			switch (newInsight) {
 				case 1:
 				case 2:
 				case 3:
 				case 4:
-					return insightMessage.concat(
-						game.i18n.format("CTHULHUDARK.InsightChatContent4", {
-							insight: this.getWordInsightWithFormatting(),
-							previousinsight: previousInsight,
-							newnsight: newInsight,
-						})
-					);
+					return game.i18n.format("CTHULHUDARK.InsightChatContent4", {
+						insight: this.getWordInsightWithFormatting(),
+						previousinsight: previousInsight,
+						newnsight: newInsight,
+					});
 				case 5:
-					return insightMessage.concat(
-						game.i18n.format("CTHULHUDARK.InsightChatContent5", {
-							insight: this.getWordInsightWithFormatting(),
-							previousinsight: previousInsight,
-							newnsight: newInsight,
-							insighttwo: this.getWordInsightWithFormatting(),
-						})
-					);
+					return game.i18n.format("CTHULHUDARK.InsightChatContent5", {
+						insight: this.getWordInsightWithFormatting(),
+						previousinsight: previousInsight,
+						newnsight: newInsight,
+						insighttwo: this.getWordInsightWithFormatting(),
+					});
 				case 6:
-					return insightMessage.concat(
-						game.i18n.format("CTHULHUDARK.InsightChatContent6", {
-							insight: this.getWordInsightWithFormatting(),
-							previousinsight: previousInsight,
-							newnsight: newInsight,
-						})
-					);
+					return game.i18n.format("CTHULHUDARK.InsightChatContent6", {
+						insight: this.getWordInsightWithFormatting(),
+						previousinsight: previousInsight,
+						newnsight: newInsight,
+					});
 				default: {
-					console.error("Error in the insightChatContent, bad dice numbers used.");
-					return insightMessage;
+					console.error("Error in the insightMessage, bad dice numbers used.");
+					return "";
 				}
 			}
 		} else {
-			return insightMessage.concat(
-				game.i18n.format("CTHULHUDARK.InsightChatContent", {
-					insight: this.getWordInsightWithFormatting(),
-					previousinsight: previousInsight,
-				})
-			);
+			return game.i18n.format("CTHULHUDARK.InsightChatContent", {
+				insight: this.getWordInsightWithFormatting(),
+				previousinsight: previousInsight,
+			});
 		}
 	}
 
@@ -594,11 +489,11 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 			this._increaseInsightByOne(newInsightVal);
 		}
 
-		const chatContentMessage = this.insightChatContent(
-			this.getDiceForOutput(insightRoll.result, CONFIG.CTHULHUDARK.RiskColor),
-			currentInsightVal,
-			newInsightVal
-		);
+		const chatContentMessage = await this.renderChatCard("insight-roll", {
+			title: this.getWordInsightRollWithFormatting(),
+			dice: [this.getDieForOutput(insightRoll.result, CONFIG.CTHULHUDARK.RiskColor)],
+			message: this.insightMessage(currentInsightVal, newInsightVal),
+		});
 		const user = game.user.id;
 		const speaker = ChatMessage.getSpeaker({ actor: this.actor });
 		const messageMode = game.settings.get("core", "messageMode");
@@ -622,24 +517,14 @@ export class CthulhuDarkActorSheet extends api.HandlebarsApplicationMixin(
 	// Failure
 	// -------
 
-	failureChatContent(diceOutput) {
-		return `
-        <p>
-			<span class="font-large">
-				${game.i18n.localize("CTHULHUDARK.FailureRoll")} 
-			</span> ${diceOutput}
-		</p>
-        <hr>
-        ${game.i18n.localize("CTHULHUDARK.FailureRollContent")}
-    `;
-	}
-
 	async _failureRoll() {
 		let failureRoll = await new Roll("1d6").evaluate();
 
-		const chatContentMessage = this.failureChatContent(
-			this.getDiceForOutput(failureRoll.result, CONFIG.CTHULHUDARK.BaseColor)
-		);
+		const chatContentMessage = await this.renderChatCard("failure-roll", {
+			title: game.i18n.localize("CTHULHUDARK.FailureRoll"),
+			dice: [this.getDieForOutput(failureRoll.result, CONFIG.CTHULHUDARK.BaseColor)],
+			message: game.i18n.localize("CTHULHUDARK.FailureRollContent"),
+		});
 		const user = game.user.id;
 		const speaker = ChatMessage.getSpeaker({ actor: this.actor });
 		const messageMode = game.settings.get("core", "messageMode");

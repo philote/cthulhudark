@@ -69,6 +69,20 @@
 		"InsightChatContent5": "Sua {insight} anterior era <b>{previousinsight}</b>. Você rolou mais alto, então sua Insanidade agora é <b>{newnsight}</b>. Interprete seu medo. <hr><b><i>Nota:</i></b> Agora você pode reduzir sua {insighttwo} ao suprimir o conhecimento dos Mitos. ",
 		"InsightChatContent6": "Sua {insight} anterior era <b>{previousinsight}</b>. Você rolou mais alto, então sua Insanidade agora é <b>{newnsight}</b>. <hr><b><i>Você fica incuravelmente insano.</i></b> Esse é um momento especial: todos devem se focar nos últimos momentos de seu personagem, enquanto sua mente se estilhaça. Interprete-o como quiser: lute, grite, corra ou entre em colapso.",
 
-		"InsightChatContent": "Sua {insight} atual é <b>{previousinsight}</b>. Você se mantém firme, mas por pouco..."
+		"InsightChatContent": "Sua {insight} atual é <b>{previousinsight}</b>. Você se mantém firme, mas por pouco...",
+		"Settings": {
+			"game": {
+				"heading": "Cthulhu Dark",
+				"publisher": {
+					"title": "Graham Walmsley"
+				},
+				"github": {
+					"title": "Repositório do módulo"
+				},
+				"kofi": {
+					"title": "Me apoie no Ko-fi"
+				}
+			}
+		}
 	}
 }

@@ -21,9 +21,6 @@ export class CthulhuDarkItemSheet extends api.HandlebarsApplicationMixin(
 		window: {
 			resizable: true,
 		},
-		actions: {
-			onEditImage: this._onEditImage,
-		},
 		form: {
 			submitOnChange: true,
 		},
@@ -96,39 +93,5 @@ export class CthulhuDarkItemSheet extends api.HandlebarsApplicationMixin(
 		// You may want to add other special handling here
 		// Foundry comes with a large number of utility classes, e.g. SearchFilter
 		// That you may want to implement yourself.
-	}
-
-	/**************
-	 *
-	 *   ACTIONS
-	 *
-	 **************/
-
-	/**
-	 * Handle changing a Document's image.
-	 *
-	 * @this CthulhuDarkItemSheet
-	 * @param {PointerEvent} event   The originating click event
-	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
-	 * @returns {Promise}
-	 * @protected
-	 */
-	static async _onEditImage(event, target) {
-		const attr = target.dataset.edit;
-		const current = foundry.utils.getProperty(this.document, attr);
-		const { img } =
-			this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ??
-			{};
-		const fp = new foundry.applications.apps.FilePicker.implementation({
-			current,
-			type: "image",
-			redirectToRoot: img ? [img] : [],
-			callback: (path) => {
-				this.document.update({ [attr]: path });
-			},
-			top: this.position.top + 40,
-			left: this.position.left + 10,
-		});
-		return fp.browse();
 	}
 }

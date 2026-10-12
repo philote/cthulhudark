@@ -69,6 +69,20 @@
 		"InsightChatContent5": "Votre {insight} précédente était <b>{previousinsight}</b>. Vous avez obtenu au-dessus, donc votre démence est maintenant <b>{newnsight}</b>. Jouez votre peur !<hr><b><i>Note:</i></b> Vous pouvez maintenant réduire votre {insighttwo} en détruisant des connaissances liées au Mythe.",
 		"InsightChatContent6": "Votre {insight} précédente était <b>{previousinsight}</b>. Vous avez obtenu au-dessus, donc votre démence est maintenant <b>{newnsight}</b>. <hr><b><i>Vous devenez dément incurable.</i></b> Il s'agit d'un moment particulier : tout le monde se concentre sur les derniers instants de votre personnage, dont l'esprit s'effondre. Vous pouvez partir comme vous le souhaitez : en vous battant, en criant, en courant ou en vous effondrant.",
 
-		"InsightChatContent": "Votre {insight} actuelle est <b>{previousinsight}</b>. Vous tenez le coup, à peine..."
+		"InsightChatContent": "Votre {insight} actuelle est <b>{previousinsight}</b>. Vous tenez le coup, à peine...",
+		"Settings": {
+			"game": {
+				"heading": "Cthulhu Dark",
+				"publisher": {
+					"title": "Graham Walmsley"
+				},
+				"github": {
+					"title": "Dépôt du module"
+				},
+				"kofi": {
+					"title": "Soutenez-moi sur Ko-fi"
+				}
+			}
+		}
 	}
 }

@@ -1,0 +1,12 @@
+<p>
+	<span class="font-large"><b>{{moveName}}</b>: </span>
+	{{#each dice}}<i class="fas {{icon}} {{colorClass}} font-x-large"></i> {{/each}}
+</p>
+<hr>
+<p>{{{outcome}}}</p>
+{{#if riskMessage}}
+<hr>
+<div style="font-size: 18px">
+	<b>{{{riskMessage}}}</b>
+</div>
+{{/if}}
