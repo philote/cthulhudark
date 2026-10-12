@@ -116,49 +116,27 @@ Hooks.on("renderSettings", (app, html) => {
 		}
 	);
 
-	// --- Version Specific Logic (Reusable) ---
-	if (game.release.generation >= 13) {
-		// V13+ Logic: Insert after the "Documentation" section
-		const documentationSection = html.querySelector("section.documentation");
-		if (documentationSection) {
-			// Create section wrapper
-			const section = document.createElement("section");
-			section.classList.add(MODULE_CONFIG.sectionClass, "flexcol");
+	// --- Insert before the "Documentation" section
+	const documentationSection = html.querySelector("section.documentation");
+	if (documentationSection) {
+		// Create section wrapper
+		const section = document.createElement("section");
+		section.classList.add(MODULE_CONFIG.sectionClass, "flexcol");
 
-			const divider = document.createElement("h4");
-			divider.classList.add("divider");
-			divider.textContent = game.i18n.localize(MODULE_CONFIG.headingKey);
+		const divider = document.createElement("h4");
+		divider.classList.add("divider");
+		divider.textContent = game.i18n.localize(MODULE_CONFIG.headingKey);
 
-			// Append divider and buttons to section
-			section.append(divider, ...buttons);
+		// Append divider and buttons to section
+		section.append(divider, ...buttons);
 
-			// Insert section before documentation
-			documentationSection.before(section);
-		} else {
-			console.warn(
-				`${game.i18n.localize(
-					MODULE_CONFIG.headingKey
-				)} | Could not find 'section.documentation' in V13 settings panel.`
-			);
-		}
+		// Insert section before documentation
+		documentationSection.before(section);
 	} else {
-		// V12 Logic: Insert after the "Game Settings" section
-		const gameSettingsSection = html[0].querySelector("#settings-game");
-		if (gameSettingsSection) {
-			const header = document.createElement("h2");
-			header.innerText = game.i18n.localize(MODULE_CONFIG.headingKey);
-
-			const settingsDiv = document.createElement("div");
-			settingsDiv.append(...buttons);
-
-			// Insert the header and the div containing buttons after the game settings section
-			gameSettingsSection.after(header, settingsDiv);
-		} else {
-			console.warn(
-				`${game.i18n.localize(
-					MODULE_CONFIG.headingKey
-				)} | Could not find '#settings-game' section in V12 settings panel.`
-			);
-		}
+		console.warn(
+			`${game.i18n.localize(
+				MODULE_CONFIG.headingKey
+			)} | Could not find 'section.documentation' in the settings panel.`
+		);
 	}
 });
